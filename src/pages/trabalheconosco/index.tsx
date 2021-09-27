@@ -3,15 +3,15 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-const home: React.FC = () => {
+const trabalheconosco: React.FC = () => {
   return (
     <>
-      <Header title="Home" />
+      <Header title="trabalheconosco" />
       <main>
-        <h1>Home</h1>
+        <h1>trabalheconosco</h1>
       </main>
     </>
   );
 }
 
-export default home;
+export default trabalheconosco;

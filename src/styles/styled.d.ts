@@ -1,5 +1,5 @@
 import 'styled-components';
-import { globalTheme } from './theme'
+import { globalTheme } from '@styles/theme'
 
 export type Theme = typeof globalTheme
 

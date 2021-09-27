@@ -3,15 +3,15 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-const home: React.FC = () => {
+const marcapropria: React.FC = () => {
   return (
     <>
-      <Header title="Home" />
+      <Header title="marcapropria" />
       <main>
-        <h1>Home</h1>
+        <h1>marcapropria</h1>
       </main>
     </>
   );
 }
 
-export default home;
+export default marcapropria;

@@ -3,15 +3,15 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-const home: React.FC = () => {
+const institucional: React.FC = () => {
   return (
     <>
-      <Header title="Home" />
+      <Header title="institucional" />
       <main>
-        <h1>Home</h1>
+        <h1>institucional</h1>
       </main>
     </>
   );
 }
 
-export default home;
+export default institucional;

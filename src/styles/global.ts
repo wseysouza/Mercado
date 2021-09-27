@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { colors } from './colors';
+import { colors } from '@styles/colors';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -11,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${colors.default};
-    color: ${colors.white};
+    background: ${colors.white};
+    color: ${colors.secondary};
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
   }
