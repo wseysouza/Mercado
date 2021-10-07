@@ -34,6 +34,12 @@
       "@utils/*": [
         "utils/*"
       ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
     }
   },
   "include": [

@@ -1,0 +1,54 @@
+import { colors } from '@styles/colors';
+import styled, { css } from 'styled-components';
+
+interface WrapperProps {
+  active?: boolean;
+}
+
+export const Wrapper = styled.a<WrapperProps>`
+  position: relative;
+  padding: 15px 20px;
+  color: ${colors.secondary};
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  :last-child {
+    min-width: 170px;
+  }
+
+
+  ${p => p.active && css`
+    > span {
+      position: absolute;
+      height: 3px;
+      background: ${colors.secondary};
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+  `}
+
+  ${p => !p.active && css`
+    > span {
+      position: absolute;
+      height: 1px;
+      background: ${colors.gray};
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      margin-bottom: 1px;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+  `}
+
+`;

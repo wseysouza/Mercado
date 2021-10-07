@@ -1,4 +1,4 @@
-import { Header } from '@components/Header';
+import { Header } from '@components/HeaderTab';
 import React from 'react';
 
 // import { Container } from './styles';

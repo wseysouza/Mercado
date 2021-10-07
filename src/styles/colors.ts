@@ -1,6 +1,4 @@
 export const colors = {
-  background: '#F1F1F1',
-  backgroundLabel: '#E5E5E5',
   primary: '#DC1022',
   secondary: '#212429',
   tertiary: '#868284',
