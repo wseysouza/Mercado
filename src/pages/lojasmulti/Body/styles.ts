@@ -11,9 +11,12 @@ export const Container = styled.div`
 
 export const Box = styled.div`
   margin: 20px;
+
   max-width: 100%;
   max-height: 100%;
+
   display: flex;
+
 
 
   border-radius: 5px;
