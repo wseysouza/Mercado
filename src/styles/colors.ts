@@ -15,4 +15,5 @@ export const colors = {
   green: '#086606',
   green_400: '#6ECC6C',
   error: '#E78B8B',
+  nardoGray: '#606064',
 };

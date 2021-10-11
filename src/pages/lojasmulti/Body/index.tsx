@@ -1,5 +1,8 @@
-import { Container, Box, Text, Image } from "./styles";
+import { Container, Box, Left, Right } from "./styles";
 import React from "react";
+import { InfosShopp } from './InfosShopp';
+import { Search } from './Search';
+
 
 export interface ShoppProps {
   id: string,
@@ -26,19 +29,17 @@ export const Body = ({ city }: BodyProps) => {
   return (
     <Container>
 
-    {city.shopps.map(item => (
-      <Box>
-        <Text>
-          <strong>{item.name}</strong>
-          <span>{item.address}</span>
-          <span>{item.hours}</span>
-          <span>{item.phone}</span>
-        </Text>
-        <Image>
-          {item.image}
-        </Image>
-
-      </Box>))}
+      {city.shopps.map(item => (
+        <Box>
+          <Left>
+            <strong>{item.name}</strong>
+            <InfosShopp address={item.address} hours={item.hours} phone={item.phone} />
+            <Search address='dfsdfsdfsdfsdf' />
+          </Left>
+          <Right>
+            {item.image}
+          </Right>
+        </Box>))}
 
     </Container>
 

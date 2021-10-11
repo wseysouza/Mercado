@@ -9,5 +9,4 @@ export const Wrapper = styled.div`
   width: 290px;
   height: 100%;
   margin-top: 10px;
-  border-right: 1px solid ${colors.silverChalice};
 `;
