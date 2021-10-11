@@ -7,7 +7,7 @@ export interface ShoppProps {
   address: string,
   hours: string,
   phone: string,
-  image: string
+  image?: string
 }
 
 export interface CityProps {
@@ -26,16 +26,20 @@ export const Body = ({ city }: BodyProps) => {
   return (
     <Container>
 
+    {city.shopps.map(item => (
       <Box>
         <Text>
-          <span>{city.shopps[0].name}</span>
-          <span>{city.shopps[0].address}</span>
-          <span>{city.shopps[0].hours}</span>
-          <span>{city.shopps[0].phone}</span>
+          <strong>{item.name}</strong>
+          <span>{item.address}</span>
+          <span>{item.hours}</span>
+          <span>{item.phone}</span>
         </Text>
-        <Image url={city.shopps[0].image} />
+        <Image>
+          {item.image}
+        </Image>
 
-      </Box>
+      </Box>))}
+
     </Container>
 
   );

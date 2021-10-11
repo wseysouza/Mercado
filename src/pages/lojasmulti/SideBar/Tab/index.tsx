@@ -12,7 +12,6 @@ export const Tab = ({ name, onPress, active }: TabProps) => {
 
   return (
     <Wrapper active={active} onClick={onPress}>
-      {console.log(active)}
       <span>
         {name}
       </span>

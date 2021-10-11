@@ -6,17 +6,16 @@ export const Container = styled.div`
   background-color: red;
   width: 100%;
   max-height: 100%;
-
 `;
 
 export const Box = styled.div`
   margin: 20px;
 
-  max-width: 100%;
-  max-height: 100%;
+  width: 783px;
+  height: 370px;
 
   display: flex;
-
+  justify-content: space-between;
 
 
   border-radius: 5px;
@@ -29,10 +28,29 @@ export const Text = styled.div`
   flex-direction: column;
   margin: 16px;
   line-height: 30px;
+  width: 370px;
+  height: 370px;
 
+  strong{
+    font-weight: bold;
+  }
+
+  > span {
+    color: blue;
+  }
 
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
 
+  background: no-repeat center;
+  background-size: cover;
+  flex: 1;
+
+  > * {
+  width: 100%;
+  max-width: 380px;
+  max-height: 370px;
+  height: 100%;
+  }
 `;
