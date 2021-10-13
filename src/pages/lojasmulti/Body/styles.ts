@@ -26,9 +26,8 @@ export const Box = styled.div`
 
   box-shadow: 0px 3px 6px #00000029;
 
-  & + div {
-    margin-top: 30px;
-  }
+  margin-top: 30px;
+
 `;
 
 export const Left = styled.div`
