@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { Container, Box, Left, Right } from "./styles";
+import { Container, Box, Left, Right, Image } from "./styles";
 import { InfosShopp } from './InfosShopp';
 import { Search } from './Search';
 import { NearestStore } from '../../../components/NearestStore'
@@ -12,7 +12,7 @@ export interface ShoppProps {
   address: string,
   hours: string,
   phone: string,
-  image?: string
+  url: string
 }
 
 export interface CityProps {
@@ -50,7 +50,7 @@ export const Body = ({ city }: BodyProps) => {
             <Search /*address={item.address}*/ />
           </Left>
           <Right>
-            {item.image}
+            <Image src={item.url} alt={item.name} />
           </Right>
         </Box>
       ))

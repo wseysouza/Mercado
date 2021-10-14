@@ -52,13 +52,12 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-
   background: no-repeat center;
   background-size: cover;
   flex: 1;
+`;
 
-  > * {
-
+export const Image = styled.img`
   width: 100%;
   height: 100%;
 
@@ -66,5 +65,4 @@ export const Right = styled.div`
   max-height: 370px;
 
   border-radius: 0 5px 5px 0;
-  }
 `;
