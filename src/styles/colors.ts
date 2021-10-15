@@ -6,6 +6,7 @@ export const colors = {
   black: '#000000',
   gray: '#C4C4C4',
   silverChalice: '#AEAEAE',
+  athensGray: '#E5E8EB',
   tealBlue: '#FAFAFA',
   supernova: '#FECC00',
   // supernova_340: rgba(),

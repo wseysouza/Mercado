@@ -323,6 +323,13 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@types/bootstrap-select@^1.13.3":
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@types/bootstrap-select/-/bootstrap-select-1.13.3.tgz#5793d89a8938f6fabf7fde7432207451b72c9dca"
+  integrity sha512-nSwk41rT6OABaeVyZbu2r55v8zoCVuH3mpugyx4Mi97qyELaDylhNWHjyJhppxzGvBawWNxcVmzKE8+LYg8ZSg==
+  dependencies:
+    "@types/jquery" "*"
+
 "@types/hoist-non-react-statics@*":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
@@ -330,6 +337,13 @@
   dependencies:
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
+
+"@types/jquery@*":
+  version "3.5.7"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.5.7.tgz#07614671f79c6ad70633bb2d8977f01cea242e27"
+  integrity sha512-Why+9t1KuqWtIqYKtbk6wgWbE1PjyXJOyGkpmTUh0RX5p4HL7nnRuBkjAO9P2r9tGQP6bLWxl77jRLew3V5xXg==
+  dependencies:
+    "@types/sizzle" "*"
 
 "@types/json-schema@^7.0.7", "@types/json-schema@^7.0.8":
   version "7.0.9"
@@ -364,6 +378,11 @@
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
+
+"@types/sizzle@*":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.3.tgz#ff5e2f1902969d305225a047c8a0fd5c915cebef"
+  integrity sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==
 
 "@types/styled-components@^5.1.14":
   version "5.1.14"
@@ -684,6 +703,11 @@ boolbase@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+
+bootstrap-select@^1.13.18:
+  version "1.13.18"
+  resolved "https://registry.yarnpkg.com/bootstrap-select/-/bootstrap-select-1.13.18.tgz#4557119d58dc1159189977161c803962220e4dda"
+  integrity sha512-V1IzK4rxBq5FrJtkzSH6RmFLFBsjx50byFbfAf8jYyXROWs7ZpprGjdHeoyq2HSsHyjJhMMwjsQhRoYAfxCGow==
 
 brace-expansion@^1.1.7:
   version "1.1.11"

@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   color: ${colors.secondary};
   width: 100%;
   height: 58px;
-  margin-top: 25px;
+  margin: 20px 0 15px 0;
   display: flex;
   flex-direction: row;
   justify-content: center;

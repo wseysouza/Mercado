@@ -6,6 +6,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/bootstrap-select": "^1.13.3",
+    "bootstrap-select": "^1.13.18",
     "next": "latest",
     "next-images": "^1.8.1",
     "polished": "^4.1.3",

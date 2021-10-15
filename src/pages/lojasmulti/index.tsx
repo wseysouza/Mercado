@@ -7,16 +7,20 @@ import { Body } from './Body';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
-import Multi from '../../assets/MultiLugama.jpg';
 
 
 const lojasmulti: React.FC = () => {
   const [citys, setCitys] = useState([
-    { id: '0', name: 'Bento Gonçalves', active: true, shopps: [{ id: '0', name: 'Multi Lugana', address: 'Rua José Rossini, nº 370, Bairro Santa Helena, Bento Gonçalves - RS', hours: 'Segunda à Sexta : 8h às 20h, Sábado: 9h às 20h,    Domingo: 9h às 12h', phone: '(54) 99714-4666', image: <img src={Multi} alt="multi" /> }, { id: '1', name: 'Multi Maxi Compra', address: 'Rua Jose Rosinni n 340', hours: 'Segunda a sexta: 8h as 22h', phone: '(54) 99714-4666', image: <img src={Multi} /> }] },
-    { id: '1', name: 'Caxias do Sul', active: false, shopps: [{ id: '0', name: 'dfsdfsd', address: 'dsfsdfsdf', hours: 'sadasdasd', phone: '54 545454554' }] },
-    { id: '2', name: 'Canela', active: false, shopps: [{ id: '0', name: 'dfsdfsd', address: 'dsfsdfsdf', hours: 'sadasdasd', phone: '54 545454554' }] },
-    { id: '3', name: 'Farroupilha', active: false, shopps: [{ id: '0', name: 'dfsdfsd', address: 'dsfsdfsdf', hours: 'sadasdasd', phone: '54 545454554' }] },
-    { id: '4', name: 'Flores da Cunha', active: false, shopps: [{ id: '0', name: 'dfsdfsd', address: 'dsfsdfsdf', hours: 'sadasdasd', phone: '54 545454554' }] },
+    {
+      id: '0', name: 'Bento Gonçalves', active: true, shopps: [
+        { id: '0', name: 'Encontre a loja mais próxima' },
+        { id: '1', name: 'Multi Lugana', address: 'Rua José Rossini, nº 370, Bairro Santa Helena, Bento Gonçalves - RS', hours: 'Segunda à Sexta : 8h às 20h, Sábado: 9h às 20h, Domingo: 9h às 12h', phone: '(54) 99714-4666', url: 'images/multiLugama.jpg' },
+        { id: '2', name: 'Multi Maxi Compra', address: 'Rua Jose Rosinni n 340', hours: 'Segunda a sexta: 8h as 22h', phone: '(54) 99714-4666', url: 'images/multiLugama.jpg' }]
+    },
+    { id: '1', name: 'Caxias do Sul', active: false, shopps: [{ id: '1', name: 'dfsdfsd', address: 'dsfsdfsdf', hours: 'sadasdasd', phone: '54 545454554', url: 'images/multiLugama.jpg' }] },
+    { id: '2', name: 'Canela', active: false, shopps: [{ id: '1', name: 'dfsdfsd', address: 'dsfsdfsdf', hours: 'sadasdasd', phone: '54 545454554', url: 'images/multiLugama.jpg' }] },
+    { id: '3', name: 'Farroupilha', active: false, shopps: [{ id: '1', name: 'dfsdfsd', address: 'dsfsdfsdf', hours: 'sadasdasd', phone: '54 545454554', url: 'images/multiLugama.jpg' }] },
+    { id: '4', name: 'Flores da Cunha', active: false, shopps: [{ id: '1', name: 'dfsdfsd', address: 'dsfsdfsdf', hours: 'sadasdasd', phone: '54 545454554', url: 'images/multiLugama.jpg' }] },
 
   ])
 
