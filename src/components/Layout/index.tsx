@@ -10,8 +10,8 @@ export const Layout: React.FC = ({ children }) => {
       <NavBar />
       <main>
         {children}
-        <Footer />
       </main>
+      <Footer />
     </Wrapper>
   );
 };

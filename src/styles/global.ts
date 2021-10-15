@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
     color: ${colors.secondary};
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
-    margin: 0 150px;
   }
 
   body, input, button {

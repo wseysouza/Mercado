@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Label, LabelSelect, Wrapper } from './styles';
+import { Label, List, Wrapper } from './styles';
 
 
 interface ItemProps {
@@ -20,7 +20,7 @@ export const Dropdown = ({ label, items }: DropdownProps) => {
   return (
     <Wrapper>
       {label && <Label>{label}</Label>}
-      <LabelSelect
+      <List
         name="store"
         value={store}
         onChange={e => setStore(e.target.value)}
@@ -28,7 +28,7 @@ export const Dropdown = ({ label, items }: DropdownProps) => {
         {items && items.map((item) => (
           <option key={item.id} selected={item.selected}>{item.name}</option>
         ))}
-      </LabelSelect>
+      </List>
     </Wrapper>
   );
 };

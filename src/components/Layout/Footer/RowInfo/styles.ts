@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 2fr 20px 3fr 20px 2fr;
+  grid-template-columns: 2fr 51px 3fr 51px 2fr;
   grid-template-rows: auto;
 
   justify-content: center;
   align-items: center;
   height: 178px;
+  width: 1064px;
+  margin: 0 auto;
   padding: 10px 0;
   color: ${colors.white};
 `;

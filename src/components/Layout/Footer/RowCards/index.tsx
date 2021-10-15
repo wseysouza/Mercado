@@ -1,11 +1,20 @@
 import React from 'react';
 
-import { Wrapper } from './styles';
+import { Content, Wrapper } from './styles';
 
-export const RowCards: React.FC = () => {
+interface CardProps {
+  url: string
+}
+interface CardsProps {
+  cards: CardProps[]
+}
+
+export const RowCards = ({ cards }: CardsProps) => {
   return (
     <Wrapper>
-
+      <Content>
+        {cards && cards.map((card) => <img src={card.url} alt="image" />)}
+      </Content>
     </Wrapper>
   );
 };
