@@ -1,12 +1,11 @@
 import { colors } from '@styles/colors';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: fit-content;
   width: 100%;
   padding: 20px;
   border-left: 1px solid ${colors.silverChalice};
-
 `;
 
 
@@ -15,36 +14,27 @@ export const Header = styled.div`
 `
 
 export const Box = styled.div`
-
   width: 783px;
   height: 370px;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   border-radius: 5px;
-
   box-shadow: 0px 3px 6px #00000029;
-
   margin-top: 30px;
 
 `;
 
 export const Left = styled.div`
-
   width: 400px;
   height: 370px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 16px;
   line-height: 30px;
 
-
-
-  > strong{
+  > span{
     font-weight: bold;
     font-size: 24px;
     color: ${colors.primary};

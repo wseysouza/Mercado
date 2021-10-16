@@ -1,4 +1,4 @@
-import React, { ImgHTMLAttributes } from "react";
+import React from "react";
 
 import { Wrapper, Header, Box, Left, Right } from "./styles";
 import { InfosShopp } from './InfosShopp';
@@ -39,7 +39,7 @@ export const Body = ({ city }: BodyProps) => {
           return (
             <Box>
               <Left>
-                <strong>{item.name}</strong>
+                <span>{item.name}</span>
                 <InfosShopp
                   address={item.address}
                   hours={item.hours}

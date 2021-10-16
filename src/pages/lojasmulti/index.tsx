@@ -1,12 +1,10 @@
-import { HeaderTab } from '@components/HeaderTab';
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-import { Content } from './styles';
 import { SideBar } from './SideBar';
 import { Body } from './Body';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useCallback } from 'react';
+import { Content } from './styles';
+
+import { HeaderTab } from '@components/HeaderTab';
 import { Container } from '@styles/theme';
 
 
