@@ -7,7 +7,7 @@ export const NavBar: React.FC = () => {
   return (
     <Wrapper>
       <Tab href="/home" name="Home" active />
-      <Tab href="/institucional" name="institucional" />
+      <Tab href="/institucional" name="Institucional" />
       <Tab href="/lojasmulti" name="Lojas Multi" />
       <a href="/home">
         <img src="images/logo_big.png" alt="Italian Trulli" width="137px" />

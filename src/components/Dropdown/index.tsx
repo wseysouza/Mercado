@@ -11,15 +11,16 @@ interface ItemProps {
 
 interface DropdownProps {
   label?: string;
+  colorLabel?: string;
   items: ItemProps[];
 }
 
-export const Dropdown = ({ label, items }: DropdownProps) => {
+export const Dropdown = ({ label, colorLabel, items }: DropdownProps) => {
   const [store, setStore] = useState('')
 
   return (
     <Wrapper>
-      {label && <Label>{label}</Label>}
+      {label && <Label color={colorLabel}>{label}</Label>}
       <List
         name="store"
         value={store}

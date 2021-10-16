@@ -1,9 +1,9 @@
 import { colors } from '@styles/colors';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Header = styled.div`
   flex-direction: column;
-  margin-bottom: 289px;
+
 
   > h1{
     font-size: 24px;
@@ -23,39 +23,54 @@ export const ContactBox = styled.div`
   display: grid;
   grid-gap: 30px 10px;
   grid-template-columns: auto auto ;
+  width: 100%;
+  margin-bottom: 289px;
+
+`;
+
+const themeSVG = css`
+  color: ${colors.white};
+  padding: 10px;
+  width: 49px;
+  height: 49px;
+
+  border-radius: 5px;
+  margin-right: 16px;
+  background-color:${colors.supernova};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 
-  > div{
-      font-size: 18px;
-      text-align: left;
-      color: ${colors.nardoGray};
+export const LocalizationShopp = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: left;
 
-      display: flex;
-      align-items: center;
+  color: ${colors.gray};
+  width: 80%;
 
-      > span{
-        width: 49px;
-        height: 49px;
+  > svg{
+    ${themeSVG}
+  }
+`;
 
-        border-radius: 5px;
-        margin-right: 16px;
-        background-color:${colors.supernova};
+export const Phone = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: left;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
-        > svg{
-          color: ${colors.white};
-          width: 30px;
-          height: 30px;
-        }
-    } ;
-
-    > strong{
-      font-weight: bold;
-    } ;
+  > svg{
+    ${themeSVG}
   }
 
+  > span {
+    color: ${colors.nardoGray};
+    font-weight: bold;
+    font-size: 18px;
+  }
 `;
 

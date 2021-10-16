@@ -5,9 +5,13 @@ export const Wrapper = styled.div`
   width: 100%;
   `;
 
-export const Label = styled.div`
+interface LabelProps {
+  color?: string;
+}
+
+export const Label = styled.div<LabelProps>`
   font-size: 12px;
-  color: ${colors.white};
+  color: ${p => p.color ? p.color : colors.white};
   margin-bottom: 2px;
 `;
 
