@@ -1,10 +1,9 @@
-import React from "react";
+import React, { ImgHTMLAttributes } from "react";
 
 import { Wrapper, Box, Left, Right, Image } from "./styles";
 import { InfosShopp } from './InfosShopp';
 import { Search } from './Search';
 import { Dropdown } from '@components/Dropdown'
-
 
 export interface ShoppProps {
   id: string,
@@ -12,7 +11,7 @@ export interface ShoppProps {
   address?: string,
   hours?: string,
   phone?: string,
-  url?: string
+  url?: string,
 }
 
 export interface CityProps {
