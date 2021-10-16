@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${colors.secondary};
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
-    width: 1064px;
+    width: 1066px;
     display: flex;
     justify-content: center;
     align-items: center;

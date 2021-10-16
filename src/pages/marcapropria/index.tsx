@@ -17,7 +17,9 @@ const marcapropria: React.FC = () => {
 
   return (
     <Container>
+
       <HeaderTab title="marcapropria" />
+
       <h1>Produtos Marca Própria</h1>
 
       <ListBox>
@@ -25,7 +27,6 @@ const marcapropria: React.FC = () => {
           url, name, value
         }) => <ProductBox url={url} title={name} value={value} />)}
       </ListBox>
-
 
     </Container>
   );

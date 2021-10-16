@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ImgHTMLAttributes } from "react";
 
 import { Container, Box, Left, Right, Image } from "./styles";
 import { InfosShopp } from './InfosShopp';
@@ -12,7 +12,7 @@ export interface ShoppProps {
   address: string,
   hours: string,
   phone: string,
-  url: string
+  url: string,
 }
 
 export interface CityProps {
@@ -24,7 +24,6 @@ export interface CityProps {
 
 export interface BodyProps {
   city: CityProps;
-
 }
 
 export const Body = ({ city }: BodyProps) => {
