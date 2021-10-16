@@ -16,6 +16,7 @@ export const Header = styled.div`
     font-size: 14px;
     color: ${colors.nardoGray};
     margin-bottom: 40px;
+    text-align: justify;
   }
 `;
 

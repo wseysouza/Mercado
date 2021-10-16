@@ -1,6 +1,4 @@
-import { DropdownShopp } from '@components/Dropdown';
 import React from 'react';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { RowCards } from './RowCards';
 import { RowInfo } from './RowInfo';
 

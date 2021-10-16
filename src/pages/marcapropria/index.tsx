@@ -1,8 +1,9 @@
 import { HeaderTab } from '@components/HeaderTab';
 import React, { useState } from 'react';
 
-import { Container, ListBox } from './styles';
+import { Title, ListBox } from './styles';
 import { ProductBox } from '../../components/ProductBox'
+import { Container } from '@styles/theme';
 
 const marcapropria: React.FC = () => {
 
@@ -17,17 +18,13 @@ const marcapropria: React.FC = () => {
 
   return (
     <Container>
-
       <HeaderTab title="marcapropria" />
-
-      <h1>Produtos Marca Própria</h1>
-
+      <Title> Produtos Marca Própria </Title>
       <ListBox>
         {products.map(({
           url, name, value
         }) => <ProductBox url={url} title={name} value={value} />)}
       </ListBox>
-
     </Container>
   );
 }

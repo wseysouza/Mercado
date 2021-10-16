@@ -6,9 +6,13 @@ export const Wrapper = styled.div`
   width: 100%;
   padding: 20px;
   border-left: 1px solid ${colors.silverChalice};
-  background: chocolate;
+
 `;
 
+
+export const Header = styled.div`
+  width: 30%;
+`
 
 export const Box = styled.div`
 

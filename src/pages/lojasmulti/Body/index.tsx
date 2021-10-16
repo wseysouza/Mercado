@@ -1,6 +1,6 @@
 import React, { ImgHTMLAttributes } from "react";
 
-import { Wrapper, Box, Left, Right, Image } from "./styles";
+import { Wrapper, Header, Box, Left, Right } from "./styles";
 import { InfosShopp } from './InfosShopp';
 import { Search } from './Search';
 import { Dropdown } from '@components/Dropdown'
@@ -30,8 +30,9 @@ export const Body = ({ city }: BodyProps) => {
 
   return (
     <Wrapper>
-      <Dropdown
-        items={city.shopps} />
+      <Header>
+        <Dropdown items={city.shopps} />
+      </Header>
 
       {city.shopps.map((item) => {
         if (item.id > '0') {
