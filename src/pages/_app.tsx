@@ -1,14 +1,15 @@
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '@styles/global';
 import { globalTheme } from '@styles/theme';
+import { Layout } from '@components/Layout';
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
-      <GlobalStyle />
-      <ThemeProvider theme={globalTheme}>
+    <ThemeProvider theme={globalTheme}>
+      <Layout>
+        <GlobalStyle />
         <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+      </Layout>
+    </ThemeProvider>
   )
 }

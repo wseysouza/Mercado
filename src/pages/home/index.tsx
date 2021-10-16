@@ -1,15 +1,21 @@
-import { Header } from '@components/Header';
 import React from 'react';
+import { HeaderTab } from '@components/HeaderTab';
 
-import { Container } from './styles';
+import { Wrapper } from './styles';
+import { InfoShopp } from './InfoShopp';
+import { SlideShow } from './Slideshow';
+import { BtnDownload } from './BtnDownload';
+import { Container } from '@styles/theme';
 
 const home: React.FC = () => {
   return (
     <Container>
-      <Header title="Home" />
-      <main>
-        <h1>Home</h1>
-      </main>
+      <HeaderTab title="Home" />
+      <Wrapper>
+        <InfoShopp />
+        <SlideShow />
+        <BtnDownload />
+      </Wrapper>
     </Container>
   );
 }
