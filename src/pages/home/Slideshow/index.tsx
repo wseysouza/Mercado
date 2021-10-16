@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Wrapper, Bol } from './styles';
 
-
-
 export const SlideShow: React.FC = () => {
   return (
     <Wrapper>

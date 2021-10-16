@@ -15,14 +15,6 @@ export const GlobalStyle = createGlobalStyle`
     color: ${colors.secondary};
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
-<<<<<<< HEAD
-=======
-    width: 1064px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
->>>>>>> own_brand_v1
   }
 
   body, input, button {

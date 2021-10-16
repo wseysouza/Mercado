@@ -2,14 +2,13 @@ import styled, { css } from 'styled-components';
 import { colors } from '@styles/colors';
 
 export const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  /* position: absolute; */
-  width: 100%;
-  margin-top: 20px;
+  justify-content: flex-start;
 
   >  img {
-    width: 100%;
+    height: 100%;
   }
 
   > div {

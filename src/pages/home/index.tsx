@@ -1,10 +1,11 @@
 import React from 'react';
 import { HeaderTab } from '@components/HeaderTab';
 
-import { Container, Wrapper } from './styles';
+import { Wrapper } from './styles';
 import { InfoShopp } from './InfoShopp';
 import { SlideShow } from './Slideshow';
 import { BtnDownload } from './BtnDownload';
+import { Container } from '@styles/theme';
 
 const home: React.FC = () => {
   return (

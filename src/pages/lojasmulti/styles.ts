@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-
+export const Wrapper = styled.div`
+  background: red;
 `;
 
-export const Row = styled.div`
+export const Content = styled.div`
   display: flex;
+
 `;

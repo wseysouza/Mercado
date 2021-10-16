@@ -1,15 +1,12 @@
 import { colors } from '@styles/colors';
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  margin-top: 10px;
-  //background-color: red;
+export const Wrapper = styled.div`
+  height: fit-content;
   width: 100%;
-  max-height: 100%;
-
   padding: 20px;
-
   border-left: 1px solid ${colors.silverChalice};
+  background: chocolate;
 `;
 
 

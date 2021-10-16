@@ -7,10 +7,8 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={globalTheme}>
       <Layout>
-        <>
-          <GlobalStyle />
-          <Component {...pageProps} />
-        </>
+        <GlobalStyle />
+        <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
   )
