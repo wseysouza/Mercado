@@ -46,9 +46,7 @@ export const Body = ({ city }: BodyProps) => {
                   phone={item.phone} />
                 <Search /*address={item.address}*/ />
               </Left>
-              <Right>
-                <img src={item.url} alt={item.name} />
-              </Right>
+              <Right src={item.url} alt={item.name} />
             </Box>
           )
         }
