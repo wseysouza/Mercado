@@ -1,7 +1,7 @@
 import { HeaderTab } from '@components/HeaderTab';
 import React from 'react';
 
-import { Container } from './styles';
+import { Container } from '@styles/theme';
 
 const trabalheconosco: React.FC = () => {
   return (

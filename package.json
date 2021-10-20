@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.4",
     "@types/bootstrap-select": "^1.13.3",
     "bootstrap-select": "^1.13.18",
     "next": "latest",

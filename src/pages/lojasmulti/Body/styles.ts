@@ -3,16 +3,15 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: fit-content;
-  width: 100%;
-  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 20px;
   border-left: 1px solid ${colors.silverChalice};
 `;
-
 
 export const Header = styled.div`
   width: 30%;
 `
-
 export const Box = styled.div`
   width: 783px;
   height: 370px;
@@ -22,7 +21,6 @@ export const Box = styled.div`
   border-radius: 5px;
   box-shadow: 0px 3px 6px #00000029;
   margin-top: 30px;
-
 `;
 
 export const Left = styled.div`
@@ -42,13 +40,9 @@ export const Left = styled.div`
 
 `;
 
-export const Right = styled.div`
-  background: no-repeat center;
-  background-size: cover;
+export const Right = styled.img`
   flex: 1;
-`;
 
-export const Image = styled.img`
   width: 100%;
   height: 100%;
 
