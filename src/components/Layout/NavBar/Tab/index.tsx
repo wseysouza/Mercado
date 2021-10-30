@@ -1,5 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
+
 import { Wrapper } from './styles';
+
 
 interface TabProps {
   name: string;
@@ -7,11 +10,13 @@ interface TabProps {
   active?: boolean;
 }
 
-export const Tab = ({ name, href, active = false }: TabProps) => {
+export const Tab = ({ name, href, active }: TabProps) => {
   return (
-    <Wrapper href={href} active={active}>
-      {name}
-      <span />
-    </Wrapper>
+    <Link href={href} prefetch>
+      <Wrapper active={active}>
+        {name}
+        <span />
+      </Wrapper>
+    </Link>
   );
 }

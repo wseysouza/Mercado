@@ -18,8 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body, input, button {
-    font-family:"Roboto Slab", serif;
-    font-size:  16px;
+    font: 400 16px "Open Sans", serif;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
@@ -33,5 +32,6 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
 `;

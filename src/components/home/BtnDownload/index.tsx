@@ -12,3 +12,4 @@ export const BtnDownload: React.FC = () => {
     </Wrapper>
   );
 };
+

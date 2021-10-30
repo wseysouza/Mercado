@@ -25,6 +25,9 @@
       "@pages/*": [
         "pages/*"
       ],
+      "@screens/*": [
+        "screens/*"
+      ],
       "@services/*": [
         "services/*"
       ],

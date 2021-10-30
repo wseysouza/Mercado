@@ -7,13 +7,16 @@ interface WrapperProps {
 
 export const Wrapper = styled.a<WrapperProps>`
   position: relative;
-  padding: 15px 20px;
+  padding: 20px 10px;
   color: ${colors.secondary};
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  font-size: 16px;
+  font-weight: bold;
 
   :last-child {
     min-width: 170px;

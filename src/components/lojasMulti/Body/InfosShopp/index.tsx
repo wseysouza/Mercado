@@ -1,5 +1,5 @@
 import React from 'react';
-import { LabelWithIcon } from '../../../../components/LabelWithIcon'
+import { LabelWithIcon } from '../../../LabelWithIcon'
 
 import { FaMapMarkerAlt, FaClock, FaPhoneAlt } from 'react-icons/fa';
 
