@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   }
 
   @media (min-width: 1023px) {
-    height: calc(100vh - 10px);
+    height: calc(100vh - 96px);
     overflow-y: auto;
     ${scrollbarThin};
   }
