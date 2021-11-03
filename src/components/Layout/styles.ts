@@ -2,18 +2,35 @@ import { scrollbarThin } from '@styles/scrollbar';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   justify-content: flex-start;
   margin-top: 96px;
-  height: calc(100vh - 96px);
-  overflow-y: auto;
-  ${scrollbarThin};
+
+
+  @media (max-width: 990px) {
+    align-items: stretch;
+  }
+
+  @media (max-width: 1075px) {
+    width: max-content;
+  }
+
+  @media (min-width: 1023px) {
+    height: calc(100vh - 10px);
+    overflow-y: auto;
+    ${scrollbarThin};
+  }
+
+
+
 
   > main {
     position: relative;
-    width: 1064px;
+    width: 1066px;
     margin: 0 auto;
     padding: 0 2px 0 0;
     height: fit-content;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Title, ListBox } from './styles';
-import { ProductBox } from '../../ProductBox'
+import { ProductBox } from '../../../components/ProductBox'
 import { Container } from '@styles/theme';
 
 export const ProductsOnOffers: React.FC = () => {

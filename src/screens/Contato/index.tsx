@@ -43,9 +43,9 @@ export const Contato: React.FC = () => {
         <LinkDefault icon={BiQuestionMark} label={"Dúvidas Frequentes"} href="#" />
         <LinkDefault icon={FiMail} label={"atendimento@multimercados.com.br"} href="#" />
         <LinkDefault icon={FaRegClipboard} label={"Termos de Uso"} href="#" />
-        <LinkDefault icon={FaFacebookF} label={"facebook.com/multimercados"} href="https://www.facebook.com/" />
+        <LinkDefault icon={FaFacebookF} label={"facebook.com/multimercados"} href="https://www.facebook.com/multimercados" />
         <LinkDefault icon={MdOutlinePolicy} label={"Políticas de Privacidade"} href="#" />
-        <LinkDefault icon={FaInstagram} label={"instagram.com/redemultimercados"} href="https://www.instagram.com/" />
+        <LinkDefault icon={FaInstagram} label={"instagram.com/redemultimercados"} href="https://www.instagram.com/redemultimercados" />
       </ContactBox>
     </Container>
   );

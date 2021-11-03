@@ -2,11 +2,13 @@ import React from 'react';
 import { HeaderTab } from '@components/HeaderTab';
 
 import { Wrapper } from './styles';
-import { InfoShopp } from '../../components/home/InfoShopp';
-import { SlideShow } from '../../components/home/Slideshow';
-import { ProductsOnOffers } from '../../components/home/ProductsOnOffers';
-import { BtnDownload } from '@components/home/BtnDownload';
+import { InfoShopp } from './InfoShopp';
+import { SlideShow } from './Slideshow';
+import { ProductsOnOffers } from './ProductsOnOffers';
+import { BtnDownload } from '@screens/Home/BtnDownload';
 import { Container } from '@styles/theme';
+import { Modal } from '@components/Modal';
+import StoresOpen from './StoresOpen';
 
 export const Home: React.FC = () => {
   return (
@@ -18,6 +20,10 @@ export const Home: React.FC = () => {
         <BtnDownload />
         <ProductsOnOffers />
       </Wrapper>
+      {/* <Modal show={true} onHide={() => {}}>
+        <StoresOpen />
+      </Modal> */}
+
     </Container>
   );
 }

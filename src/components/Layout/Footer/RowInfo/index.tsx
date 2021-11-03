@@ -1,6 +1,7 @@
 import { Dropdown } from '@components/Dropdown';
 import React from 'react';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import Link from 'next/link';
 
 import {
   Wrapper,
@@ -20,12 +21,29 @@ export const RowInfo: React.FC = () => {
       <Left>
         <h1>MultiMercados</h1>
         <InsideLeft>
-          <a href="#">Home</a>
-          <a href="#">Marca Própria</a>
-          <a href="#">Institucional</a>
-          <a href="#">Contato</a>
-          <a href="#">Lojas Multi</a>
-          <a href="#">Trabalhe Conosco</a>
+          <Link href="home">
+            <a >Home</a>
+          </Link>
+
+          <Link href="marcapropria">
+            <a >Marca Própria</a>
+          </Link>
+
+          <Link href="institucional">
+            <a >Institucional</a>
+          </Link>
+
+          <Link href="contato">
+            <a >Contato</a>
+          </Link>
+
+          <Link href="lojasmulti">
+            <a >Lojas Multi</a>
+          </Link>
+
+          <Link href="trabalheconosco">
+            <a >Trabalhe Conosco</a>
+          </Link>
         </InsideLeft>
       </Left>
       <Division />
@@ -44,8 +62,12 @@ export const RowInfo: React.FC = () => {
         <h1>Nossos Canais</h1>
         <InsideRight>
           <SocialNetwork>
-            <FaFacebook size={20} />
-            <FaInstagram size={20} />
+            <a href="https://www.facebook.com/multimercados" target="_blank">
+              <FaFacebook size={20} />
+            </a>
+            <a href="https://www.instagram.com/redemultimercados" target="_blank">
+              <FaInstagram size={20} />
+            </a>
           </SocialNetwork>
           <Dropdown label="Encontre uma Loja Multi" items={[
             { id: "0", name: 'Multi Salvador - 54 3222-2343', selected: true },

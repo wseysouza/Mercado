@@ -72,9 +72,9 @@ export const InsideRight = styled.div`
 `;
 
 export const SocialNetwork = styled.div`
-  > svg {
+  > a {
 
-    & + svg {
+    & + a {
       margin-left: 10px;
     }
   }
