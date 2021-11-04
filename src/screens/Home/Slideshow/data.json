@@ -1,18 +1,18 @@
 [
   {
     "id": 0,
-    "src": "/images/carousel/00.jpg"
+    "src": "/images/carousel/1.jpg"
   },
   {
     "id": 1,
-    "src": "/images/carousel/01.jpg"
+    "src": "/images/carousel/2.jpg"
   },
   {
     "id": 2,
-    "src": "/images/carousel/02.jpg"
+    "src": "/images/carousel/3.jpg"
   },
   {
     "id": 3,
-    "src": "/images/carousel/03.jpg"
+    "src": "/images/carousel/4.jpg"
   }
 ]

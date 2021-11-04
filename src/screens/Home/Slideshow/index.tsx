@@ -15,7 +15,6 @@ export const SlideShow: React.FC = () => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (i) => {
-    console.log(i)
     setIndex(i);
   };
 
@@ -26,10 +25,11 @@ export const SlideShow: React.FC = () => {
       <Carousel
         activeIndex={index}
         onSelect={handleSelect}
+        fade
       // interval={2000}
       >
         {data.map(({ id, src }: ItemProps) => (
-          <Item key={id} interval={2000}>
+          <Item key={id} >
             <img
               className="d-block w-100"
               src={`${src}`}
