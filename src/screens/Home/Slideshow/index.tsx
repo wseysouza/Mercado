@@ -5,6 +5,8 @@ import { Carousel } from 'react-bootstrap';
 import { Wrapper, Bol, Item } from './styles';
 
 import data from './data.json';
+import { BiArrowFromRight } from 'react-icons/bi';
+import { MdArrowBackIosNew, MdArrowForwardIos, MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 export interface ItemProps {
   id: number;
@@ -26,7 +28,9 @@ export const SlideShow: React.FC = () => {
         activeIndex={index}
         onSelect={handleSelect}
         fade
-      // interval={2000}
+        interval={2000}
+        prevIcon={<MdKeyboardArrowLeft size={30} />}
+        nextIcon={<MdKeyboardArrowRight size={30} />}
       >
         {data.map(({ id, src }: ItemProps) => (
           <Item key={id} >
