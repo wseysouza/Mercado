@@ -1,5 +1,6 @@
 import { colors } from '@styles/colors';
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -16,9 +17,14 @@ export const IconClose = styled.button`
   background-color: transparent;
 
   > svg{
-    color: ${colors.nardoGray};
-    width: 25px;
-    height: 25px;
+    color: ${colors.gray};
+    width: 35px;
+    height: 35px;
+    transition: color 0.2s;
+
+    :hover{
+      color: ${shade(0.2, colors.gray)};
+    }
   }
 `;
 
@@ -68,4 +74,3 @@ export const Row = styled.a`
     margin-top: 20px;
   }
 `;
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GrClose } from 'react-icons/gr';
+import { IoMdClose } from 'react-icons/io';
 import { BsCalendarCheck } from 'react-icons/bs';
 import { BiRadioCircle } from 'react-icons/bi';
 
@@ -9,17 +9,15 @@ import { Wrapper, Title, Row, IconCalendar, IconClose } from './styles';
 const StoresOpen: React.FC = () => {
   return (
     <Wrapper>
-      <IconClose >
-        <GrClose />
+      <IconClose>
+        <IoMdClose />
       </IconClose>
 
       <IconCalendar>
         <BsCalendarCheck />
       </IconCalendar>
 
-      <Title>
-        Lojas abertas aos Domingos
-      </Title>
+      <Title>Lojas abertas aos Domingos</Title>
 
       <Row><BiRadioCircle />Multi Maxi Compra</Row>
       <Row><BiRadioCircle />Multi Lugama</Row>
@@ -32,5 +30,4 @@ const StoresOpen: React.FC = () => {
     </Wrapper >
   )
 }
-
 export default StoresOpen;
