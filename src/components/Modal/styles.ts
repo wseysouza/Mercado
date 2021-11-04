@@ -31,10 +31,9 @@ export const Wrapper = styled.div<ModalProps>`
   position: absolute;
   display: ${p => p.show ? 'flex' : 'none'};
   justify-content: center;
-  /* align-items: flex-start; */
+  align-items: flex-start;
   top: 0;
-
-
+  padding-top: 40px;
 
   z-index: 200;
 
@@ -72,35 +71,11 @@ export const Content = styled.div<ModalProps>`
   }
 `;
 
-export const Header = styled.div`
-  height: 48px;
-  width: 100%;
-  padding: 16px;
-  border: 1px solid #E7E5DF;
-
-  display: flex;
-
-  > svg {
-    width: 18px;
-    height: 15px;
-
-  }
-
-  > div {
-    width: 95%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 500;
-  }
-
-`;
 
 export const Body = styled.div`
-  padding: 16px;
-  max-height: calc(100vh - 48px);
+  padding: 40px;
+  max-height: 100%;
 
-  overflow: auto;
-  ${scrollbarThin}
+  /* overflow: scroll;
+  ${scrollbarThin} */
 `;

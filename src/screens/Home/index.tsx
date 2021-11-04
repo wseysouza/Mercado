@@ -7,8 +7,8 @@ import { SlideShow } from './Slideshow';
 import { ProductsOnOffers } from './ProductsOnOffers';
 import { BtnDownload } from '@screens/Home/BtnDownload';
 import { Container } from '@styles/theme';
-// import { Modal } from '@components/Modal';
-// import StoresOpen from './StoresOpen';
+import { Modal } from '@components/Modal';
+import StoresOpen from './StoresOpen';
 
 export const Home: React.FC = () => {
   return (
@@ -20,9 +20,9 @@ export const Home: React.FC = () => {
         <BtnDownload />
         <ProductsOnOffers />
       </Wrapper>
-      {/* <Modal show={true} onHide={() => {}}>
+      <Modal show={true} onHide={() => {}}>
         <StoresOpen />
-      </Modal> */}
+      </Modal>
 
     </Container>
   );
