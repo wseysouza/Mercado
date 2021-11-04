@@ -35,7 +35,6 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700" />
-          {/* <link rel="icon" href="https://github.com/faviconm.iso" /> */}
         </Head>
         <body>
           <Main />

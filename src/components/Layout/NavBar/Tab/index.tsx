@@ -12,7 +12,7 @@ interface TabProps {
 
 export const Tab = ({ name, href, active }: TabProps) => {
   return (
-    <Link href={href} prefetch>
+    <Link href={href} >
       <Wrapper active={active}>
         {name}
         <span />

@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 50px;
 
   > button {
     text-decoration: none;

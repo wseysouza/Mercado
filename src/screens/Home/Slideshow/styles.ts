@@ -1,42 +1,24 @@
 import styled, { css } from 'styled-components';
 import { colors } from '@styles/colors';
+import { CarouselItem } from 'react-bootstrap';
 
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  >  img {
-    height: 100%;
-  }
-
-  > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-  }
 `;
 
-interface BolProps {
-  active?: boolean;
-}
 
-export const Bol = styled.span<BolProps>`
-  width: 10px;
-  height: 10px;
-  border-radius: 25px;
+export const Item = styled(CarouselItem)`
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 
-  & + span {
-    margin-left: 8px;
+  > img {
+    height: 450px;
+
   }
-
-  ${p => !p.active && css`
-    background: ${colors.gray};
-  `}
-
-  ${p => p.active && css`
-    background: ${colors.secondary};
-  `}
 `;
