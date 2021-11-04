@@ -7,7 +7,7 @@ import { SlideShow } from './Slideshow';
 import { ProductsOnOffers } from './ProductsOnOffers';
 import { BtnDownload } from '@screens/Home/BtnDownload';
 import { Container } from '@styles/theme';
-import { Modal } from '@components/Modal';
+import { Modal } from '@components/Modal02';
 import StoresOpen from './StoresOpen';
 import Banners from './Banners';
 
