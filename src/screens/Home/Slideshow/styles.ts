@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { CarouselItem } from 'react-bootstrap';
 
 export const Wrapper = styled.div`
