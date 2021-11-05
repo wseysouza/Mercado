@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import { SideBar } from '@components/lojasMulti/SideBar';
-import { Body } from '@components/lojasMulti/Body';
-import { Content } from './styles';
-
-import { HeaderTab } from '@components/HeaderTab';
 import { Container } from '@styles/theme';
+import { HeaderTab } from '@components/HeaderTab';
+import { Body } from '@components/lojasMulti/Body';
+import { SideBar } from '@components/lojasMulti/SideBar';
 
+import { Content } from './styles';
 
 export const LojasMulti: React.FC = () => {
   const [citys, setCitys] = useState([
@@ -35,9 +34,6 @@ export const LojasMulti: React.FC = () => {
       }
       return { ...city, active: false };
     })
-
-    console.log(newCitys)
-
     setCitys(newCitys);
   }, [])
 

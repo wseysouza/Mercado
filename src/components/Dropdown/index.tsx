@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { Label, List, Wrapper } from './styles';
 
-
 interface ItemProps {
   id: string;
   name: string;

@@ -1,22 +1,47 @@
-import React from 'react';
-import { BiArrowBack } from 'react-icons/bi';
-// import { ButtonDefault } from '../buttons/ButtonDefault';
+import React, { useEffect, useRef, useState } from "react";
+import ReactDOM from "react-dom";
+import {
+  Content,
+  Header,
+  Body,
+  Wrapper
+} from "./styles";
 
-import { Wrapper, Content, Body } from './styles';
+export const Modal = ({ show, onClose, children, title }) => {
+  const [isBrowser, setIsBrowser] = useState(false);
 
-interface ModalProps {
-  show: boolean;
-  onHide: () => void;
-  children: string | React.ReactElement;
-}
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
 
-export const Modal = ({ show, onHide, children }: ModalProps) => (
-  <Wrapper show={show}>
-    <Content show={show}>
+  const handleCloseClick = (e) => {
+    e.preventDefault();
+    onClose();
+  };
 
+  const modalContent = show ? (
+    <Wrapper>
       <Body>
-        {children}
+        <Header>
+          {title && <h2>{title}</h2>}
+
+          <button type="button" onClick={handleCloseClick}>
+            x
+          </button>
+        </Header>
+        <Content>
+          {children}
+        </Content>
       </Body>
-    </Content>
-  </Wrapper>
-);
+    </Wrapper>
+  ) : null;
+
+  if (isBrowser) {
+    return ReactDOM.createPortal(
+      modalContent,
+      document.getElementById("modal-root")
+    );
+  } else {
+    return null;
+  }
+};

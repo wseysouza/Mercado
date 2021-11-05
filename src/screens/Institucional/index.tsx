@@ -1,5 +1,6 @@
-import { HeaderTab } from '@components/HeaderTab';
 import React from 'react';
+
+import { HeaderTab } from '@components/HeaderTab';
 
 import { Wrapper, Box, Text, Image, BoxVideo } from './styles';
 

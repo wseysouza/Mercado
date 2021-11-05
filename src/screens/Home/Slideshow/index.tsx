@@ -21,7 +21,6 @@ export const SlideShow: React.FC = () => {
   };
 
 
-
   return (
     <Wrapper>
       <Carousel
