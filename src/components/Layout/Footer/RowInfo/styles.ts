@@ -29,6 +29,8 @@ export const InsideLeft = styled.div`
   grid-template-rows: auto;
   grid-gap: 10px;
   font-size: 13px;
+
+
 `;
 
 export const Division = styled.div`

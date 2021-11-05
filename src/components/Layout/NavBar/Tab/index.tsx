@@ -8,12 +8,13 @@ interface TabProps {
   name: string;
   href: string;
   active?: boolean;
+  workWithUs?: string;
 }
 
-export const Tab = ({ name, href, active }: TabProps) => {
+export const Tab = ({ name, href, active, workWithUs }: TabProps) => {
   return (
     <Link href={href} prefetch>
-      <Wrapper active={active}>
+      <Wrapper href={workWithUs} active={active}>
         {name}
         <span />
       </Wrapper>

@@ -15,7 +15,7 @@ export const Label = styled.div<LabelProps>`
   margin-bottom: 2px;
 `;
 
-export const List = styled.select`
+export const List = styled.ul`
   width: 100%;
   padding: 7px;
   border-radius: 2px;

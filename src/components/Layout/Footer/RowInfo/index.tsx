@@ -1,4 +1,3 @@
-import { Dropdown } from '@components/Dropdown';
 import React from 'react';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import Link from 'next/link';
@@ -14,6 +13,8 @@ import {
   InsideRight,
   SocialNetwork
 } from './styles';
+import DropdownRowInfoAndContato from '@components/DropRowInfoAndContato';
+import { colors } from '@styles/colors';
 
 export const RowInfo: React.FC = () => {
   return (
@@ -22,27 +23,27 @@ export const RowInfo: React.FC = () => {
         <h1>MultiMercados</h1>
         <InsideLeft>
           <Link href="home">
-            <a >Home</a>
+            <a>Home</a>
           </Link>
 
           <Link href="marcapropria">
-            <a >Marca Própria</a>
+            <a>Marca Própria</a>
           </Link>
 
           <Link href="institucional">
-            <a >Institucional</a>
+            <a>Institucional</a>
           </Link>
 
           <Link href="contato">
-            <a >Contato</a>
+            <a>Contato</a>
           </Link>
 
           <Link href="lojasmulti">
-            <a >Lojas Multi</a>
+            <a>Lojas Multi</a>
           </Link>
 
           <Link href="trabalheconosco">
-            <a >Trabalhe Conosco</a>
+            <a>Trabalhe Conosco</a>
           </Link>
         </InsideLeft>
       </Left>
@@ -69,11 +70,7 @@ export const RowInfo: React.FC = () => {
               <FaInstagram size={20} />
             </a>
           </SocialNetwork>
-          <Dropdown label="Encontre uma Loja Multi" items={[
-            { id: "0", name: 'Multi Salvador - 54 3222-2343', selected: true },
-            { id: "1", name: 'Ketchup', selected: false },
-            { id: "2", name: 'Barbecue', selected: false },
-          ]} />
+          < DropdownRowInfoAndContato label="Encontre uma Loja Multi" colorLabel={colors.white} />
         </InsideRight>
       </Right>
     </Wrapper>

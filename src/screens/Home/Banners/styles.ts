@@ -34,7 +34,7 @@ export const Left = styled.div`
     margin-top: 11px;
     font-size: 20px;
     font-weight: bold;
-    color: ${colors.error};
+    color: ${props => `${props.color}`};
   }
 
   h3{

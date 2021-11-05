@@ -6,10 +6,10 @@ import { MdOutlinePolicy } from 'react-icons/md';
 import { BiQuestionMark } from 'react-icons/bi';
 
 import { ContactBox, Header, LocalizationShopp, Phone } from './styles';
-import { Dropdown } from '@components/Dropdown';
 import { LinkDefault } from '../../components/LinkDefault'
-import { colors } from '@styles/colors';
 import { Container } from '@styles/theme';
+import DropdownRowInfoAndContato from '@components/DropRowInfoAndContato';
+import { colors } from '@styles/colors';
 
 
 export const Contato: React.FC = () => {
@@ -30,11 +30,7 @@ export const Contato: React.FC = () => {
       <ContactBox>
         <LocalizationShopp>
           <FaMapMarkerAlt />
-          <Dropdown label="Encontre a loja mais próxima" colorLabel={colors.nardoGray} items={[
-            { id: "0", name: 'Multi Salvador - 54 3222-2343', selected: true },
-            { id: "1", name: 'Ketchup', selected: false },
-            { id: "2", name: 'Barbecue', selected: false },
-          ]} />
+          <DropdownRowInfoAndContato label="Encontre a loja mais próxima" colorLabel={colors.nardoGray} />
         </LocalizationShopp>
         <Phone>
           <FaPhoneAlt />

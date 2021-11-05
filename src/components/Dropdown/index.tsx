@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 import { Label, List, Wrapper } from './styles';
 
@@ -7,6 +8,7 @@ interface ItemProps {
   id: string;
   name: string;
   selected?: boolean | false;
+  src?: string;
 }
 
 interface DropdownProps {
@@ -27,7 +29,7 @@ export const Dropdown = ({ label, colorLabel, items }: DropdownProps) => {
         onChange={e => setStore(e.target.value)}
       >
         {items && items.map((item) => (
-          <option key={item.id} selected={item.selected}>{item.name}</option>
+          <li key={item.id} /*selected={item.selected}*/><a>{item.name}</a></li>
         ))}
       </List>
     </Wrapper>
