@@ -8,6 +8,7 @@ import { ProductsOnOffers } from './ProductsOnOffers';
 import { HeaderTab } from '@components/HeaderTab';
 import { BtnDownload } from '@screens/Home/BtnDownload';
 import { Container } from '@styles/theme';
+import Banners from './Banners';
 
 export const Home: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ export const Home: React.FC = () => {
         <SlideShow />
         <BtnDownload />
         <ProductsOnOffers />
+        <Banners />
       </Wrapper>
     </Container>
   );

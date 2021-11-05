@@ -21,8 +21,6 @@ export const InfoShopp: React.FC = () => {
       <Modal show={showModal} onClose={() => handleModal(!showModal)} title="test">
         <h2>dfsdfsdf</h2>
       </Modal>
-
-
     </Wrapper >
   );
 };
