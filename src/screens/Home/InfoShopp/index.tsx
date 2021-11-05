@@ -1,8 +1,11 @@
 
 import React, { useState } from 'react';
+import { BsCalendarCheck } from 'react-icons/bs';
+
 import { Modal } from '@components/Modal';
 
 import { Wrapper } from './styles';
+import { StoresOpen } from './StoresOpen';
 
 export const InfoShopp: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -18,8 +21,8 @@ export const InfoShopp: React.FC = () => {
       AS LOJAS
       <strong>ABERTAS AOS DOMINGOS!</strong>
 
-      <Modal show={showModal} onClose={() => handleModal(!showModal)} title="test">
-        <span>dfsdfsdf</span>
+      <Modal show={showModal} icon={BsCalendarCheck} onClose={() => handleModal(!showModal)}>
+        <StoresOpen />
       </Modal>
     </Wrapper >
   );

@@ -1,14 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
+import { IoMdClose, IoMdCloseCircleOutline } from "react-icons/io";
+import { IconBaseProps } from 'react-icons';
 import {
   Content,
   Header,
   Body,
-  Wrapper
+  Wrapper,
+  IconLeft
 } from "./styles";
 
-export const Modal = ({ show, onClose, children, title }) => {
+interface ModalProps {
+  show: boolean;
+  onClose: () => void;
+  icon?: React.ComponentType<IconBaseProps>;
+  children: string | React.ReactElement;
+}
+
+export const Modal = ({ show, onClose, icon, children }: ModalProps) => {
   const [isBrowser, setIsBrowser] = useState(false);
+
+  const Icon = icon;
 
   useEffect(() => {
     setIsBrowser(true);
@@ -22,18 +34,21 @@ export const Modal = ({ show, onClose, children, title }) => {
   const modalContent = show ? (
     <Wrapper>
       <Body>
-        <Header>
-          {title && <h2>{title}</h2>}
-
+        <Header icon={icon}>
+          {icon && (
+            <IconLeft>
+              <Icon />
+            </IconLeft>
+          )}
           <button type="button" onClick={handleCloseClick}>
-            x
+            <IoMdClose />
           </button>
         </Header>
         <Content>
           {children}
         </Content>
       </Body>
-    </Wrapper>
+    </Wrapper >
   ) : null;
 
   if (isBrowser) {

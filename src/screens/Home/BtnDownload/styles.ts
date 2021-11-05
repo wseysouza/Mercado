@@ -23,4 +23,11 @@ export const Wrapper = styled.div`
     }
 
   }
+  `;
+
+export const Booklet = styled.div`
+
+  > img {
+    width: 100%;
+  }
 `;

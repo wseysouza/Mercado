@@ -6,19 +6,10 @@ import { BiRadioCircle } from 'react-icons/bi';
 
 import { Wrapper, Title, Row, IconCalendar, IconClose } from './styles';
 
-const StoresOpen: React.FC = () => {
+export const StoresOpen: React.FC = () => {
   return (
     <Wrapper>
-      <IconClose>
-        <IoMdClose />
-      </IconClose>
-
-      <IconCalendar>
-        <BsCalendarCheck />
-      </IconCalendar>
-
       <Title>Lojas abertas aos Domingos</Title>
-
       <Row><BiRadioCircle />Multi Maxi Compra</Row>
       <Row><BiRadioCircle />Multi Lugama</Row>
       <Row><BiRadioCircle />Multi Bianchi</Row>
@@ -30,4 +21,3 @@ const StoresOpen: React.FC = () => {
     </Wrapper >
   )
 }
-export default StoresOpen;
