@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-// import { Modal } from '@components/Modal';
+import { Modal } from '@components/Modal';
 
 import { Wrapper } from './styles';
 
@@ -18,9 +18,9 @@ export const InfoShopp: React.FC = () => {
       AS LOJAS
       <strong>ABERTAS AOS DOMINGOS!</strong>
 
-      {/* <Modal show={showModal} onClose={() => handleModal(!showModal)} title="test">
-        <h2>dfsdfsdf</h2>
-      </Modal> */}
+      <Modal show={showModal} onClose={() => handleModal(!showModal)} title="test">
+        <span>dfsdfsdf</span>
+      </Modal>
     </Wrapper >
   );
 };

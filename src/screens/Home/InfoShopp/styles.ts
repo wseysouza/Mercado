@@ -13,10 +13,12 @@ export const Wrapper = styled.div`
   border-radius: 9px;
   color: ${colors.white};
 
-  > a  {
+  > button {
+    background: transparent;
+    border: none;
+    color: ${colors.white};
+    margin: 0 5px;
     border-bottom: 1px solid ${colors.white};
-    margin-left: 5px;
-    margin-right: 5px;
   }
 
   > strong  {
