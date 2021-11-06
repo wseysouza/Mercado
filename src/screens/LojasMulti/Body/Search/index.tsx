@@ -9,10 +9,9 @@ export const Search: React.FC = () => {
       <Text>Informe sua Rua, CEP, Bairro ou Cidade de origem.</Text>
 
       <RowSearch>
-        <input placeholder="Informe seu endereço" />
+        <input type="text" placeholder="Informe seu endereço" />
         <button type="submit">COMO CHEGAR</button>
       </RowSearch>
-
     </Wrapper>
   );
 }

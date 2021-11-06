@@ -20,7 +20,7 @@ export const Text = styled.div`
 
 `;
 
-export const RowSearch = styled.div`
+export const RowSearch = styled.form`
 
   display: flex;
 

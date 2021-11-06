@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import { SideBar } from '@components/lojasMulti/SideBar';
-import { Body } from '@components/lojasMulti/Body';
+import { SideBar } from './SideBar';
+import { Body } from './Body';
 import { Content } from './styles';
 
 import { HeaderTab } from '@components/HeaderTab';

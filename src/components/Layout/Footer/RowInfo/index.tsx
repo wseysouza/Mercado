@@ -13,7 +13,7 @@ import {
   InsideRight,
   SocialNetwork
 } from './styles';
-import DropdownRowInfoAndContato from '@components/DropRowInfoAndContato';
+import DropdownRowInfoAndContato from '@components/DropdownRowInfoAndContato';
 import { colors } from '@styles/colors';
 
 export const RowInfo: React.FC = () => {
