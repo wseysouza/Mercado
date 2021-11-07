@@ -21,7 +21,7 @@ export const NavBar: React.FC = () => {
       </Link>
       <Tab href="/marcapropria" name="Marca Própria" active={asPath === "/marcapropria"} />
       <Tab href="/contato" name="Contato" active={asPath === "/contato"} />
-      <Tab href="/trabalheconosco" name="Trabalhe Conosco" active={asPath === "/trabalheconosco"} />
+      <Tab href="https://kretos.cc" name="Trabalhe Conosco" active={asPath === "/trabalheconosco"} />
     </Wrapper>
   );
 }

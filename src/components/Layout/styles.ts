@@ -2,12 +2,11 @@ import { scrollbarThin } from '@styles/scrollbar';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 
-  justify-content: flex-start;
   margin-top: 96px;
 
 
@@ -24,9 +23,6 @@ export const Wrapper = styled.div`
     overflow-y: auto;
     ${scrollbarThin};
   }
-
-
-
 
   > main {
     position: relative;

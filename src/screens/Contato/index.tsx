@@ -7,7 +7,7 @@ import { BiQuestionMark } from 'react-icons/bi';
 
 import { ContactBox, Header, LocalizationShopp, Phone } from './styles';
 import { Dropdown } from '@components/Dropdown';
-import { LinkDefault } from '../../components/LinkDefault'
+import { LinkDefault } from '../../components/links/LinkDefault'
 import { colors } from '@styles/colors';
 import { Container } from '@styles/theme';
 

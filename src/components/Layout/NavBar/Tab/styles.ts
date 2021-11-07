@@ -1,4 +1,5 @@
 import { colors } from '@styles/colors';
+import { shade } from 'polished';
 import styled, { css } from 'styled-components';
 
 interface WrapperProps {
@@ -53,5 +54,9 @@ export const Wrapper = styled.a<WrapperProps>`
       border-bottom-right-radius: 50px;
     }
   `}
+
+  :hover {
+    color: ${shade(0.5, colors.white)};
+  }
 
 `;

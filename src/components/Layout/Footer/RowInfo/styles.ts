@@ -48,7 +48,7 @@ export const Center = styled.div`
 `;
 
 export const InsideCenter = styled.div`
- display: grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-gap: 10px;
