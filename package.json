@@ -7,7 +7,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.5.0",
     "@types/bootstrap-select": "^1.13.3",
+    "@unform/core": "^2.1.6",
+    "@unform/web": "^2.1.6",
     "axios": "^0.21.4",
     "bootstrap-select": "^1.13.18",
     "eslint-plugin-import-helpers": "^1.1.0",
