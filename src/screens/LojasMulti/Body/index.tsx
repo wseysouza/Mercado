@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import React, { useEffect, useState } from "react";
+import { GoogleMap, Marker, DirectionsRenderer, useLoadScript } from '@react-google-maps/api'
+
 
 import { Wrapper, Header, Box, Left, Right, Map } from "./styles";
 import { InfosShopp } from './InfosShopp';
@@ -9,7 +10,8 @@ import { Dropdown } from '@components/Dropdown'
 export interface ShoppProps {
   id: string,
   name: string,
-  address?: string,
+  origin?: string,
+  destination?: string,
   hours?: string,
   phone?: string,
   url?: string,
@@ -27,32 +29,40 @@ export interface BodyProps {
   city: CityProps;
 }
 
+
+const libraries = ["places"];
+
 export const Body = ({ city }: BodyProps) => {
+
+  const [directions, setDirections] = useState();
   const [shopps, setShopps] = useState<ShoppProps[]>(city.shopps);
+  const [shoppCurrent, setShoppCurrent] = useState<ShoppProps>(null);
 
 
-  const { isLoaded, } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyCrC_ofgCEUhk-PaOGN3deVzh2yC4InQ58"
-  })
+  // const { isLoaded, loadError } = useLoadScript({
+  //   googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+  //   libraries,
+  // });
 
-  const position = {
-    lat: -29.359319,
-    lng: -50.8130523,
-  }
 
   const searchAddress = (data) => {
 
     const newShopps = shopps.map(item => {
       if (item.id === data.id) {
-        return { ...item, statusMap: true }
+
+
+        return { ...item, origin: data.address, statusMap: true };
       }
 
-      return { ...item, statusMap: false }
+      return { ...item, origin: '', statusMap: false };
     })
 
     setShopps(newShopps);
+    // initMap();
   }
+
+  // const Map = () =>
+
 
   return (
     <Wrapper>
@@ -68,7 +78,7 @@ export const Body = ({ city }: BodyProps) => {
                 <Left>
                   <span>{item.name}</span>
                   <InfosShopp
-                    address={item.address}
+                    address={item.destination}
                     hours={item.hours}
                     phone={item.phone} />
                   <Search id={item.id} searchAddress={searchAddress} />
@@ -76,21 +86,9 @@ export const Body = ({ city }: BodyProps) => {
                 <Right src={item.url} alt={item.name} />
               </Box>
 
-              {isLoaded && item.statusMap && (
-                <Map>
-                  <GoogleMap
-                    mapContainerStyle={{ width: "100%", height: "100%" }}
-                    center={position}
-                    zoom={15}
-                  >
-                    <Marker position={position} options={{
-                      label: {
-                        text: "Multi"
-                      }
-                    }} />
-                  </GoogleMap>
-                </Map>
-              )}
+
+
+
             </>
           )
         }
