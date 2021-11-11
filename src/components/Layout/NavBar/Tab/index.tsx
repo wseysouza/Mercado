@@ -9,12 +9,13 @@ interface TabProps {
   href: string;
   active?: boolean;
   workWithUs?: string;
+  target?: string;
 }
 
-export const Tab = ({ name, href, active, workWithUs }: TabProps) => {
+export const Tab = ({ name, href, active, workWithUs, target }: TabProps) => {
   return (
     <Link href={href} >
-      <Wrapper active={active}>
+      <Wrapper href={workWithUs} active={active} target={target}>
         {name}
         <span />
       </Wrapper>
