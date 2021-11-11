@@ -5,7 +5,7 @@ import { Wrapper } from './styles';
 
 
 interface SideBarProps {
-  onPress: Function;  //(id: string) => {};
+  onPress: Function;
   tabList: TabProps[];
 }
 

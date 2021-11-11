@@ -1,14 +1,13 @@
 import React from 'react';
-import { HeaderTab } from '@components/HeaderTab';
 
 import { Wrapper } from './styles';
 import { InfoShopp } from './InfoShopp';
 import { SlideShow } from './Slideshow';
 import { ProductsOnOffers } from './ProductsOnOffers';
+
+import { HeaderTab } from '@components/HeaderTab';
 import { BtnDownload } from '@screens/Home/BtnDownload';
 import { Container } from '@styles/theme';
-import { Modal } from '@components/Modal02';
-import StoresOpen from './StoresOpen';
 import Banners from './Banners';
 
 export const Home: React.FC = () => {
@@ -22,9 +21,6 @@ export const Home: React.FC = () => {
         <ProductsOnOffers />
         <Banners />
       </Wrapper>
-      <Modal show={false} onHide={() => {}}>
-        <StoresOpen />
-      </Modal>
     </Container>
   );
 }

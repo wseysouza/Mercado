@@ -6,10 +6,12 @@ import { MdOutlinePolicy } from 'react-icons/md';
 import { BiQuestionMark } from 'react-icons/bi';
 
 import { ContactBox, Header, LocalizationShopp, Phone } from './styles';
-import { LinkDefault } from '../../components/LinkDefault'
+import { Dropdown } from '@components/Dropdown';
+import { LinkDefault } from '@components/links/LinkDefault'
+import { colors } from '@styles/colors';
 import { Container } from '@styles/theme';
 import DropdownRowInfoAndContato from '@components/DropdownRowInfoAndContato';
-import { colors } from '@styles/colors';
+
 
 
 export const Contato: React.FC = () => {

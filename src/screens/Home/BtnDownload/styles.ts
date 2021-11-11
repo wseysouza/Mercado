@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 80px;
 
   > button {
     text-decoration: none;
@@ -21,5 +22,13 @@ export const Wrapper = styled.div`
       margin-left: 10px;
     }
 
+  }
+  `;
+
+export const Booklet = styled.div`
+
+  > img {
+    width: 100%;
+    height: 100%;
   }
 `;

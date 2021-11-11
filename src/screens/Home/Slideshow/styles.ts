@@ -1,42 +1,67 @@
-import styled, { css } from 'styled-components';
-import { colors } from '@styles/colors';
+import styled from 'styled-components';
+import { CarouselItem } from 'react-bootstrap';
 
 export const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 
-  >  img {
-    height: 100%;
-  }
-
-  > div {
+  .carousel {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+  }
+
+  .carousel-indicators {
+    bottom: -65px;
+
+    > button {
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background-color: #AEAEAE;
+
+      & + button {
+        margin-left: 15px;
+      }
+    }
+
+    .active {
+      background-color: #212429;
+    }
+  }
+
+
+  .carousel-control-prev {
+    > svg {
+      width: 40px;
+      height: 40px;
+      color: #212429;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border-radius: 4px;
+      border-radius: 8px;
+      /* opacity: 0.8; */
+    }
+  }
+
+  .carousel-control-next {
+    > svg {
+      width: 40px;
+      height: 40px;
+      color: #212429;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border-radius: 4px;
+      border-radius: 8px;
+      /* opacity: 0.8; */
+    }
   }
 `;
 
-interface BolProps {
-  active?: boolean;
-}
 
-export const Bol = styled.span<BolProps>`
-  width: 10px;
-  height: 10px;
-  border-radius: 25px;
+export const Item = styled(CarouselItem)`
+  width: 100%;
+  height: 473px;
+  border-radius: 9px;
 
-  & + span {
-    margin-left: 8px;
+  > img {
+    height: 473px;
+    border-radius: 9px;
   }
-
-  ${p => !p.active && css`
-    background: ${colors.gray};
-  `}
-
-  ${p => p.active && css`
-    background: ${colors.secondary};
-  `}
 `;
