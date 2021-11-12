@@ -16,11 +16,13 @@ export const Label = styled.div<LabelProps>`
 `;
 
 export const List = styled.select`
+
   width: 100%;
   padding: 7px;
   border-radius: 2px;
   border: 1px solid ${colors.silverChalice};
   background-color: ${colors.white};
   color: ${colors.nardoGray};
+  font-size: 13px;
 `;
 

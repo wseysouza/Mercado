@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GoogleMap, Marker, DirectionsRenderer, useLoadScript } from '@react-google-maps/api'
+import { GoogleMap, useJsApiLoader, Marker, DirectionsRenderer, useLoadScript } from '@react-google-maps/api'
 
 
 import { Wrapper, Header, Box, Left, Right, Map } from "./styles";
@@ -29,39 +29,31 @@ export interface BodyProps {
   city: CityProps;
 }
 
-
-const libraries = ["places"];
-
 export const Body = ({ city }: BodyProps) => {
 
-  const [directions, setDirections] = useState();
   const [shopps, setShopps] = useState<ShoppProps[]>(city.shopps);
-  const [shoppCurrent, setShoppCurrent] = useState<ShoppProps>(null);
-
-
-  // const { isLoaded, loadError } = useLoadScript({
-  //   googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-  //   libraries,
-  // });
 
 
   const searchAddress = (data) => {
 
-    const newShopps = shopps.map(item => {
+    const newShopps = city.shopps.map(item => {
       if (item.id === data.id) {
-
-
-        return { ...item, origin: data.address, statusMap: true };
+        return { ...item, statusMap: true };
       }
-
-      return { ...item, origin: '', statusMap: false };
+      return { ...item, statusMap: false };
     })
 
     setShopps(newShopps);
-    // initMap();
   }
 
-  // const Map = () =>
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: "AIzaSyCrC_ofgCEUhk-PaOGN3deVzh2yC4InQ58"
+  })
+
+  useEffect(() => {
+    setShopps(city.shopps);
+  }, [city])
 
 
   return (
@@ -86,16 +78,25 @@ export const Body = ({ city }: BodyProps) => {
                 <Right src={item.url} alt={item.name} />
               </Box>
 
+              {isLoaded && item.statusMap ? (
+                <Map>
 
-
-
+                  <GoogleMap
+                    center={{ lat: -29.35913211079724, lng: -50.81280467550441 }}
+                    zoom={15}
+                  // onLoad={onLoad}
+                  // onUnmount={onUnmount}
+                  >
+                    <Marker
+                      position={{ lat: -29.35913211079724, lng: -50.81280467550441 }}
+                    />
+                  </GoogleMap>
+                </Map>
+              ) : <></>}
             </>
           )
         }
       })}
-
-
-
     </Wrapper >
 
   );

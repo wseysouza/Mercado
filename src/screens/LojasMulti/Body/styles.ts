@@ -65,5 +65,7 @@ export const Map = styled.div`
 
    > * {
    border-radius: 5px;
+   width: 100%;
+   height: 100%;
   }
 `;
