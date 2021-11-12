@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Carousel } from 'react-bootstrap';
 
-import { Wrapper, Bol, Item } from './styles';
+import { Wrapper, Item } from './styles';
 
 import data from './data.json';
 import { BiArrowFromRight } from 'react-icons/bi';
