@@ -1,4 +1,5 @@
 import { colors } from '@styles/colors';
+import { shade } from 'polished';
 import styled, { css } from 'styled-components';
 
 export const Header = styled.div`
@@ -68,10 +69,13 @@ export const Phone = styled.div`
     ${themeSVG}
   }
 
-  > span {
+  > a {
     color: ${colors.nardoGray};
     font-weight: bold;
     font-size: 18px;
+    :hover{
+      color: ${shade(0.5, colors.nardoGray)}
+    }
   }
 `;
 

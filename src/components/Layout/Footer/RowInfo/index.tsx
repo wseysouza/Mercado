@@ -29,18 +29,17 @@ export const RowInfo: React.FC = () => {
           <LinkSimple href="/institucional">Institucional</LinkSimple>
           <LinkSimple href="/contato">Contato</LinkSimple>
           <LinkSimple href="/lojasmulti">Lojas Multi</LinkSimple>
-          <LinkSimple href="/trabalheconosco">Trabalhe Conosco</LinkSimple>
+          <LinkSimple href="https://kretos.cc" target="_blank">Trabalhe Conosco</LinkSimple>
         </InsideLeft>
       </Left>
       <Division />
       <Center>
         <h1>Central Administrativa</h1>
         <InsideCenter>
-          <span>(54) 3211-3230</span>
-          <LinkSimple href="">Lojas Dúvidas Frequentes</LinkSimple>
-          <LinkSimple href="">atendimento@multimercados.com.br</LinkSimple>
-          <LinkSimple href="">Termos de Uso</LinkSimple>
-          <LinkSimple href="">Marca Políticas de Privacidade</LinkSimple>
+          <LinkSimple href="tel:(54) 3211-3230">(54) 3211-3230</LinkSimple>
+          <LinkSimple target="_blank" href="https://repos.multimercados.com.br/html/politica-de-privacidade.html">Políticas de Privacidade</LinkSimple>
+          <LinkSimple href="mailto:atendimento@multimercados.com.br">atendimento@multimercados.com.br</LinkSimple>
+          <LinkSimple target="_blank" href="https://repos.multimercados.com.br/html/termo-de-uso.html">Termos de Uso</LinkSimple>
         </InsideCenter>
       </Center>
       <Division />

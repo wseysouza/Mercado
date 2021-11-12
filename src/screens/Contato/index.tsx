@@ -36,14 +36,13 @@ export const Contato: React.FC = () => {
         </LocalizationShopp>
         <Phone>
           <FaPhoneAlt />
-          <span>(54) 3211-3230</span>
+          <a href={"tel:(54) 3211-3230"}>(54) 3211-3230</a>
         </Phone>
-        <LinkDefault icon={BiQuestionMark} label={"Dúvidas Frequentes"} href="#" />
-        <LinkDefault icon={FiMail} label={"atendimento@multimercados.com.br"} href="#" />
-        <LinkDefault icon={FaRegClipboard} label={"Termos de Uso"} href="#" />
+        <LinkDefault icon={FaRegClipboard} label={"Termos de Uso"} href="https://repos.multimercados.com.br/html/termo-de-uso.html" />
         <LinkDefault icon={FaFacebookF} label={"facebook.com/multimercados"} href="https://www.facebook.com/multimercados" />
-        <LinkDefault icon={MdOutlinePolicy} label={"Políticas de Privacidade"} href="#" />
+        <LinkDefault icon={MdOutlinePolicy} label={"Políticas de Privacidade"} href="https://repos.multimercados.com.br/html/politica-de-privacidade.html" />
         <LinkDefault icon={FaInstagram} label={"instagram.com/redemultimercados"} href="https://www.instagram.com/redemultimercados" />
+        <LinkDefault icon={FiMail} label={"atendimento@multimercados.com.br"} href={"mailto:atendimento@multimercados.com.br"} />
       </ContactBox>
     </Container>
   );

@@ -1,16 +1,14 @@
 import { colors } from '@styles/colors';
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
- flex-direction: column;
- margin-bottom: 109px;
+export const Title = styled.div`
+width: 100%;
+  font-size: 24px;
+  color: ${colors.primary};
+  margin-top: 29px;
+  margin-bottom: 24px;
+  font-weight: bold;
 
-  > h1{
-      font-size: 24px;
-      color: ${colors.primary};
-      margin-top: 29px;
-      margin-bottom: 24px;
-    }
 `;
 
 export const Box = styled.div`
@@ -41,4 +39,5 @@ export const BoxVideo = styled.iframe`
   width: 100%;
   height: 602px;
   border: 0;
+  margin-bottom: 108px;
 `;

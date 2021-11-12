@@ -11,13 +11,18 @@ export const Title = styled.h1`
 `;
 
 export const ListBox = styled.div`
-  padding: 10px;
+  padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 36px;
   margin-bottom: 70px;
 
+
   @media (max-width: 600px) {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (max-width: 1025px) {
+    padding: 0 30px;
+    grid-gap: 30px 15px;
   }
 `;
