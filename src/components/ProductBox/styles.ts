@@ -22,7 +22,7 @@ export const Image = styled.img`
 `;
 
 
-export const Title = styled.text`
+export const Title = styled.span`
   max-width: 100%;
   font-size: 14px;
   color: ${colors.nardoGray};
@@ -30,7 +30,7 @@ export const Title = styled.text`
 `;
 
 
-export const Value = styled.text`
+export const Value = styled.span`
   max-width: 100%;
   font-size: 20px;
   color: ${colors.primary};
