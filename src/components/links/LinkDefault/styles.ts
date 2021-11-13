@@ -1,4 +1,5 @@
 import { colors } from '@styles/colors';
+import { shade } from 'polished';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -33,6 +34,10 @@ export const Label = styled.a`
   font-size: 18px;
   color: ${colors.nardoGray};
   text-decoration: underline;
+
+  :hover{
+    color: ${shade(0.5, colors.nardoGray)};
+  }
 `;
 
 

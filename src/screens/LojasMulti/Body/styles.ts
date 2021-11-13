@@ -51,3 +51,21 @@ export const Right = styled.img`
 
   border-radius: 0 5px 5px 0;
 `;
+
+export const Map = styled.div`
+
+  display: flex;
+  margin-top: 26px;
+
+  width: 783px;
+  height: 442px;
+
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px #00000029;
+
+   > * {
+   border-radius: 5px;
+   width: 100%;
+   height: 100%;
+  }
+`;

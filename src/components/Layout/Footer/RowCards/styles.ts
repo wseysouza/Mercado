@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   width: 1064px;
   height: 112px;
@@ -19,10 +19,10 @@ export const Content = styled.div`
 
 
   > img {
-    height: 25px;
+    height: 30px;
 
     & + img {
-      margin-left: 10px;
+      margin-left: 20px;
     }
   }
 `;

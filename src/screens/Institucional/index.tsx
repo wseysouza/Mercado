@@ -1,15 +1,16 @@
 import React from 'react';
+import { Container } from '@styles/theme';
 
 import { HeaderTab } from '@components/HeaderTab';
 
-import { Wrapper, Box, Text, Image, BoxVideo } from './styles';
+import { Title, Box, Text, Image, BoxVideo } from './styles';
 
 export const Institucional: React.FC = () => {
   return (
-    <Wrapper>
+    <Container>
       <HeaderTab title="Institucional" />
 
-      <h1>Institucional Multi</h1>
+      <Title>Institucional Multi</Title>
       <Box>
         <Text>
           <p>Criada Em 2002, A Rede Multimercados É Formada Por Um Grupo De Empresários Associados,
@@ -32,9 +33,9 @@ export const Institucional: React.FC = () => {
         <Image src="images/institucional15anos.jpg" alt="institucional" />
       </Box>
 
-      <h1>Vídeo Institucional da Rede Multi Mercados</h1>
+      <Title>Vídeo Institucional da Rede Multi Mercados</Title>
       <BoxVideo src="https://www.youtube.com/embed/xZPdXlsNHyg" />
-    </Wrapper>
+    </Container>
   );
 }
 

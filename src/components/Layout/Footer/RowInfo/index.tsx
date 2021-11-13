@@ -15,6 +15,8 @@ import {
   InsideRight,
   SocialNetwork
 } from './styles';
+import DropdownRowInfoAndContato from '@components/DropdownRowInfoAndContato';
+import { colors } from '@styles/colors';
 
 export const RowInfo: React.FC = () => {
   return (
@@ -27,18 +29,17 @@ export const RowInfo: React.FC = () => {
           <LinkSimple href="/institucional">Institucional</LinkSimple>
           <LinkSimple href="/contato">Contato</LinkSimple>
           <LinkSimple href="/lojasmulti">Lojas Multi</LinkSimple>
-          <LinkSimple href="/trabalheconosco">Trabalhe Conosco</LinkSimple>
+          <LinkSimple href="https://kretos.cc" target="_blank">Trabalhe Conosco</LinkSimple>
         </InsideLeft>
       </Left>
       <Division />
       <Center>
         <h1>Central Administrativa</h1>
         <InsideCenter>
-          <span>(54) 3211-3230</span>
-          <LinkSimple href="">Lojas Dúvidas Frequentes</LinkSimple>
-          <LinkSimple href="">atendimento@multimercados.com.br</LinkSimple>
-          <LinkSimple href="">Termos de Uso</LinkSimple>
-          <LinkSimple href="">Marca Políticas de Privacidade</LinkSimple>
+          <LinkSimple href="tel:(54) 3211-3230">(54) 3211-3230</LinkSimple>
+          <LinkSimple target="_blank" href="https://repos.multimercados.com.br/html/politica-de-privacidade.html">Políticas de Privacidade</LinkSimple>
+          <LinkSimple href="mailto:atendimento@multimercados.com.br">atendimento@multimercados.com.br</LinkSimple>
+          <LinkSimple target="_blank" href="https://repos.multimercados.com.br/html/termo-de-uso.html">Termos de Uso</LinkSimple>
         </InsideCenter>
       </Center>
       <Division />
@@ -53,11 +54,7 @@ export const RowInfo: React.FC = () => {
               <FaInstagram size={20} />
             </LinkSimple>
           </SocialNetwork>
-          <Dropdown label="Encontre uma Loja Multi" items={[
-            { id: "0", name: 'Multi Salvador - 54 3222-2343', selected: true },
-            { id: "1", name: 'Ketchup', selected: false },
-            { id: "2", name: 'Barbecue', selected: false },
-          ]} />
+          < DropdownRowInfoAndContato label="Encontre uma Loja Multi" colorLabel={colors.white} />
         </InsideRight>
       </Right>
     </Wrapper>

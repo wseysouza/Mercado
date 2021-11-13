@@ -20,28 +20,12 @@ export const Text = styled.div`
 
 `;
 
-export const RowSearch = styled.div`
 
-  display: flex;
+export const ButtonSearch = styled.button`
 
-  > input {
-      width: 65%;
-
-      border: 1px solid ${colors.silverChalice};
-      border-radius: 5px 0 0 5px;
-
-      font-size: 14px;
-      color: ${colors.nardoGray};
-
-      padding: 10px;
-
-      &::placeholder{
-        color: ${colors.silverChalice};
-      };
-      }
-
-  > button {
       width: 35%;
+      height: 40px;
+
       padding: 10px;
       font-size: 12px;
       color: ${colors.white};
@@ -55,5 +39,5 @@ export const RowSearch = styled.div`
       &:hover {
             background: ${shade(0.2, colors.primary)};
       }
-    }
+
 `;

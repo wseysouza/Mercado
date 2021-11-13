@@ -6,6 +6,7 @@ interface ItemProps {
   id: string;
   name: string;
   selected?: boolean | false;
+  src?: string;
 }
 
 interface DropdownProps {

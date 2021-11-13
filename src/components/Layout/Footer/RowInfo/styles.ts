@@ -29,6 +29,8 @@ export const InsideLeft = styled.div`
   grid-template-rows: auto;
   grid-gap: 10px;
   font-size: 13px;
+
+
 `;
 
 export const Division = styled.div`
@@ -40,6 +42,7 @@ export const Division = styled.div`
 `;
 
 export const Center = styled.div`
+  height: 7rem;
    > h1 {
     font-size: 18px;
     font-weight: bold;
@@ -51,7 +54,7 @@ export const InsideCenter = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-gap: 10px;
+  grid-gap: 10px 20px;
   font-size: 13px;
 `;
 

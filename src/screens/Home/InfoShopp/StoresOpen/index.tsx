@@ -1,6 +1,6 @@
 import React from 'react';
-import { IoMdClose } from 'react-icons/io';
-import { BsCalendarCheck } from 'react-icons/bs';
+import Link from 'next/link';
+
 import { BiRadioCircle } from 'react-icons/bi';
 
 
@@ -10,14 +10,30 @@ export const StoresOpen: React.FC = () => {
   return (
     <Wrapper>
       <Title>Lojas abertas aos Domingos</Title>
-      <Row><BiRadioCircle />Multi Maxi Compra</Row>
-      <Row><BiRadioCircle />Multi Lugama</Row>
-      <Row><BiRadioCircle />Multi Bianchi</Row>
-      <Row><BiRadioCircle />Multi Cazuza</Row>
-      <Row><BiRadioCircle />Multi Condor Centro</Row>
-      <Row><BiRadioCircle />Multi Condor Moreira</Row>
-      <Row><BiRadioCircle />Multi Condor São Leopoldo</Row>
-      <Row><BiRadioCircle />Multi Condor São Pelegrino</Row>
+      <Link href="/lojasmulti">
+        <Row ><BiRadioCircle />Multi Maxi Compra</Row>
+      </Link>
+      <Link href="/lojasmulti">
+        <Row><BiRadioCircle />Multi Lugama</Row>
+      </Link>
+      <Link href="/lojasmulti">
+        <Row><BiRadioCircle />Multi Bianchi</Row>
+      </Link>
+      <Link href="/lojasmulti">
+        <Row><BiRadioCircle />Multi Cazuza</Row>
+      </Link>
+      <Link href="/lojasmulti">
+        <Row><BiRadioCircle />Multi Condor Centro</Row>
+      </Link>
+      <Link href="/lojasmulti">
+        <Row><BiRadioCircle />Multi Condor Moreira</Row>
+      </Link>
+      <Link href="/lojasmulti">
+        <Row><BiRadioCircle />Multi Condor São Leopoldo</Row>
+      </Link>
+      <Link href="/lojasmulti">
+        <Row><BiRadioCircle />Multi Condor São Pelegrino</Row>
+      </Link>
     </Wrapper >
   )
 }

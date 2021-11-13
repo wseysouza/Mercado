@@ -65,6 +65,10 @@ export const Row = styled.a`
   align-items: center;
   text-decoration: underline;
 
+  :hover {
+    color: ${shade(0.5, colors.nardoGray)};
+  }
+
   > svg{
     color: ${colors.supernova};
     margin-right: 20px;
