@@ -3,6 +3,7 @@ import React from 'react';
 import { Content, Wrapper } from './styles';
 
 interface CardProps {
+  id: number
   url: string
 }
 interface CardsProps {
@@ -13,7 +14,7 @@ export const RowCards = ({ cards }: CardsProps) => {
   return (
     <Wrapper>
       <Content>
-        {cards && cards.map((card) => <img src={card.url} alt="image" />)}
+        {cards && cards.map((card) => <img key={card.id} src={card.url} alt="image" />)}
       </Content>
     </Wrapper>
   );

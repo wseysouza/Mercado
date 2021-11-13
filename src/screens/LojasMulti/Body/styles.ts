@@ -54,7 +54,7 @@ export const Right = styled.img`
 
 export const Map = styled.div`
 
-  display: flex;
+display: flex;
   margin-top: 26px;
 
   width: 783px;
@@ -68,4 +68,6 @@ export const Map = styled.div`
    width: 100%;
    height: 100%;
   }
-`;
+  `;
+
+export const Shopp = styled.div``

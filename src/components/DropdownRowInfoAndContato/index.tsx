@@ -31,7 +31,7 @@ const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
         onChange={event => handleChange(event.target.value)}
       >
         {stores && stores.map((item) => (
-          <option value={item.src} key={item.id} selected={item.selected}>{item.name}</option>
+          <option key={item.id} value={item.src} >{item.name}</option>
         ))}
       </List>
     </Wrapper>
