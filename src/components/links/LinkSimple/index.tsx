@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
 import { Wrapper, Content } from './styles';
+import Router from 'next/router';
 
 interface LinkProps {
   href: string;
@@ -9,6 +10,7 @@ interface LinkProps {
 }
 
 export const LinkSimple = ({ href, target, children }: LinkProps) => {
+
   return (
     <Wrapper prefetch href={href} passHref>
       <Content target={target}>

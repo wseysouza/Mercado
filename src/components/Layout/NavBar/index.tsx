@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -7,7 +7,6 @@ import { Wrapper } from './styles';
 
 export const NavBar: React.FC = () => {
   const { asPath } = useRouter()
-
 
   return (
     <Wrapper>

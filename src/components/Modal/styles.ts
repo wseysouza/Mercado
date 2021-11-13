@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
 
-  @media (max-width: 1025px) {
+  @media (max-width: 1064px) {
     width: 1064px;
   }
 `;
@@ -28,6 +28,7 @@ export const Body = styled.div`
   border-radius: 15px;
 
   padding: 20px 30px;
+
 `;
 
 export const Content = styled.div`

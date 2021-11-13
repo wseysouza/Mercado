@@ -10,7 +10,7 @@ export const ListBox = styled.div`
 
 
   @media (max-width: 1025px) {
-    padding: 0 30px;
+    padding: 10px;
     grid-gap: 30px 20px;
   }
 

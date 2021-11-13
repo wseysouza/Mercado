@@ -7,6 +7,12 @@ export const Wrapper = styled.div`
   padding-bottom: 20px;
   padding-left: 20px;
   border-left: 1px solid ${colors.silverChalice};
+
+  @media (max-width: 1025px){
+    padding-right: 10px;
+    padding-left: 14px;
+  }
+
 `;
 
 export const Header = styled.div`

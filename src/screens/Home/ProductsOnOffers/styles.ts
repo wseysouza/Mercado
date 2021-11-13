@@ -12,7 +12,7 @@ export const Title = styled.h1`
 
 export const ListBox = styled.div`
   width: 1064px;
-  padding: 20px;
+  /* padding: 20px; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 36px;

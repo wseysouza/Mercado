@@ -19,6 +19,7 @@ import DropdownRowInfoAndContato from '@components/DropdownRowInfoAndContato';
 import { colors } from '@styles/colors';
 
 export const RowInfo: React.FC = () => {
+
   return (
     <Wrapper>
       <Left>
@@ -57,6 +58,6 @@ export const RowInfo: React.FC = () => {
           < DropdownRowInfoAndContato label="Encontre uma Loja Multi" colorLabel={colors.white} />
         </InsideRight>
       </Right>
-    </Wrapper>
+    </Wrapper >
   );
 };

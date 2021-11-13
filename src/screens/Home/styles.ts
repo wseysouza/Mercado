@@ -5,4 +5,9 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media (max-width: 1025px)
+  {
+    padding: 20px;
+  }
 `;
