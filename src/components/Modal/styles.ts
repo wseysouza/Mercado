@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
+
+  @media (max-width: 1025px) {
+    width: 1064px;
+  }
 `;
 
 export const Body = styled.div`
