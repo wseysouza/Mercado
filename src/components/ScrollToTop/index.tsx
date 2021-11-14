@@ -5,8 +5,11 @@ export default function ScrollToTop() {
   const { asPath } = useRouter();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 400)
   }, [asPath]);
+
 
   return null;
 }
