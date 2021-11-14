@@ -25,11 +25,11 @@ export const RowInfo: React.FC = () => {
       <Left>
         <h1>MultiMercados</h1>
         <InsideLeft>
-          <LinkSimple href="/home">Home</LinkSimple>
-          <LinkSimple href="/marcapropria">Marca Própria</LinkSimple>
-          <LinkSimple href="/institucional">Institucional</LinkSimple>
-          <LinkSimple href="/contato">Contato</LinkSimple>
-          <LinkSimple href="/lojasmulti">Lojas Multi</LinkSimple>
+          <LinkSimple href="/home#main">Home</LinkSimple>
+          <LinkSimple href="/marcapropria#main">Marca Própria</LinkSimple>
+          <LinkSimple href="/institucional#main">Institucional</LinkSimple>
+          <LinkSimple href="/contato#main">Contato</LinkSimple>
+          <LinkSimple href="/lojasmulti#main">Lojas Multi</LinkSimple>
           <LinkSimple href="https://kretos.cc" target="_blank">Trabalhe Conosco</LinkSimple>
         </InsideLeft>
       </Left>

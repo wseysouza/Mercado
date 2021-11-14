@@ -18,9 +18,9 @@ const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
   };
 
   const [stores, setStores] = useState([
-    { id: "0", name: 'Multi Lugana', selected: true, src: "/lojasmulti" },
-    { id: "1", name: 'Multi Maxi Compra', selected: false, src: "/lojasmulti" },
-    { id: "2", name: 'Multi Serrano', selected: false, src: "/lojasmulti" },
+    { id: "0", name: 'Multi Lugana', selected: true, src: "/lojasmulti#main" },
+    { id: "1", name: 'Multi Maxi Compra', selected: false, src: "/lojasmulti#main" },
+    { id: "2", name: 'Multi Serrano', selected: false, src: "/lojasmulti#main" },
   ]);
 
   return (

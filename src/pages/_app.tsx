@@ -1,6 +1,4 @@
 import React from 'react';
-import ScrollToTop from "@components/ScrollToTop";
-
 
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '@styles/global';
@@ -15,7 +13,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider theme={globalTheme}>
-      <ScrollToTop />
       <Layout>
         <Component {...pageProps} />
         <GlobalStyle />
