@@ -1,9 +1,14 @@
 import React from 'react';
 import { AuthProvider } from './auth';
+import { MultiProvider } from './multi';
 
-export const AppProvider: React.FC = ({ children }) => (
+const AppProvider: React.FC = ({ children }) => (
   <AuthProvider>
-    {children}
+    <MultiProvider>
+      {children}
+    </MultiProvider>
   </AuthProvider>
 );
 
+
+export default AppProvider;

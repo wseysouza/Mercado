@@ -8,58 +8,50 @@ interface User {
   avatar_url: string;
 }
 
-interface AuthState {
-  token: string;
-  user?: User;
-}
-
-interface SignInCredentials {
-  email: string;
-  password: string;
-}
-
 interface AuthContextData {
-  user: User;
-  signIn(credentials: SignInCredentials): Promise<void>;
-  signOut(): void;
-  updateUser(user: User): void;
+  signIn(): Promise<string>;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [data, setData] = useState<AuthState>(() => {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    typeof localStorage.getItem('@dynzup:token') === 'string',
+  );
 
+  const signIn = useCallback(async () => {
+    try {
+      const response = await api.get('login', {
+        auth: {
+          username: "joao@nada.com",
+          password: '12345678',
+        }
+      });
 
+      const { login: { token } } = response.data;
 
-    return {} as AuthState;
-  });
+      localStorage.setItem('@MultiMercado:token', token);
 
-  const signIn = useCallback(async ({ email, password }) => {
-    // const response = await api.get('login', { data: { email, password } });
-
-    // console.log('response >> ', response)
-    console.log('response >> ')
-
-    // const { token } = response.data;
-    // localStorage.setItem('@MultiMercado:token', token);
-    // localStorage.setItem('@MultiMercado:user', JSON.stringify(user));
-
-    // api.defaults.headers.authorization = token;
-
-    // setData({ token });
+      return token;
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
-
-
+  useEffect(() => {
+    const token = localStorage.getItem('@dynzup:token');
+    setIsAuthenticated(typeof token === 'string');
+  }, []);
 
   useEffect(() => {
-    signIn({ email: "joao@nada.com", password: "password" });
-  }, [])
+    if (!isAuthenticated) {
+      signIn();
+    }
+  }, [isAuthenticated, signIn]);
 
   return (
     <AuthContext.Provider
-      value={{ user: data.user, signIn }}
+      value={{ signIn }}
     >
       {children}
     </AuthContext.Provider>

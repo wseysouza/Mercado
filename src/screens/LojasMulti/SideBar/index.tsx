@@ -6,14 +6,14 @@ import { Wrapper } from './styles';
 
 interface SideBarProps {
   onPress: Function;
-  tabList: TabProps[];
+  cities: TabProps[];
 }
 
-export const SideBar = ({ onPress, tabList }: SideBarProps) => {
+export const SideBar = ({ onPress, cities }: SideBarProps) => {
 
   return (
     <Wrapper>
-      {tabList && tabList.map(item => (
+      {cities && cities.map(item => (
         <Tab key={item.id} name={item.name} onPress={() => onPress(item.id)} active={item.active} />
       ))}
     </Wrapper>

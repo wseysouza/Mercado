@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 239px;
   height: 270px;
-  padding: 20px;
+  padding: 50px 10px;
 
   border-radius: 10px;
   box-shadow: 0px 1px 15px #00000029;
@@ -17,13 +17,17 @@ export const Container = styled.div`
 
 
 export const Image = styled.img`
-  width: 100%;
+  height: 100%;
   background: transparent;
 `;
 
 
 export const Title = styled.span`
-  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100%;
   font-size: 14px;
   color: ${colors.nardoGray};
   font-weight: bold;
@@ -31,11 +35,14 @@ export const Title = styled.span`
 
 
 export const Value = styled.span`
-  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100%;
   font-size: 20px;
   color: ${colors.primary};
   font-weight: bold;
-
 `;
 
 

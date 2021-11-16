@@ -24,6 +24,7 @@ export const InfoShopp: React.FC = () => {
       <Modal show={showModal} icon={BsCalendarCheck} onClose={() => handleModal(!showModal)}>
         <StoresOpen />
       </Modal>
+
     </Wrapper >
   );
 };

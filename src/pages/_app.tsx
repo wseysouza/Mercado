@@ -8,7 +8,7 @@ import { Layout } from '@components/Layout';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { AppProvider } from '@hooks/index';
+import AppProvider from '@hooks/index';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
