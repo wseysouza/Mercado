@@ -15,9 +15,7 @@ interface AuthContextData {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    typeof localStorage.getItem('@dynzup:token') === 'string',
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const signIn = useCallback(async () => {
     try {
@@ -40,7 +38,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('@dynzup:token');
-    setIsAuthenticated(typeof token === 'string');
+    // setIsAuthenticated(typeof token === 'string');
   }, []);
 
   useEffect(() => {

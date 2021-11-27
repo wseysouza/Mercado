@@ -13,7 +13,7 @@ import Banners from './Banners';
 export const Home: React.FC = () => {
   return (
     <Container>
-      <HeaderTab title="Home | Cleo!" />
+      <HeaderTab title="Home | Multi Mercados" />
       <Wrapper>
         <InfoShopp />
         <SlideShow />
