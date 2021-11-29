@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GoogleMap, useJsApiLoader, Marker, DirectionsRenderer, useLoadScript } from '@react-google-maps/api'
+import { useJsApiLoader } from '@react-google-maps/api'
 
 
 import { Wrapper, Header, Box, Left, Right, Map, Shopp } from "./styles";
@@ -34,8 +34,10 @@ export const Body = ({ city }: BodyProps) => {
 
   const [shopps, setShopps] = useState<ShoppProps[]>(city.shopps);
 
-
+  //end digitado na search esta no data
   const searchAddress = (data) => {
+
+    //console.log(data)
 
     const newShopps = city.shopps.map(item => {
       if (item.id === data.id) {
@@ -47,10 +49,7 @@ export const Body = ({ city }: BodyProps) => {
     setShopps(newShopps);
   }
 
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyCrC_ofgCEUhk-PaOGN3deVzh2yC4InQ58"
-  })
+
 
   useEffect(() => {
     setShopps(city.shopps);
@@ -79,16 +78,10 @@ export const Body = ({ city }: BodyProps) => {
                 <Right src={item.url} alt={item.name} />
               </Box>
 
-              {isLoaded && item.statusMap && (
+              {item.statusMap && (
                 <Map>
-                  <GoogleMap
-                    center={{ lat: -29.35913211079724, lng: -50.81280467550441 }}
-                    zoom={15}
-                  >
-                    <Marker
-                      position={{ lat: -29.35913211079724, lng: -50.81280467550441 }}
-                    />
-                  </GoogleMap>
+                  <GoogleMaps />
+
                 </Map>)}
             </Shopp>
           )

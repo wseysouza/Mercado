@@ -11,7 +11,7 @@ import { Map, Address, AddressField } from "./styles";
 
 export interface MapPageProps {}
 
-export const GoogleMaps = () => {
+export const GoogleMaps = ({}) => {
   const [map, setMap] = React.useState<google.maps.Map>();
   const [searchBoxA, setSearchBoxA] =
     React.useState<google.maps.places.SearchBox>();
@@ -78,6 +78,8 @@ export const GoogleMaps = () => {
 
   const traceRoute = () => {
     if (pointA && pointB) {
+
+      console.log(">>>>>>>>>>", pointA, pointB)
       setOrigin(pointA);
       setDestination(pointB);
     }

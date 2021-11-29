@@ -3,14 +3,11 @@ import styled from "styled-components";
 
 export const Map = styled.div`
   height: 100%;
-  border-radius: 5px;
   z-index: 0;
+  > * {
+   border-radius: 5px;
+  }
 `;
-
-
-// .map - marker {
-//   margin - top: -30px;
-// }
 
 
 export const Address = styled.div`
