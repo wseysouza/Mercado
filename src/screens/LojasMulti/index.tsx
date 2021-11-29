@@ -8,7 +8,7 @@ import { SideBar } from './SideBar';
 import { Content } from './styles';
 
 export const LojasMulti: React.FC = () => {
-  const [citys, setCitys] = useState([
+  const [cities, setCities] = useState([
     {
       id: '0', name: 'Bento Gonçalves', active: true, shopps: [
         { id: '0', statusMap: false, name: 'Encontre a loja mais próxima' },
@@ -22,19 +22,19 @@ export const LojasMulti: React.FC = () => {
 
   ])
 
-  const [cityCurrent, setCityCurrent] = useState(citys[0]);
+  const [cityCurrent, setCityCurrent] = useState(cities[0]);
 
 
   const handleCity = useCallback((id: string) => {
 
-    const newCitys = citys.map(city => {
+    const newCitys = cities.map(city => {
       if (city.id === id) {
         setCityCurrent({ ...city, active: true })
         return { ...city, active: true }
       }
       return { ...city, active: false };
     })
-    setCitys(newCitys);
+    setCities(newCitys);
   }, [])
 
 
@@ -44,7 +44,7 @@ export const LojasMulti: React.FC = () => {
     <Container>
       <HeaderTab title="Lojas Multi" />
       <Content>
-        <SideBar onPress={handleCity} tabList={citys} />
+        <SideBar onPress={handleCity} cities={cities} />
         <Body city={cityCurrent} />
       </Content>
     </Container>

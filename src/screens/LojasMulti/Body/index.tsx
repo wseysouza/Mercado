@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker, DirectionsRenderer, useLoadScript } from '@react-google-maps/api'
 
 
-import { Wrapper, Header, Box, Left, Right, Map } from "./styles";
+import { Wrapper, Header, Box, Left, Right, Map, Shopp } from "./styles";
 import { InfosShopp } from './InfosShopp';
 import { Search } from './Search';
 import { Dropdown } from '@components/Dropdown';
@@ -66,7 +66,7 @@ export const Body = ({ city }: BodyProps) => {
       {shopps.map((item) => {
         if (item.id > '0') {
           return (
-            <>
+            <Shopp key={item.id}>
               <Box>
                 <Left>
                   <span>{item.name}</span>
@@ -79,21 +79,18 @@ export const Body = ({ city }: BodyProps) => {
                 <Right src={item.url} alt={item.name} />
               </Box>
 
-              {isLoaded && item.statusMap ? (
+              {isLoaded && item.statusMap && (
                 <Map>
-                  <GoogleMaps />
-
-                  {/* <GoogleMap
+                  <GoogleMap
                     center={{ lat: -29.35913211079724, lng: -50.81280467550441 }}
                     zoom={15}
                   >
                     <Marker
                       position={{ lat: -29.35913211079724, lng: -50.81280467550441 }}
                     />
-                  </GoogleMap> */}
-                </Map>
-              ) : <></>}
-            </>
+                  </GoogleMap>
+                </Map>)}
+            </Shopp>
           )
         }
       })}

@@ -1,35 +1,46 @@
 [
   {
+    "id": 1,
     "url": "images/cards/visa.png"
   },
   {
+    "id": 2,
     "url": "images/cards/mastercard.png"
   },
   {
+    "id": 3,
     "url": "images/cards/hipercard.png"
   },
   {
+    "id": 4,
     "url": "images/cards/dinersclub.png"
   },
   {
+    "id": 5,
     "url": "images/cards/bari.png"
   },
   {
+    "id": 6,
     "url": "images/cards/visa_vale.png"
   },
   {
+    "id": 7,
     "url": "images/cards/vr.png"
   },
   {
+    "id": 8,
     "url": "images/cards/rede_shop.png"
   },
   {
+    "id": 9,
     "url": "images/cards/ticket.png"
   },
   {
+    "id": 10,
     "url": "images/cards/sodexo.png"
   },
   {
+    "id": 11,
     "url": "images/cards/refeisul.png"
   }
 ]

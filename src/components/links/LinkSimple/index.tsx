@@ -12,7 +12,7 @@ interface LinkProps {
 export const LinkSimple = ({ href, target, children }: LinkProps) => {
 
   return (
-    <Wrapper prefetch href={href} passHref>
+    <Wrapper href={href} passHref>
       <Content target={target}>
         {children}
       </Content>

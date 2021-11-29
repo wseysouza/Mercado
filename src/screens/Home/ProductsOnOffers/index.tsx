@@ -1,27 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Title, ListBox } from './styles';
 import { ProductBox } from '../../../components/ProductBox'
 import { Container } from '@styles/theme';
+import { useMulti } from '@hooks/multi';
 
 export const ProductsOnOffers: React.FC = () => {
+  const { getListProduct, products } = useMulti();
 
-  const [products, setproducts] = useState([
-    { id: 0, name: 'ARROZ MULTI', value: 'R$ 3,00', url: "images/arroz.png" },
-    { id: 1, name: 'RAÇÃO MULTI', value: 'R$ 3,00', url: 'images/racao.png' },
-    { id: 2, name: 'DÚZIA OVOS MULTI', value: 'R$ 3,00', url: 'images/ovos.jpg' },
-    { id: 3, name: 'REFRI MULTI', value: 'R$ 3,00', url: 'images/refri.jpg' },
-    { id: 4, name: 'SORVETE MULTI', value: 'R$ 3,00', url: 'images/sorvete.jpg' },
-    { id: 5, name: 'CARVÃO MULTI', value: 'R$ 3,00', url: 'images/carvao.png' },
-  ])
+  useEffect(() => {
+    getListProduct();
+  }, [getListProduct])
 
   return (
     <Container>
       <Title>Ofertas</Title>
       <ListBox>
-        {products.map(({
-          id, url, name, value
-        }) => <ProductBox key={id} url={url} title={name} value={value} />)}
+        {products.length > 0 && products.map(({ name, priceNew, produto_id, img }) => <ProductBox key={produto_id} url={img} title={name} value={priceNew} />)}
       </ListBox>
     </Container>
   );
