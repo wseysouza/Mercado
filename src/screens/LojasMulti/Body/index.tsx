@@ -5,7 +5,8 @@ import { GoogleMap, useJsApiLoader, Marker, DirectionsRenderer, useLoadScript } 
 import { Wrapper, Header, Box, Left, Right, Map } from "./styles";
 import { InfosShopp } from './InfosShopp';
 import { Search } from './Search';
-import { Dropdown } from '@components/Dropdown'
+import { Dropdown } from '@components/Dropdown';
+import { GoogleMaps } from '@components/GoogleMaps'
 
 export interface ShoppProps {
   id: string,
@@ -80,17 +81,16 @@ export const Body = ({ city }: BodyProps) => {
 
               {isLoaded && item.statusMap ? (
                 <Map>
+                  <GoogleMaps />
 
-                  <GoogleMap
+                  {/* <GoogleMap
                     center={{ lat: -29.35913211079724, lng: -50.81280467550441 }}
                     zoom={15}
-                  // onLoad={onLoad}
-                  // onUnmount={onUnmount}
                   >
                     <Marker
                       position={{ lat: -29.35913211079724, lng: -50.81280467550441 }}
                     />
-                  </GoogleMap>
+                  </GoogleMap> */}
                 </Map>
               ) : <></>}
             </>
