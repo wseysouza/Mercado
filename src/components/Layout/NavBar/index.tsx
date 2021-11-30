@@ -8,10 +8,12 @@ import { Wrapper } from './styles';
 export const NavBar: React.FC = () => {
 
   const { asPath, route } = useRouter()
+  console.log(">>>>> asPa", asPath)
+  console.log(">>>>> rout", route)
 
   return (
     <Wrapper>
-      <Tab href="/home#main" name="Home" active={route === "/" || asPath === "/home#main"} />
+      <Tab href="/home#main" name="Home" active={route === "/home" || asPath === "/home#main" || asPath === "/"} />
       <Tab href="/institucional#main" name="Institucional" active={asPath === "/institucional#main"} />
       <Tab href="/lojasmulti#main" name="Lojas Multi" active={asPath === "/lojasmulti#main"} />
       <Link href="/home#main">
