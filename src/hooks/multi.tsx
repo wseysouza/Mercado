@@ -1,6 +1,8 @@
 import { api } from '@services/api';
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
-import { useAuth } from '@hooks/auth'
+
+import { login } from '@services/auth';
+import { env } from 'process';
 
 export interface ValueProps {
   id: string,
@@ -55,10 +57,19 @@ export const MultiProvider: React.FC = ({ children }) => {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [shops, setShops] = useState<ShoppProps[]>([]);
 
-  const { signIn } = useAuth();
 
-  const getListProduct = useCallback(async () => {
-    const token = localStorage.getItem('@MultiMercado:token');
+  const getToken = async () => {
+    const { data: { login: { token } } } = await login({
+      username: "joao@nada.com",
+      password: "12345678",
+    })
+
+    return token
+  };
+
+  const getListProduct = async () => {
+
+    const token = await getToken();
 
     api.defaults.headers.common[
       'x-access-token'
@@ -70,11 +81,14 @@ export const MultiProvider: React.FC = ({ children }) => {
       }
     });
 
-    setProducts(listaofertaespecial);
-  }, []);
+    return listaofertaespecial;
+  };
 
   const getListShop = useCallback(async () => {
-    const token = await signIn();
+    const token = await login({
+      username: 'joao@nada.com',
+      password: '12345678',
+    })
 
     api.defaults.headers.common[
       'x-access-token'
@@ -86,16 +100,10 @@ export const MultiProvider: React.FC = ({ children }) => {
       }
     });
 
+    console.log('lojas >> ', lojas);
+
     setShops(lojas);
   }, []);
-
-  useEffect(() => {
-    const token = localStorage.getItem('@MultiMercado:token')
-
-    if (!token) {
-      signIn();
-    }
-  }, [signIn])
 
   return (
     <MultiContext.Provider value={{
