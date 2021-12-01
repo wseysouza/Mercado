@@ -81,7 +81,7 @@ export const MultiProvider: React.FC = ({ children }) => {
       }
     });
 
-    return listaofertaespecial;
+    setProducts(listaofertaespecial);
   };
 
   const getListShop = useCallback(async () => {

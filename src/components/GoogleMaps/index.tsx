@@ -109,10 +109,11 @@ export const GoogleMaps = ({}) => {
     };
   }, [response]);
 
+  // AIzaSyCrC_ofgCEUhk-PaOGN3deVzh2yC4InQ58
   return (
     <Map>
       <LoadScript
-        googleMapsApiKey="AIzaSyCrC_ofgCEUhk-PaOGN3deVzh2yC4InQ58"
+        googleMapsApiKey="AIzaSyBF_tXJO8TcRzP_dNgD5T_XydVi9xZmSXo"
         libraries={["places"]}
       >
         <GoogleMap

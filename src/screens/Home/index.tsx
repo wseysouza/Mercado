@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { Wrapper } from './styles';
 import { InfoShopp } from './InfoShopp';
@@ -9,25 +9,16 @@ import { HeaderTab } from '@components/HeaderTab';
 import { BtnDownload } from '@screens/Home/BtnDownload';
 import { Container } from '@styles/theme';
 import Banners from './Banners';
-import { ProductProps, useMulti } from '@hooks/multi';
+import { useMulti } from '@hooks/multi';
 
 
 
 export const Home = () => {
-  const [products, setProducts] = useState<ProductProps[]>([]);
-  const { getListProduct } = useMulti();
-
-  const loadingProduct = async () => {
-    const listProduct: ProductProps[] = await getListProduct()
-
-    if (listProduct.length) {
-      setProducts(listProduct)
-    }
-  }
+  const { getListProduct, products } = useMulti();
 
 
   useEffect(() => {
-    loadingProduct();
+    getListProduct();
   }, [])
 
   return (
@@ -44,15 +35,3 @@ export const Home = () => {
   );
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const { getListProduct } = useMulti();
-
-//   const products = await getListProduct();
-
-//   return {
-//     props: {
-//       products
-//     },
-//     revalidate: 60 * 60 * 24, // 24hours
-//   }
-// }
