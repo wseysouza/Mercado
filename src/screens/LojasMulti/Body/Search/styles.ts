@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 
+
 export const Wrapper = styled.div`
 
 `;
@@ -18,6 +19,14 @@ export const Text = styled.div`
   font-size: 14px;
   color: ${colors.nardoGray};
 
+`;
+
+export const BoxCity = styled.div`
+  position: relative;
+
+> *{
+  position: relative;
+}
 `;
 
 

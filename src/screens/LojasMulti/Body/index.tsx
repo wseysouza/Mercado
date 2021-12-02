@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useJsApiLoader } from '@react-google-maps/api'
 
 
@@ -34,10 +34,18 @@ export const Body = ({ city }: BodyProps) => {
 
   const [shopps, setShopps] = useState<ShoppProps[]>(city.shopps);
 
+  const [origin, setOrigin] = useState<google.maps.LatLngLiteral | null>(null);
+  const [response, setResponse] = useState<google.maps.DistanceMatrixResponse | null>(null);
+
   //end digitado na search esta no data
   const searchAddress = (data) => {
 
-    //console.log(data)
+    // setOrigin(null);
+    // // setDestination(null);
+    // setResponse(null);
+
+    setOrigin(data.address)
+    console.log(data)
 
     const newShopps = city.shopps.map(item => {
       if (item.id === data.id) {
@@ -48,6 +56,18 @@ export const Body = ({ city }: BodyProps) => {
 
     setShopps(newShopps);
   }
+
+  const directionsCallback = useCallback((res) => {
+
+    console.log('call back >> ', res)
+
+    if (res !== null && res.status === "OK") {
+      setResponse(res);
+    } else {
+      console.log(' res >>> ', res);
+    }
+  }, []);
+
 
 
 
@@ -78,10 +98,9 @@ export const Body = ({ city }: BodyProps) => {
                 <Right src={item.url} alt={item.name} />
               </Box>
 
-              {item.statusMap && (
+              {item.statusMap && origin && (
                 <Map>
-                  <GoogleMaps />
-
+                  <GoogleMaps origin={origin} dest={item.destination} />
                 </Map>)}
             </Shopp>
           )
