@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import Input from '@components/Input';
-import { LoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 
-import { Wrapper, Title, Text, ButtonSearch, BoxCity } from './styles';
+import { LoadScript } from "@react-google-maps/api";
+import { Wrapper, Title, Text, ButtonSearch } from './styles';
 
 interface AddressProps {
   id: string;
@@ -30,22 +30,14 @@ export const Search = ({ id, searchAddress }: SearchProps) => {
         onSubmit={(e) => searchAddress({ ...e, id })}
         action={formRef.current ? formRef.current.reset() : null}
       >
-
-
         <LoadScript
           googleMapsApiKey="AIzaSyBF_tXJO8TcRzP_dNgD5T_XydVi9xZmSXo"
           libraries={["places"]}
         >
-          <BoxCity>
-            {/* <StandaloneSearchBox> */}
-            <Input name="address" type="text" placeholder="Informe seu endereço" />
-            {/* </StandaloneSearchBox> */}
-          </BoxCity>
+          <Input name="address" type="search" placeholder="Informe seu endereço" />
         </LoadScript>
-
         <ButtonSearch type="submit">COMO CHEGAR</ButtonSearch>
       </Form>
-
     </Wrapper>
   );
 }

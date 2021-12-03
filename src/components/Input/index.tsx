@@ -2,6 +2,8 @@ import React, { InputHTMLAttributes, useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 
 import { Wrapper } from './styles';
+import { StandaloneSearchBox, Autocomplete, AutocompleteProps } from "@react-google-maps/api";
+
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;

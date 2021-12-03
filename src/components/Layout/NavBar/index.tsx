@@ -22,7 +22,7 @@ export const NavBar: React.FC = () => {
       </Link>
       <Tab href="/marcapropria#main" name="Marca Própria" active={route === "/marcapropria"} />
       <Tab href="/contato#main" name="Contato" active={route === "/contato"} />
-      <Tab href="https://kretos.cc" workWithUs="https://kretos.cc" target="_blank" name="Trabalhe Conosco" active={route === "/trabalheconosco"} />
+      <Tab href="https://multimercados.kretos.cc/" workWithUs="https://multimercados.kretos.cc/" target="_blank" name="Trabalhe Conosco" active={route === "/trabalheconosco"} />
     </Wrapper>
   );
 }

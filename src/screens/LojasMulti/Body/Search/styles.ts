@@ -2,10 +2,8 @@ import { colors } from '@styles/colors';
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-
-
 export const Wrapper = styled.div`
-
+  position: relative;
 `;
 
 export const Title = styled.div`
@@ -20,15 +18,6 @@ export const Text = styled.div`
   color: ${colors.nardoGray};
 
 `;
-
-export const BoxCity = styled.div`
-  position: relative;
-
-> *{
-  position: relative;
-}
-`;
-
 
 export const ButtonSearch = styled.button`
 

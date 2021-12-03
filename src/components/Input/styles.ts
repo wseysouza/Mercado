@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   input{
+      width: 205px;
       height: 40px;
 
       border: 1px solid ${colors.silverChalice};

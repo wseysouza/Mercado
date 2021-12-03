@@ -1,9 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import {
   GoogleMap,
-  Marker,
-  LoadScript,
-  StandaloneSearchBox,
+  DistanceMatrixService,
   DirectionsService,
   DirectionsRenderer,
 } from "@react-google-maps/api";
@@ -102,6 +100,7 @@ export const GoogleMaps = ({ origin, dest }) => {
     // @ts-ignore
     React.useMemo<google.maps.DirectionsRequest>(() => {
 
+
       console.log('test >> ', origin,
         destination)
 
@@ -109,6 +108,7 @@ export const GoogleMaps = ({ origin, dest }) => {
         origin,
         destination: dest,
         travelMode: "DRIVING",
+        // provideRouteAlternatives: { origin, destination },
       };
     }, [origin, destination]);
 
@@ -177,6 +177,7 @@ export const GoogleMaps = ({ origin, dest }) => {
             options={directionsServiceOptions}
             callback={directionsCallback}
           />
+
         )}
 
         {response && directionsRendererOptions && (

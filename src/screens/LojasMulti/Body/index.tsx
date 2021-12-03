@@ -40,10 +40,6 @@ export const Body = ({ city }: BodyProps) => {
   //end digitado na search esta no data
   const searchAddress = (data) => {
 
-    // setOrigin(null);
-    // // setDestination(null);
-    // setResponse(null);
-
     setOrigin(data.address)
     console.log(data)
 
@@ -56,20 +52,6 @@ export const Body = ({ city }: BodyProps) => {
 
     setShopps(newShopps);
   }
-
-  const directionsCallback = useCallback((res) => {
-
-    console.log('call back >> ', res)
-
-    if (res !== null && res.status === "OK") {
-      setResponse(res);
-    } else {
-      console.log(' res >>> ', res);
-    }
-  }, []);
-
-
-
 
   useEffect(() => {
     setShopps(city.shopps);
