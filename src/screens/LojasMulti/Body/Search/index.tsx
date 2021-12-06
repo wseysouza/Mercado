@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import Input from '@components/Input';
 
-import { LoadScript } from "@react-google-maps/api";
+import { Autocomplete, LoadScript } from "@react-google-maps/api";
 import { Wrapper, Title, Text, ButtonSearch } from './styles';
 
 interface AddressProps {
@@ -17,6 +17,7 @@ export interface SearchProps {
 
 export const Search = ({ id, searchAddress }: SearchProps) => {
   const formRef = useRef(null);
+
 
 
   return (

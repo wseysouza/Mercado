@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useJsApiLoader } from '@react-google-maps/api'
-
 
 import { Wrapper, Header, Box, Left, Right, Map, Shopp } from "./styles";
 import { InfosShopp } from './InfosShopp';
@@ -35,7 +33,6 @@ export const Body = ({ city }: BodyProps) => {
   const [shopps, setShopps] = useState<ShoppProps[]>(city.shopps);
 
   const [origin, setOrigin] = useState<google.maps.LatLngLiteral | null>(null);
-  const [response, setResponse] = useState<google.maps.DistanceMatrixResponse | null>(null);
 
   //end digitado na search esta no data
   const searchAddress = (data) => {
