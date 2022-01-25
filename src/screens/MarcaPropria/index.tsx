@@ -12,7 +12,9 @@ export const MarcaPropria: React.FC = () => {
 
   useEffect(() => {
     getListProduct();
-  }, [getListProduct])
+  }, [])
+
+  console.log(products)
 
   return (
     <Container>

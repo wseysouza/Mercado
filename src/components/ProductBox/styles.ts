@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   width: 239px;
   height: 270px;
-  /* padding: 50px 10px; */
+  padding: 10px ;
 
   border-radius: 10px;
   box-shadow: 0px 1px 15px #00000029;
@@ -23,9 +23,8 @@ export const AnchorImage = styled.div`
   height: 100%;
   width: 100%;
 
-  /* object-fit: fill; */
 
-  /* background: transparent; */
+  background: transparent;
 
   .img {
 
