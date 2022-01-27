@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "src": "/images/carousel/1.jpg",
+    "resumo": "Alimento aliados á ansiedade"
+  },
+  {
+    "id": 1,
+    "src": "/images/carousel/2.jpg",
+    "resumo": "Beneficios do abacate"
+  },
+  {
+    "id": 2,
+    "src": "/images/carousel/3.jpg",
+    "resumo": "Café é o alimento mais consumido pelos brasileiros..."
+  },
+  {
+    "id": 3,
+    "src": "/images/carousel/4.jpg",
+    "resumo": "Noticias sobre alimentos "
+  }
+]

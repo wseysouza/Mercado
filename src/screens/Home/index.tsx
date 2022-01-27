@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Wrapper } from './styles';
 import { InfoShopp } from './InfoShopp';
 import { SlideShow } from './Slideshow';
+import { NewsSlideShow } from './NewsSlideShow';
 import { ProductsOnOffers } from './ProductsOnOffers';
 
 import { HeaderTab } from '@components/HeaderTab';
@@ -30,6 +31,7 @@ export const Home = () => {
         <BtnDownload />
         <ProductsOnOffers products={products} />
         <Banners />
+        <NewsSlideShow />
       </Wrapper>
     </Container>
   );
