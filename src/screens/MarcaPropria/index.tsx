@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { Container } from '@styles/theme';
 import { ProductBox } from '@components/ProductBox'
@@ -8,13 +8,12 @@ import { Title, ListBox } from './styles';
 import { useMulti } from '@hooks/multi';
 
 export const MarcaPropria: React.FC = () => {
+
   const { getListProduct, products } = useMulti();
 
   useEffect(() => {
     getListProduct();
   }, [])
-
-  console.log(products)
 
   return (
     <Container>

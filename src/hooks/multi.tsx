@@ -44,11 +44,58 @@ export interface ShoppProps {
   uf: string,
 }
 
+export interface CardProps {
+  descricao: string,
+  id: number,
+  imagem: string,
+  ordem_exibicao: number,
+}
+
+export interface CardBannerProps {
+  descricao: string,
+  id: number,
+  imagem_caminho: string,
+}
+
+export interface PromotionProps {
+  id: number,
+  imagem: string,
+  ordem_exibicao: number,
+  periodo: string,
+  titulo: string,
+}
+
+export interface ParameterSiteProps {
+  email: string,
+  encarte: string,
+  facebook: string,
+  fone_ddd: string,
+  fone_numero: string,
+  id: number,
+  imagem: string,
+  instagram: string,
+  politica_privacidade_id: number,
+  termo_uso_id: number,
+  texto: string,
+  titulo: string,
+  titulo_video: string,
+  url_trabalheconosco: string,
+  url_video: string,
+}
+
 export interface MultiContextData {
   products: ProductProps[];
   shops: ShoppProps[];
+  card: CardProps[];
+  banners: CardBannerProps[];
+  promotion: PromotionProps[];
+  parameterSite: ParameterSiteProps;
   getListProduct(): Promise<void>;
   getListShop(): Promise<void>;
+  getListCard(): Promise<void>;
+  getListBanner(): Promise<void>;
+  getListPromotion(): Promise<void>;
+  getListParameterSite(): Promise<void>;
 }
 
 const MultiContext = createContext<MultiContextData>({} as MultiContextData)
@@ -56,6 +103,10 @@ const MultiContext = createContext<MultiContextData>({} as MultiContextData)
 export const MultiProvider: React.FC = ({ children }) => {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [shops, setShops] = useState<ShoppProps[]>([]);
+  const [card, setCard] = useState<CardProps[]>([]);
+  const [banners, setBanner] = useState<CardBannerProps[]>([]);
+  const [promotion, setPromotion] = useState<PromotionProps[]>([]);
+  const [parameterSite, setParameterSite] = useState<ParameterSiteProps>();
 
 
   const getToken = async () => {
@@ -100,20 +151,105 @@ export const MultiProvider: React.FC = ({ children }) => {
       }
     });
 
+
     console.log('lojas >> ', lojas);
 
     setShops(lojas);
   }, []);
 
+
+  const getListCard = async () => {
+
+    const token = await getToken();
+
+    api.defaults.headers.common[
+      'x-access-token'
+    ] = `${token}`;
+
+    const { data: { listCard } } = await api.get('get_cartao', {
+      headers: {
+        authorization: token
+      }
+    });
+
+    setCard(listCard);
+  };
+
+
+  const getListBanner = async () => {
+
+    const token = await getToken();
+
+    api.defaults.headers.common[
+      'x-access-token'
+    ] = `${token}`;
+
+    const { data: { banner } } = await api.get('get_banner', {
+      headers: {
+        authorization: token
+      }
+    });
+
+    setBanner(banner);
+
+  };
+
+
+  const getListPromotion = async () => {
+
+    const token = await getToken();
+
+    api.defaults.headers.common[
+      'x-access-token'
+    ] = `${token}`;
+
+    const { data: { promocao } } = await api.get('get_promocao', {
+      headers: {
+        authorization: token
+      }
+    });
+
+    setPromotion(promocao);
+
+  };
+
+
+  const getListParameterSite = async () => {
+
+    const token = await getToken();
+
+    api.defaults.headers.common[
+      'x-access-token'
+    ] = `${token}`;
+
+    const { data: { parametrosite } } = await api.get('get_parametrosite', {
+      headers: {
+        authorization: token
+      }
+    });
+
+    setParameterSite(parametrosite);
+  };
+
+
   return (
     <MultiContext.Provider value={{
       products,
       shops,
+      card,
+      banners,
+      promotion,
+      parameterSite,
       getListProduct,
-      getListShop
+      getListShop,
+      getListCard,
+      getListBanner,
+      getListPromotion,
+      getListParameterSite,
     }}>
       {children}
     </MultiContext.Provider>
+
   )
 }
 

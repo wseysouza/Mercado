@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HeaderTab } from '@components/HeaderTab';
 import { FaMapMarkerAlt, FaInstagram, FaPhoneAlt, FaFacebookF, FaRegClipboard } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
 import { MdOutlinePolicy } from 'react-icons/md';
-import { BiQuestionMark } from 'react-icons/bi';
 
 import { ContactBox, Header, LocalizationShopp, Phone } from './styles';
-import { Dropdown } from '@components/Dropdown';
+// import { Dropdown } from '@components/Dropdown';
 import { LinkDefault } from '@components/links/LinkDefault'
 import { colors } from '@styles/colors';
 import { Container } from '@styles/theme';
 import DropdownRowInfoAndContato from '@components/DropdownRowInfoAndContato';
 
+import { useMulti } from "@hooks/multi";
 
 
 export const Contato: React.FC = () => {
+
+  const { getListParameterSite, parameterSite } = useMulti();
+
+  useEffect(() => {
+    getListParameterSite();
+  }, [])
 
   return (
     <Container>
@@ -36,13 +42,13 @@ export const Contato: React.FC = () => {
         </LocalizationShopp>
         <Phone>
           <FaPhoneAlt />
-          <a href={"tel:(54) 3211-3230"}>(54) 3211-3230</a>
+          <a href={`tel:(${parameterSite.fone_ddd}) ${parameterSite.fone_numero}`}>{`(${parameterSite.fone_ddd}) ${parameterSite.fone_numero}`}</a>
         </Phone>
         <LinkDefault icon={FaRegClipboard} label={"Termos de Uso"} href="https://repos.multimercados.com.br/html/termo-de-uso.html" />
-        <LinkDefault icon={FaFacebookF} label={"facebook.com/multimercados"} href="https://www.facebook.com/multimercados" />
+        <LinkDefault icon={FaFacebookF} label={"facebook.com/multimercados"} href={parameterSite.facebook} />
         <LinkDefault icon={MdOutlinePolicy} label={"Políticas de Privacidade"} href="https://repos.multimercados.com.br/html/politica-de-privacidade.html" />
-        <LinkDefault icon={FaInstagram} label={"instagram.com/redemultimercados"} href="https://www.instagram.com/redemultimercados" />
-        <LinkDefault icon={FiMail} label={"atendimento@multimercados.com.br"} href={"mailto:atendimento@multimercados.com.br"} />
+        <LinkDefault icon={FaInstagram} label={"instagram.com/redemultimercados"} href={parameterSite.instagram} />
+        <LinkDefault icon={FiMail} label={"atendimento@multimercados.com.br"} href={`mailto:${parameterSite.email}`} />
       </ContactBox>
     </Container>
   );

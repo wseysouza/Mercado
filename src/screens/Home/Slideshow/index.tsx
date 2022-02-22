@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Carousel } from 'react-bootstrap';
 
 import { Wrapper, Item } from './styles';
 
-import data from './data.json';
-import { BiArrowFromRight } from 'react-icons/bi';
-import { MdArrowBackIosNew, MdArrowForwardIos, MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
-export interface ItemProps {
-  id: number;
-  src?: string;
-}
+import { useMulti, CardBannerProps } from '@hooks/multi';
+
+import Image from 'next/image';
+
+// export interface ItemProps {
+//   id: number;
+//   imagem_caminho?: string;
+//   descricao: string;
+// }
 
 export const SlideShow: React.FC = () => {
   const [index, setIndex] = useState(0);
@@ -19,6 +22,12 @@ export const SlideShow: React.FC = () => {
   const handleSelect = (i) => {
     setIndex(i);
   };
+
+  const { getListBanner, banners } = useMulti();
+
+  useEffect(() => {
+    getListBanner();
+  }, [])
 
 
   return (
@@ -31,12 +40,14 @@ export const SlideShow: React.FC = () => {
         prevIcon={<MdKeyboardArrowLeft size={30} />}
         nextIcon={<MdKeyboardArrowRight size={30} />}
       >
-        {data.map(({ id, src }: ItemProps) => (
+        {banners.map(({ id, imagem_caminho, descricao }: CardBannerProps) => (
           <Item key={id} >
-            <img
+            <Image
+              id='img'
               className="d-block w-100"
-              src={`${src}`}
-              alt={`${id}`}
+              src={`${imagem_caminho}`}
+              alt={`${descricao}`}
+              layout='fill'
             />
           </Item>
         ))}

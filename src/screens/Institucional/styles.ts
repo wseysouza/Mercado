@@ -14,6 +14,17 @@ width: 100%;
 export const Box = styled.div`
   width: 100%;
   display: flex;
+
+`;
+
+export const BoxImage = styled.div`
+  position: relative;
+  width: 541px;
+  height: 359px;
+
+  .img{
+    object-fit: contain !important;
+  }
 `;
 
 export const Text = styled.div`
@@ -28,11 +39,6 @@ export const Text = styled.div`
   > p {
     margin-bottom: 15px;
   }
-`;
-
-export const Image = styled.img`
-  width: 541px;
-  height: 359px;
 `;
 
 export const BoxVideo = styled.iframe`

@@ -3,10 +3,13 @@ import { RowCards } from './RowCards';
 import { RowInfo } from './RowInfo';
 
 import { Wrapper } from './styles';
-import data from './data.json';
-import { LGPD } from './LGPD';
 
-export const Footer: React.FC = () => {
+//import data from './data.json';
+//import { LGPD } from './LGPD';
+
+
+
+export const Footer = () => {
   const [status, setStatus] = useState(true);
 
   const hangleStatus = (status: boolean) => {
@@ -16,8 +19,8 @@ export const Footer: React.FC = () => {
   return (
     <Wrapper>
       <RowInfo />
-      <RowCards cards={data} />
-      <LGPD />
+      <RowCards />
+      {/*<LGPD />*/}
     </Wrapper>
   );
 };

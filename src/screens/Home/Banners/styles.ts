@@ -54,17 +54,11 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
+  position: relative;
   display: flex;
   width: 50%;
-`;
 
-
-export const Image = styled.img`
-  width: 100%;
-  height: 170px;
-  border-start-start-radius: 100px;
-  border-start-end-radius: 100px;
-  border-end-end-radius: 100px;
-  border-end-start-radius: 100px;
-
+  .img {
+    object-fit: contain !important;
+}
 `;

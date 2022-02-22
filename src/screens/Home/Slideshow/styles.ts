@@ -56,12 +56,15 @@ export const Wrapper = styled.div`
 
 
 export const Item = styled(CarouselItem)`
+  /* position: relative; */
   width: 100%;
   height: 473px;
   border-radius: 9px;
 
-  > img {
+  #img {
+    width: 100%;
     height: 473px;
     border-radius: 9px;
+    object-fit: contain !important;
   }
 `;
