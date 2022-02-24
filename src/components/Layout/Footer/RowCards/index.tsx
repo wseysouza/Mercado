@@ -1,24 +1,29 @@
 import React, { useEffect } from 'react';
 
-import { Content, Wrapper } from './styles';
+import { Content, Wrapper, Item } from './styles';
 
-// import { useMulti } from '@hooks/multi';
-import data from '../data.json';
+import { useMulti } from '@hooks/multi';
+
+import Image from "next/image";
 
 
 export const RowCards: React.FC = () => {
 
-  // const { getListCard, card } = useMulti();
+  const { getListCard, cards } = useMulti();
 
-  // useEffect(() => {
-  //   getListCard();
-  // }, [])
+  useEffect(() => {
+    getListCard();
+  }, [])
 
 
   return (
     <Wrapper>
       <Content>
-        {data && data.map((card) => <img key={card.id} src={card.url} alt="image" />)}
+        {cards && cards.map((card) =>
+          <Item key={card.id}>
+            <Image className='img' key={card.id} src={card.imagem} alt={card.descricao} layout='fill' />
+          </Item>
+        )}
       </Content>
     </Wrapper>
   );

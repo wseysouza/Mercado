@@ -1,26 +1,24 @@
 import React from "react";
-import { Wrapper } from './styles';
-// import data from "../data.json"
-// import { ItemProps } from "@screens/Home/NewsSlideShow"
+import { Wrapper, Item } from './styles';
+
+import { NewsProps } from "@hooks/multi";
+
+import Image from "next/image";
 
 interface DetailsNewsProps {
-  currentNews: {
-    id: number;
-    src: string;
-    resumo: string;
-    descricao: string;
-    link?: string
-  };
+  currentNews: NewsProps;
 }
 
 export const DetailsNews = ({ currentNews }: DetailsNewsProps) => {
 
   return (
-    <Wrapper>
-      <h1>{currentNews.resumo}</h1>
-      <img src={currentNews.src} alt={currentNews.resumo} />
+    <Wrapper key={currentNews.anuncio_id}>
+      <h1>{currentNews.titulo}</h1>
+      <Item key={currentNews.anuncio_id}>
+        <Image className="img" src={currentNews.imagem} alt={currentNews.titulo} layout='fill' />
+      </Item>
       <span>{currentNews.descricao}</span>
-      {currentNews?.link && (<a href={currentNews.link} target="_blank">Acessar Link</a>)}
+      {/* {currentNews?.link && (<a href={currentNews.link} target="_blank">Acessar Link</a>)} */}
     </Wrapper>
   )
 }

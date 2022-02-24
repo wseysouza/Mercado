@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { Tab } from '@components/Layout/NavBar/Tab';
 import { Wrapper } from './styles';
 
+import { useMulti } from "@hooks/multi";
+
 export const NavBar: React.FC = () => {
 
-  const { asPath, route } = useRouter()
+  const { route } = useRouter()
+
+  const { getListParameterSite, parameterSite } = useMulti();
+
+  useEffect(() => {
+    getListParameterSite();
+  }, [])
 
 
   return (
@@ -22,7 +30,7 @@ export const NavBar: React.FC = () => {
       </Link>
       <Tab href="/marcapropria#main" name="Marca Própria" active={route === "/marcapropria"} />
       <Tab href="/contato#main" name="Contato" active={route === "/contato"} />
-      <Tab href="https://multimercados.kretos.cc/" workWithUs="https://multimercados.kretos.cc/" target="_blank" name="Trabalhe Conosco" active={route === "/trabalheconosco"} />
+      {parameterSite && (<Tab href={parameterSite.url_trabalheconosco} workWithUs={parameterSite.url_trabalheconosco} target="_blank" name="Trabalhe Conosco" active={route === "/trabalheconosco"} />)}
     </Wrapper>
   );
 }

@@ -8,21 +8,29 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
+
+
 export const Content = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 1064px;
-  height: 112px;
   margin: 0 auto;
   padding: 25px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
 
+export const Item = styled.div`
+  position: relative;
+  height: 40px;
+  width: 75px;
+  display: flex;
 
-  > img {
-    height: 30px;
+  justify-content: left;
 
-    & + img {
-      margin-left: 20px;
-    }
+  .img {
+    width: fit-content;
+    height: 40px;
+    object-fit: contain !important;
   }
 `;

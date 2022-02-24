@@ -10,12 +10,6 @@ import { useMulti, CardBannerProps } from '@hooks/multi';
 
 import Image from 'next/image';
 
-// export interface ItemProps {
-//   id: number;
-//   imagem_caminho?: string;
-//   descricao: string;
-// }
-
 export const SlideShow: React.FC = () => {
   const [index, setIndex] = useState(0);
 

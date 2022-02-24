@@ -3,29 +3,21 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import { Wrapper, NewsBox, AbstractNews } from './styles';
+import { Wrapper, NewsBox, AbstractNews, Item } from './styles';
 import { Modal } from '@components/Modal';
-import { useMulti } from '@hooks/multi';
+import { useMulti, NewsProps } from '@hooks/multi';
 
-
-import data from './data.json';
 import { FaRegNewspaper } from 'react-icons/fa';
 import { DetailsNews } from './DetailsNews';
 
+import Image from "next/image";
 
 
-export interface ItemProps {
-  id: number;
-  src: string;
-  resumo: string;
-  descricao: string;
-  link?: string
-}
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 2.545,
+    items: 2.5,
     paritialVisibilityGutter: 60,
   },
   tablet: {
@@ -43,20 +35,18 @@ const responsive = {
 export const NewsSlideShow: React.FC = () => {
 
 
-  // const { getListNews, News } = useMulti();
+  const { getListNews, News } = useMulti();
 
-  // useEffect(() => {
-  //   getListNews();
-  // }, [])
-
-  // console.log(" news >>>", News)
+  useEffect(() => {
+    getListNews();
+  }, [])
 
 
   const [showModal, setShowModal] = useState(false);
 
-  const [currentNews, setCurrentNews] = useState<ItemProps>(null)
+  const [currentNews, setCurrentNews] = useState<NewsProps>(null)
 
-  const handleModal = (status: boolean, data: ItemProps) => {
+  const handleModal = (status: boolean, data: NewsProps) => {
     status ? setShowModal(true) : setShowModal(false)
     setCurrentNews(data)
   }
@@ -75,13 +65,17 @@ export const NewsSlideShow: React.FC = () => {
         autoPlaySpeed={6000}
         responsive={responsive}
       >
-        {data.map((data) => {
+        {News.map((data) => {
           return (
-            <NewsBox key={data.id} onClick={() => handleModal(!showModal, data)}>
-              <AbstractNews>{data.resumo}</AbstractNews>
-              <img
-                src={data.src}
-              />
+            <NewsBox key={data.anuncio_id} onClick={() => handleModal(!showModal, data)}>
+              <AbstractNews>{data.titulo}</AbstractNews>
+              <Item key={data.anuncio_id}>
+                <Image
+                  className='img'
+                  src={data.imagem}
+                  layout='fill'
+                />
+              </Item>
             </NewsBox>
 
           );

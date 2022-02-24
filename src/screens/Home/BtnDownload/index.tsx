@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 
 import { Modal } from '@components/Modal';
 
 import { Wrapper, Booklet } from './styles';
+
+import { useMulti } from "@hooks/multi";
+
+import Image from "next/image";
+
 
 export const BtnDownload: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -11,6 +16,14 @@ export const BtnDownload: React.FC = () => {
   const handleModal = (status: boolean) => {
     status ? setShowModal(true) : setShowModal(false)
   }
+
+
+  const { getListParameterSite, parameterSite } = useMulti();
+
+  useEffect(() => {
+    getListParameterSite();
+  }, []);
+
 
   return (
     <Wrapper>
@@ -20,7 +33,7 @@ export const BtnDownload: React.FC = () => {
       </button>
       <Modal show={showModal} onClose={() => handleModal(!showModal)}>
         <Booklet>
-          <img src="/images/booklet.jpg" alt="" />
+          {parameterSite && (<iframe src={parameterSite.encarte} />)}
         </Booklet>
       </Modal>
     </Wrapper>

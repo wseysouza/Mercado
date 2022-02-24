@@ -26,9 +26,13 @@ export const Wrapper = styled.div`
   `;
 
 export const Booklet = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 
-  > img {
+  > iframe {
     width: 100%;
     height: 100%;
+    border: 0;
   }
 `;

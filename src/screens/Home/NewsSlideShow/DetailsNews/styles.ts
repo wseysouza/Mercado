@@ -12,11 +12,6 @@ export const Wrapper = styled.div`
     font-weight: 700;
   }
 
-  img{
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
 
   span{
     margin-bottom: 10px;
@@ -27,4 +22,16 @@ export const Wrapper = styled.div`
     color: red;
     font-weight: 700;
   }
+`;
+
+export const Item = styled.div`
+  width: 100%;
+  height: 300px;
+  position: relative;
+  margin-bottom: 10px;
+
+    .img {
+      border-radius: 5px;
+      /* object-fit: contain !important; */
+    }
 `;

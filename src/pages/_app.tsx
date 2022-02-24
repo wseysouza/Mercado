@@ -15,12 +15,12 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider theme={globalTheme}>
-      <Layout>
-        <AppProvider>
+      <AppProvider>
+        <Layout>
           <Component {...pageProps} />
           <GlobalStyle />
-        </AppProvider>
-      </Layout>
+        </Layout>
+      </AppProvider>
     </ThemeProvider>
   )
 }
