@@ -53,7 +53,6 @@ export const NewsSlideShow: React.FC = () => {
 
 
   return (
-    // https://codesandbox.io/s/bt3v7?file=/components/Simple.js
     <Wrapper>
       <Carousel
         ssr

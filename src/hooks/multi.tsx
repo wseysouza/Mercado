@@ -76,14 +76,12 @@ export interface ParameterSiteProps {
   url_video: string,
 }
 
-
 export interface CardsProps {
   descricao: string,
   id: number,
   imagem: string,
   ordem_exibicao: number,
 }
-
 
 export interface NewsProps {
   anuncio_id: number,
@@ -92,7 +90,6 @@ export interface NewsProps {
   titulo: string,
 }
 
-
 export interface TermsProps {
   politicaprivacidade_texto: string,
   politicaprivacidade_titulo: string,
@@ -100,6 +97,33 @@ export interface TermsProps {
   termouso_titulo: string,
 }
 
+export interface StoresProps {
+  bairro: string,
+  cep: string,
+  cidade: string,
+  cnpj: string,
+  complemento: string,
+  endereco: string,
+  fone_ddd: string,
+  fone_numero: string,
+  horario_atendimento1: string,
+  horario_atendimento2: string,
+  horario_atendimento3: string,
+  id_loja: number,
+  latitude: string,
+  longitude: string,
+  nome: string,
+  numero: number,
+  periodo_atendimento1: string,
+  periodo_atendimento2: string,
+  periodo_atendimento3: string,
+  uf: string
+}
+
+export interface CityProps {
+  cidade: string,
+  active?: boolean;
+}
 
 
 export interface MultiContextData {
@@ -111,6 +135,8 @@ export interface MultiContextData {
   parameterSite: ParameterSiteProps;
   News: NewsProps[];
   terms: TermsProps;
+  stores: StoresProps[];
+  city: CityProps[];
   getListProduct(): Promise<void>;
   getListShop(): Promise<void>;
   getListCard(): Promise<void>;
@@ -119,6 +145,8 @@ export interface MultiContextData {
   getListParameterSite(): Promise<void>;
   getListNews(): Promise<void>;
   getListTerms(): Promise<void>;
+  getListStores: ({ cidade }: CityProps) => {};
+  getListCity(): Promise<void>;
 }
 
 const MultiContext = createContext<MultiContextData>({} as MultiContextData)
@@ -132,6 +160,8 @@ export const MultiProvider: React.FC = ({ children }) => {
   const [parameterSite, setParameterSite] = useState<ParameterSiteProps>();
   const [News, setNews] = useState<NewsProps[]>([]);
   const [terms, setTerms] = useState<TermsProps>();
+  const [stores, setStores] = useState<StoresProps[]>([]);
+  const [city, setCity] = useState<CityProps[]>([]);
 
 
   const getToken = async () => {
@@ -182,7 +212,6 @@ export const MultiProvider: React.FC = ({ children }) => {
     setShops(lojas);
   }, []);
 
-
   const getListCard = async () => {
 
     const token = await getToken();
@@ -199,7 +228,6 @@ export const MultiProvider: React.FC = ({ children }) => {
 
     setCards(cartao);
   };
-
 
   const getListBanner = async () => {
 
@@ -219,7 +247,6 @@ export const MultiProvider: React.FC = ({ children }) => {
 
   };
 
-
   const getListPromotion = async () => {
 
     const token = await getToken();
@@ -237,7 +264,6 @@ export const MultiProvider: React.FC = ({ children }) => {
     setPromotion(promocao);
 
   };
-
 
   const getListParameterSite = async () => {
 
@@ -273,7 +299,6 @@ export const MultiProvider: React.FC = ({ children }) => {
     setNews(novidades);
   };
 
-
   const getListTerms = async () => {
 
     const token = await getToken();
@@ -292,6 +317,52 @@ export const MultiProvider: React.FC = ({ children }) => {
   };
 
 
+
+
+
+
+
+  const getListStores = async ({ cidade }) => {
+
+    console.log(">>> city", cidade)
+
+    const token = await getToken();
+
+    api.defaults.headers.common[
+      'x-access-token'
+    ] = `${token}`;
+
+    const { data: { lojas } } = await api.get(`loja?somentelojasdomingo=false&cidade=${cidade}&idloja`, {
+      headers: {
+        authorization: token
+      }
+    });
+
+    setStores(lojas);
+  };
+
+
+
+
+
+  const getListCity = async () => {
+
+    const token = await getToken();
+
+    api.defaults.headers.common[
+      'x-access-token'
+    ] = `${token}`;
+
+    const { data: { cidade } } = await api.get('get_cidade', {
+      headers: {
+        authorization: token
+      }
+    });
+
+    setCity(cidade);
+  };
+
+
   return (
     <MultiContext.Provider value={{
       products,
@@ -302,6 +373,8 @@ export const MultiProvider: React.FC = ({ children }) => {
       parameterSite,
       News,
       terms,
+      stores,
+      city,
       getListProduct,
       getListShop,
       getListCard,
@@ -310,6 +383,8 @@ export const MultiProvider: React.FC = ({ children }) => {
       getListParameterSite,
       getListNews,
       getListTerms,
+      getListStores,
+      getListCity,
     }}>
       {children}
     </MultiContext.Provider>

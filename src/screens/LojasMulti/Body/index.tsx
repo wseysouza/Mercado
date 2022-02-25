@@ -6,31 +6,43 @@ import { Search } from './Search';
 import { Dropdown } from '@components/Dropdown';
 import { GoogleMaps } from '@components/GoogleMaps'
 
-export interface ShoppProps {
-  id: string,
-  name: string,
-  origin?: string,
-  destination?: string,
-  hours?: string,
-  phone?: string,
-  url?: string,
-  statusMap?: boolean,
-}
+import { CityProps, StoresProps, useMulti } from "@hooks/multi";
 
-export interface CityProps {
-  id: string,
-  name: string,
-  active: boolean,
-  shopps: ShoppProps[],
-}
+// export interface ShoppProps {
+//   id: string,
+//   name: string,
+//   origin?: string,
+//   destination?: string,
+//   hours?: string,
+//   phone?: string,
+//   url?: string,
+//   statusMap?: boolean,
+// }
 
-export interface BodyProps {
-  city: CityProps;
-}
+// export interface CityProps {
+//   id: string,
+//   name: string,
+//   active: boolean,
+//   shopps: ShoppProps[],
+// }
 
-export const Body = ({ city }: BodyProps) => {
+// export interface BodyProps {
+//   city: CityProps;
+// }
 
-  const [shopps, setShopps] = useState<ShoppProps[]>(city.shopps);
+
+
+export const Body = ({ city }) => {
+
+
+  const { stores, getListStores } = useMulti();
+
+  useEffect(() => {
+    getListStores({ cidade: city });
+  }, [city])
+
+
+  const [shopps, setShopps] = useState(city.shopps);
 
   const [origin, setOrigin] = useState<google.maps.LatLngLiteral | null>(null);
 
@@ -38,7 +50,6 @@ export const Body = ({ city }: BodyProps) => {
   const searchAddress = (data) => {
 
     setOrigin(data.address)
-    console.log(data)
 
     const newShopps = city.shopps.map(item => {
       if (item.id === data.id) {
@@ -61,26 +72,26 @@ export const Body = ({ city }: BodyProps) => {
         <Dropdown items={city.shopps} />
       </Header>
 
-      {shopps.map((item) => {
-        if (item.id > '0') {
+      {stores.map((item) => {
+        if (item.id_loja > 0) {
           return (
-            <Shopp key={item.id}>
+            <Shopp key={item.id_loja}>
               <Box>
                 <Left>
-                  <span>{item.name}</span>
+                  <span>{item.nome}</span>
                   <InfosShopp
-                    address={item.destination}
-                    hours={item.hours}
-                    phone={item.phone} />
-                  <Search id={item.id} searchAddress={searchAddress} />
+                    address={`${item.endereco}, nº ${item.numero}, Bairro ${item.bairro}, ${item.cidade} - ${item.uf}`}
+                    hours={item.periodo_atendimento1}
+                    phone={`(${item.fone_ddd}) ${item.fone_numero}`} />
+                  <Search id={item.id_loja} searchAddress={searchAddress} />
                 </Left>
-                <Right src={item.url} alt={item.name} />
+                {/* <Right src={item.url} alt={item.name} /> */}
               </Box>
 
-              {item.statusMap && origin && (
+              {/* {item.statusMap && origin && (
                 <Map>
                   <GoogleMaps origin={origin} dest={item.destination} />
-                </Map>)}
+                </Map>)} */}
             </Shopp>
           )
         }

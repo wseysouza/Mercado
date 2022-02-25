@@ -7,7 +7,7 @@ import { Wrapper, Booklet } from './styles';
 
 import { useMulti } from "@hooks/multi";
 
-import Image from "next/image";
+// import Image from "next/image";
 
 
 export const BtnDownload: React.FC = () => {

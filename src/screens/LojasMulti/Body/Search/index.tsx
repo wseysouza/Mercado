@@ -11,7 +11,7 @@ interface AddressProps {
 }
 
 export interface SearchProps {
-  id: string,
+  id: number,
   searchAddress: (data: AddressProps) => void,
 }
 
