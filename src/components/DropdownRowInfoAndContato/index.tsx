@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter, NextRouter } from 'next/router';
 
 import { Label, List, Wrapper } from './styles';
+
+import { useMulti } from "@hooks/multi";
 
 
 interface DropdownProps {
@@ -11,17 +13,18 @@ interface DropdownProps {
 
 const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
 
+  const { findStore, getListStores } = useMulti();
+
+  useEffect(() => {
+    getListStores({})
+  }, [])
+
+
   const router = useRouter()
 
   const handleChange = (value: string) => {
     router.push(value)
   };
-
-  const [stores, setStores] = useState([
-    { id: "0", name: 'Multi Lugana', selected: true, src: "/lojasmulti#main" },
-    { id: "1", name: 'Multi Maxi Compra', selected: false, src: "/lojasmulti#main" },
-    { id: "2", name: 'Multi Serrano', selected: false, src: "/lojasmulti#main" },
-  ]);
 
   return (
     <Wrapper>
@@ -30,8 +33,8 @@ const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
         name="store"
         onChange={event => handleChange(event.target.value)}
       >
-        {stores && stores.map((item) => (
-          <option key={item.id} value={item.src} >{item.name}</option>
+        {findStore && findStore.map((item) => (
+          <option key={item.id_loja} value={"lojasmulti"} >{item.nome}</option>
         ))}
       </List>
     </Wrapper>

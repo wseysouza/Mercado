@@ -36,13 +36,13 @@ export const SlideShow: React.FC = () => {
       >
         {banners.map(({ id, imagem_caminho, descricao }: CardBannerProps) => (
           <Item key={id} >
-            <Image
+            {imagem_caminho && (<Image
               id='img'
               className="d-block w-100"
               src={`${imagem_caminho}`}
               alt={`${descricao}`}
               layout='fill'
-            />
+            />)}
           </Item>
         ))}
       </Carousel>

@@ -2,10 +2,9 @@ import React from 'react';
 import { Wrapper } from './styles';
 
 export interface TabProps {
-  id?: string;
   name: string;
-  onPress?: () => {};
-  active?: boolean;
+  onPress: () => void;
+  active: boolean;
 }
 
 export const Tab = ({ name, onPress, active }: TabProps) => {

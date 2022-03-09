@@ -46,8 +46,8 @@ export const Left = styled.div`
 
 `;
 
-export const Right = styled.img`
-  flex: 1;
+export const Right = styled.div`
+  position: relative;
 
   width: 100%;
   height: 100%;
@@ -55,12 +55,18 @@ export const Right = styled.img`
   max-width: 383px;
   max-height: 370px;
 
-  border-radius: 0 5px 5px 0;
+  .img{
+    /* object-fit: contain !important; */
+    flex: 1;
+    border-radius: 0 5px 5px 0;
+  }
+
+
 `;
 
 export const Map = styled.div`
 
-display: flex;
+  display: flex;
   margin-top: 26px;
 
   width: 783px;

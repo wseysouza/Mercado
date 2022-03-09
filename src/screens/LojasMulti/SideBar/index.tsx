@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 
-import { Tab, TabProps } from './Tab';
+import { Tab } from './Tab';
 import { Wrapper } from './styles';
 
-import { CityProps } from "@hooks/multi";
+import { CityProps, useMulti } from "@hooks/multi";
 
 
 interface SideBarProps {
@@ -11,13 +11,21 @@ interface SideBarProps {
   cities: CityProps[];
 }
 
-export const SideBar = ({ onPress, cities }: SideBarProps) => {
+export const SideBar = () => {
+  const { cities, setChangeStatus } = useMulti();
+
+
+  const changeCity = useCallback((city: string) => {
+    console.log(cities)
+    setChangeStatus(city, cities);
+  }, [cities])
+
 
 
   return (
     <Wrapper>
       {cities && cities.map(item => (
-        <Tab key={item.cidade} name={item.cidade} onPress={() => onPress(item.cidade)} active={item.active} />
+        <Tab key={item.cidade} name={item.cidade} onPress={() => changeCity(item.cidade)} active={item.active} />
       ))}
     </Wrapper>
   );

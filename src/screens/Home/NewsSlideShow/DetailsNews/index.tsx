@@ -15,7 +15,7 @@ export const DetailsNews = ({ currentNews }: DetailsNewsProps) => {
     <Wrapper key={currentNews.anuncio_id}>
       <h1>{currentNews.titulo}</h1>
       <Item key={currentNews.anuncio_id}>
-        <Image className="img" src={currentNews.imagem} alt={currentNews.titulo} layout='fill' />
+        {currentNews.imagem && (<Image className="img" src={currentNews.imagem} alt={currentNews.titulo} layout='fill' />)}
       </Item>
       <span>{currentNews.descricao}</span>
       {/* {currentNews?.link && (<a href={currentNews.link} target="_blank">Acessar Link</a>)} */}

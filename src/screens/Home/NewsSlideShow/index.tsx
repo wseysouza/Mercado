@@ -69,11 +69,11 @@ export const NewsSlideShow: React.FC = () => {
             <NewsBox key={data.anuncio_id} onClick={() => handleModal(!showModal, data)}>
               <AbstractNews>{data.titulo}</AbstractNews>
               <Item key={data.anuncio_id}>
-                <Image
+                {data.imagem && (<Image
                   className='img'
                   src={data.imagem}
                   layout='fill'
-                />
+                />)}
               </Item>
             </NewsBox>
 

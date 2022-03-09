@@ -70,6 +70,7 @@ export interface ParameterSiteProps {
   politica_privacidade_id: number,
   termo_uso_id: number,
   texto: string,
+  textopaginacontato: string,
   titulo: string,
   titulo_video: string,
   url_trabalheconosco: string,
@@ -104,6 +105,7 @@ export interface StoresProps {
   cnpj: string,
   complemento: string,
   endereco: string,
+  imagem: string,
   fone_ddd: string,
   fone_numero: string,
   horario_atendimento1: string,
@@ -117,17 +119,22 @@ export interface StoresProps {
   periodo_atendimento1: string,
   periodo_atendimento2: string,
   periodo_atendimento3: string,
-  uf: string
+  uf: string,
+  statusMap: boolean,
+  selected: boolean
 }
 
 export interface CityProps {
-  cidade: string,
-  active?: boolean;
+  storeOpen?: boolean,
+  cidade?: string,
+  active?: boolean,
+  id?: number | string,
 }
 
 
 export interface MultiContextData {
   products: ProductProps[];
+  productsOwnBrand: ProductProps[];
   shops: ShoppProps[];
   cards: CardsProps[];
   banners: CardBannerProps[];
@@ -136,7 +143,10 @@ export interface MultiContextData {
   News: NewsProps[];
   terms: TermsProps;
   stores: StoresProps[];
-  city: CityProps[];
+  dropdown: StoresProps[];
+  cities: CityProps[];
+  cityCurrent: string;
+  findStore: StoresProps[];
   getListProduct(): Promise<void>;
   getListShop(): Promise<void>;
   getListCard(): Promise<void>;
@@ -145,14 +155,16 @@ export interface MultiContextData {
   getListParameterSite(): Promise<void>;
   getListNews(): Promise<void>;
   getListTerms(): Promise<void>;
-  getListStores: ({ cidade }: CityProps) => {};
+  getListStores: ({ storeOpen, cidade, id }: CityProps) => {};
   getListCity(): Promise<void>;
+  setChangeStatus: (cidade: string, citiesCurrent: CityProps[]) => void;
 }
 
 const MultiContext = createContext<MultiContextData>({} as MultiContextData)
 
 export const MultiProvider: React.FC = ({ children }) => {
   const [products, setProducts] = useState<ProductProps[]>([]);
+  const [productsOwnBrand, setProductsOwnBrand] = useState<ProductProps[]>([]);
   const [shops, setShops] = useState<ShoppProps[]>([]);
   const [cards, setCards] = useState<CardsProps[]>([]);
   const [banners, setBanner] = useState<CardBannerProps[]>([]);
@@ -161,7 +173,10 @@ export const MultiProvider: React.FC = ({ children }) => {
   const [News, setNews] = useState<NewsProps[]>([]);
   const [terms, setTerms] = useState<TermsProps>();
   const [stores, setStores] = useState<StoresProps[]>([]);
-  const [city, setCity] = useState<CityProps[]>([]);
+  const [dropdown, setDropdown] = useState<StoresProps[]>([]);
+  const [cities, setCities] = useState<CityProps[]>([]);
+  const [cityCurrent, setCityCurrent] = useState<string>("");
+  const [findStore, setFindStore] = useState<StoresProps[]>([]);
 
 
   const getToken = async () => {
@@ -181,13 +196,20 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    const { data: { listaofertaespecial } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=especial&categoriaproduto_id', {
+    const { data: { listaofertadiaria } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=diaria&categoriaproduto_id', {
       headers: {
         authorization: token
       }
     });
 
-    setProducts(listaofertaespecial);
+    const { data: { listaofertaespecial } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=especial&categoriaproduto_id&marcapropria=true', {
+      headers: {
+        authorization: token
+      }
+    });
+
+    setProducts(listaofertadiaria);
+    setProductsOwnBrand(listaofertaespecial);
   };
 
   const getListShop = useCallback(async () => {
@@ -316,15 +338,7 @@ export const MultiProvider: React.FC = ({ children }) => {
     setTerms(termo);
   };
 
-
-
-
-
-
-
-  const getListStores = async ({ cidade }) => {
-
-    console.log(">>> city", cidade)
+  const getListStores = async ({ storeOpen, cidade, id }: CityProps) => {
 
     const token = await getToken();
 
@@ -332,20 +346,67 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    const { data: { lojas } } = await api.get(`loja?somentelojasdomingo=false&cidade=${cidade}&idloja`, {
-      headers: {
-        authorization: token
-      }
-    });
 
-    setStores(lojas);
+    if (cidade && !id) {
+      const { data: { lojas } } = await api.get(`loja?somentelojasdomingo=false&cidade=${cidade}&idloja`, {
+        headers: {
+          authorization: token
+        }
+      });
+      setStores(lojas);
+      setDropdown(lojas);
+    }
+
+    else if (cidade && id) {
+      const { data: { lojas } } = await api.get(`loja?somentelojasdomingo=false&cidade=${cidade}&idloja=${id}`, {
+        headers: {
+          authorization: token
+        }
+      });
+      setStores(lojas);
+    }
+
+    else if (storeOpen) {
+      const { data: { lojas } } = await api.get(`loja?somentelojasdomingo=${storeOpen}&cidade=&idloja`, {
+        headers: {
+          authorization: token
+        }
+      });
+      setStores(lojas);
+    }
+
+    else {
+      const { data: { lojas } } = await api.get(`loja?somentelojasdomingo&cidade&idloja`, {
+        headers: {
+          authorization: token
+        }
+      });
+      setFindStore(lojas);
+    }
+
+    // console.log(`loja?somentelojasdomingo=${storeOpen}&cidade=${cidade}&idloja=${id}`)
+
   };
 
 
+  const setChangeStatus = useCallback((cidade: string, citiesCurrent: CityProps[]) => {
+
+    const newCitys = citiesCurrent.map(city => {
+
+      if (city.cidade === cidade) {
+        setCityCurrent(city.cidade);
+        return { ...city, active: true }
+      }
+      return { ...city, active: false };
+    })
+
+    setCities(newCitys);
 
 
+  }, [])
 
-  const getListCity = async () => {
+
+  const getListCity = useCallback(async () => {
 
     const token = await getToken();
 
@@ -353,19 +414,22 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    const { data: { cidade } } = await api.get('get_cidade', {
+    const { data: { cidade: cidades } } = await api.get('get_cidade', {
       headers: {
         authorization: token
       }
     });
 
-    setCity(cidade);
-  };
+    setChangeStatus(cidades[0].cidade, cidades);
+    setCityCurrent(cidades[0].cidade);
+  }, [])
+
 
 
   return (
     <MultiContext.Provider value={{
       products,
+      productsOwnBrand,
       shops,
       cards,
       banners,
@@ -374,7 +438,10 @@ export const MultiProvider: React.FC = ({ children }) => {
       News,
       terms,
       stores,
-      city,
+      dropdown,
+      cities,
+      cityCurrent,
+      findStore,
       getListProduct,
       getListShop,
       getListCard,
@@ -385,6 +452,7 @@ export const MultiProvider: React.FC = ({ children }) => {
       getListTerms,
       getListStores,
       getListCity,
+      setChangeStatus,
     }}>
       {children}
     </MultiContext.Provider>

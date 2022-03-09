@@ -24,13 +24,6 @@ export const Contato: React.FC = () => {
     getListParameterSite();
   }, [])
 
-  /*
-  {"facebook.com/multimercados"}
-  {"instagram.com/redemultimercados"}
-  {"atendimento@multimercados.com.br"}
-  */
-
-  const router = useRouter()
 
   return (
     <>
@@ -38,12 +31,7 @@ export const Contato: React.FC = () => {
         <HeaderTab title="Contato" />
         <Header>
           <h1>Multi Contato</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore.
-          </p>
+          <p>{parameterSite.textopaginacontato}</p>
         </Header>
 
         <ContactBox>

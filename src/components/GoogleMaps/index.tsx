@@ -1,13 +1,14 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   GoogleMap,
-  DistanceMatrixService,
   DirectionsService,
   DirectionsRenderer,
 } from "@react-google-maps/api";
-import { Map, Address, AddressField } from "./styles";
+import { Map } from "./styles";
 
 export interface MapPageProps {}
+
+
 
 export const GoogleMaps = ({ origin, dest }) => {
 
@@ -49,6 +50,7 @@ export const GoogleMaps = ({ origin, dest }) => {
   const onLoadB = (ref: google.maps.places.SearchBox) => {
     setSearchBoxB(ref);
   };
+
 
   // const onPlacesChangedA = () => {
   //   console.log('searchBoxA >> ', searchBoxA);
@@ -96,13 +98,14 @@ export const GoogleMaps = ({ origin, dest }) => {
   //   }
   // };
 
+
+
   const directionsServiceOptions =
     // @ts-ignore
     React.useMemo<google.maps.DirectionsRequest>(() => {
 
 
-      console.log('test >> ', origin,
-        destination)
+      console.log('test >> ', origin, destination)
 
       return {
         origin,
@@ -111,6 +114,8 @@ export const GoogleMaps = ({ origin, dest }) => {
         // provideRouteAlternatives: { origin, destination },
       };
     }, [origin, destination]);
+
+
 
   const directionsCallback = React.useCallback((res) => {
 
@@ -121,7 +126,9 @@ export const GoogleMaps = ({ origin, dest }) => {
     } else {
       console.log(' res >>> ', res);
     }
-  }, []);
+  }, [origin, destination]);
+
+
 
   const directionsRendererOptions = React.useMemo<any>(() => {
     return {
@@ -177,7 +184,6 @@ export const GoogleMaps = ({ origin, dest }) => {
             options={directionsServiceOptions}
             callback={directionsCallback}
           />
-
         )}
 
         {response && directionsRendererOptions && (

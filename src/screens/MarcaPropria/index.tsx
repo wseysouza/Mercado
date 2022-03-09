@@ -9,7 +9,7 @@ import { useMulti } from '@hooks/multi';
 
 export const MarcaPropria: React.FC = () => {
 
-  const { getListProduct, products } = useMulti();
+  const { getListProduct, productsOwnBrand } = useMulti();
 
   useEffect(() => {
     getListProduct();
@@ -20,7 +20,7 @@ export const MarcaPropria: React.FC = () => {
       <HeaderTab title="Marca Própria" />
       <Title>Produtos Marca Própria</Title>
       <ListBox>
-        {products.length > 0 && products.map(({ name, priceNew, produto_id, img }) => <ProductBox key={produto_id} url={img} title={name} value={priceNew} />)}
+        {productsOwnBrand.length > 0 && productsOwnBrand.map(({ name, priceNew, produto_id, img }) => <ProductBox key={produto_id} url={img} title={name} value={priceNew} />)}
       </ListBox>
     </Container>
   );

@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 
 export const Header = styled.div`
   flex-direction: column;
+  width:100% ;
 
 
   > h1{

@@ -1,22 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Label, List, Wrapper } from './styles';
 
-interface ItemProps {
-  id: string;
-  name: string;
-  selected?: boolean | false;
-  src?: string;
-}
+import { StoresProps, useMulti } from "@hooks/multi";
+
+
 
 interface DropdownProps {
   label?: string;
   colorLabel?: string;
-  items: ItemProps[];
+  items: StoresProps[];
 }
 
 export const Dropdown = ({ label, colorLabel, items }: DropdownProps) => {
+
   const [store, setStore] = useState('')
+
+  const { getListStores } = useMulti();
+
+  useEffect(() => {
+    items.map((item) => {
+      if (item.nome === store) {
+        getListStores({ cidade: item.cidade, id: item.id_loja })
+      }
+    })
+  }, [store])
+
 
   return (
     <Wrapper>
@@ -27,7 +36,7 @@ export const Dropdown = ({ label, colorLabel, items }: DropdownProps) => {
         onChange={e => setStore(e.target.value)}
       >
         {items && items.map((item) => (
-          <option key={item.id} selected={item.selected}>{item.name}</option>
+          <option key={item.id_loja} selected={item.selected} >{item.nome}</option>
         ))}
       </List>
     </Wrapper>

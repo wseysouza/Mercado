@@ -30,7 +30,7 @@ const Banners: React.FC = () => {
             <h1>{titulo}</h1>
           </Left>
           <Right>
-            <Image className="img" src={imagem} layout='fill' />
+            {imagem && (<Image className="img" src={imagem} layout='fill' />)}
           </Right>
         </Banner>)
       }
