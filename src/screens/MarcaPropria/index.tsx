@@ -20,7 +20,7 @@ export const MarcaPropria: React.FC = () => {
       <HeaderTab title="Marca Própria" />
       <Title>Produtos Marca Própria</Title>
       <ListBox>
-        {productsOwnBrand.length > 0 && productsOwnBrand.map(({ name, priceNew, priceOld, produto_id, img, discount }) => <ProductBox key={produto_id} url={img} title={name} value={priceNew} valueOld={priceOld} discount={discount} />)}
+        {productsOwnBrand.length > 0 && productsOwnBrand.map(({ name, priceNew, priceOld, produto_id, img, discount, oferta_exclusiva_app }) => <ProductBox key={produto_id} url={img} title={name} value={priceNew} valueOld={priceOld} discount={discount} exclusiveAppOffer={oferta_exclusiva_app} />)}
       </ListBox>
     </Container>
   );
