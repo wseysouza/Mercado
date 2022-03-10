@@ -21,6 +21,7 @@ export interface ProductProps {
   like: string,
   limit: string,
   name: string,
+  oferta_exclusiva_app: boolean,
   priceNew: string,
   priceOld: string,
   produto_id: number,

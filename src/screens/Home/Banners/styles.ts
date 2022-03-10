@@ -43,11 +43,13 @@ export const Left = styled.div`
     font-size: 20px;
     font-weight: bold;
     color: ${props => `${props.color}`};
+    text-align: center;
   }
 
   h3{
     font-size: 20px;
     color: ${colors.nardoGray};
+    text-align: center;
 
   }
 

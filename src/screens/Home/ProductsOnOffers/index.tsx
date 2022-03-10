@@ -15,7 +15,26 @@ export const ProductsOnOffers = ({ products }: ProductsOnOffersProps) => {
     <Container>
       <Title>Ofertas</Title>
       <ListBox>
-        {products !== undefined && products.map(({ name, priceNew, produto_id, img }) => <ProductBox key={produto_id} url={img} title={name} value={priceNew} />)}
+        {products !== undefined && products.map
+          (({
+            name,
+            priceNew,
+            priceOld,
+            produto_id,
+            img,
+            discount,
+            oferta_exclusiva_app }) =>
+            <ProductBox
+              key={produto_id}
+              url={img}
+              title={name}
+              value={priceNew}
+              valueOld={priceOld}
+              discount={discount}
+              exclusiveAppOffer={oferta_exclusiva_app}
+            />
+          )
+        }
       </ListBox>
     </Container>
   );

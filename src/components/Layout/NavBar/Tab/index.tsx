@@ -6,7 +6,7 @@ import { Wrapper } from './styles';
 
 interface TabProps {
   name: string;
-  href: string;
+  href?: string;
   active?: boolean;
   workWithUs?: string;
   target?: string;

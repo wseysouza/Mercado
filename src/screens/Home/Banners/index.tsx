@@ -14,18 +14,18 @@ const Banners: React.FC = () => {
     getListPromotion();
   }, [])
 
-  // const colors = {
-  //   "HortiFruti": "#d68b36",
-  //   "Só hoje": "#8B7956",
-  //   "Cortes de Carnes": '#9e6262',
-  //   "Marca própria": "#352506",
-  // }
+  const colors = {
+    "HortiFruti": "#d68b36",
+    "Só hoje": "#8B7956",
+    "Cortes de Carnes": '#9e6262',
+    "Marca própria": "#352506",
+  }
 
   return (
     <ListBox>
       {promotion.map(({ id, imagem, periodo, titulo }: PromotionProps) =>
         <Banner key={id}>
-          <Left /*color={colors[titulo]}*/>
+          <Left color={colors[titulo]}>
             <h3>{periodo}</h3>
             <h1>{titulo}</h1>
           </Left>

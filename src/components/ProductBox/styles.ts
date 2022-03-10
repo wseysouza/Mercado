@@ -4,8 +4,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 
+  position: relative;
+
   width: 239px;
-  height: 270px;
+  height: 280px;
   padding: 10px ;
 
   border-radius: 10px;
@@ -22,14 +24,10 @@ export const AnchorImage = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-
-
   background: transparent;
 
   .img {
-
     object-fit: contain !important;
-
   }
 `;
 
@@ -58,3 +56,29 @@ export const Value = styled.span`
 `;
 
 
+export const ValueOld = styled.span`
+  width:100%;
+  height: 38px;
+  text-align: center;
+  color: ${colors.nardoGray};
+  text-decoration: line-through;
+  font-size: 15px;
+`;
+
+
+export const Save = styled.span`
+  width:100%;
+  height: 38px;
+  text-align: center;
+  color: ${colors.primary};
+  font-size: 15px;
+`;
+
+
+export const Logo = styled.img`
+  width: 130px;
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+`;
