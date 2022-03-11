@@ -24,6 +24,7 @@ export const SlideShow: React.FC = () => {
   }, [])
 
 
+
   return (
     <Wrapper>
       <Carousel
@@ -35,15 +36,17 @@ export const SlideShow: React.FC = () => {
         nextIcon={<MdKeyboardArrowRight size={30} />}
       >
         {banners.map(({ id, imagem_caminho, descricao }: CardBannerProps) => (
-          <Item key={id} >
-            {imagem_caminho && (<Image
-              id='img'
-              className="d-block w-100"
-              src={`${imagem_caminho}`}
-              alt={`${descricao}`}
-              layout='fill'
-            />)}
-          </Item>
+          imagem_caminho.length > 0 && (
+            <Item key={id} >
+              <Image
+                id='img'
+                className="d-block w-100"
+                src={`${imagem_caminho}`}
+                alt={`${descricao}`}
+                layout='fill'
+              />
+            </Item>
+          )
         ))}
       </Carousel>
     </Wrapper>
