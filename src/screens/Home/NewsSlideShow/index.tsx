@@ -41,8 +41,6 @@ export const NewsSlideShow: React.FC = () => {
     getListNews();
   }, [])
 
-  console.log("novidaes", News)
-
   const [showModal, setShowModal] = useState(false);
 
   const [currentNews, setCurrentNews] = useState<NewsProps>(null)

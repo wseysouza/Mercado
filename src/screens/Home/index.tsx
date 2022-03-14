@@ -15,11 +15,13 @@ import { useMulti } from '@hooks/multi';
 
 
 export const Home = () => {
-  const { getListProduct, products } = useMulti();
+  const { getListProduct, getListCard, getListCity, products } = useMulti();
 
 
   useEffect(() => {
-    getListProduct();
+    getListProduct(false);
+    getListCard();
+    getListCity();
   }, [])
 
   return (

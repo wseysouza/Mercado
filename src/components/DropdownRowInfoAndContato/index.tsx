@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter, NextRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 import { Label, List, Wrapper } from './styles';
 
@@ -13,7 +13,7 @@ interface DropdownProps {
 
 const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
 
-  const { findStore, getListStores } = useMulti();
+  const { findStore, cities, getListStores, setChangeStatus } = useMulti();
 
   useEffect(() => {
     getListStores({})
@@ -23,7 +23,11 @@ const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
   const router = useRouter()
 
   const handleChange = (value: string) => {
-    router.push(value)
+    console.log(">>>", value, cities)
+
+    router.push("lojasmulti")
+
+    setChangeStatus(value, cities);
   };
 
   return (
@@ -34,7 +38,7 @@ const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
         onChange={event => handleChange(event.target.value)}
       >
         {findStore && findStore.map((item) => (
-          <option key={item.id_loja} value={"lojasmulti"} >{item.nome}</option>
+          <option key={item.id_loja} value={item.cidade} >{item.nome}</option>
         ))}
       </List>
     </Wrapper>

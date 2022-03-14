@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-
-
 export const Content = styled.div`
   width: 1064px;
   margin: 0 auto;
@@ -25,6 +23,7 @@ export const Item = styled.div`
   height: 40px;
   width: 75px;
   display: flex;
+  margin-right: 6px;
 
   justify-content: left;
 

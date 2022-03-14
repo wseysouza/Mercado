@@ -2,7 +2,7 @@ import { colors } from '@styles/colors';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
 
   display: flex;

@@ -5,7 +5,7 @@ import { RowInfo } from './RowInfo';
 import { Wrapper } from './styles';
 
 //import data from './data.json';
-//import { LGPD } from './LGPD';
+import { LGPD } from './LGPD';
 
 
 
@@ -20,7 +20,7 @@ export const Footer = () => {
     <Wrapper>
       <RowInfo />
       <RowCards />
-      {/*<LGPD />*/}
+      <LGPD />
     </Wrapper>
   );
 };

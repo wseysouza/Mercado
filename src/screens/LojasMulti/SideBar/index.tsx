@@ -16,7 +16,6 @@ export const SideBar = () => {
 
 
   const changeCity = useCallback((city: string) => {
-    console.log(cities)
     setChangeStatus(city, cities);
   }, [cities])
 

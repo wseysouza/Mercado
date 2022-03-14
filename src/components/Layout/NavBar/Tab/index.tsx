@@ -13,6 +13,7 @@ interface TabProps {
 }
 
 export const Tab = ({ name, href, active, workWithUs, target }: TabProps) => {
+  // console.log("LinKK",)
   return (
     <Link href={href} scroll>
       <Wrapper href={workWithUs} active={active} target={target}>

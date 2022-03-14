@@ -12,7 +12,7 @@ export const MarcaPropria: React.FC = () => {
   const { getListProduct, productsOwnBrand } = useMulti();
 
   useEffect(() => {
-    getListProduct();
+    getListProduct(true);
   }, [])
 
   return (

@@ -148,7 +148,7 @@ export interface MultiContextData {
   cities: CityProps[];
   cityCurrent: string;
   findStore: StoresProps[];
-  getListProduct(): Promise<void>;
+  getListProduct(ownBrand: boolean): Promise<void>;
   getListShop(): Promise<void>;
   getListCard(): Promise<void>;
   getListBanner(): Promise<void>;
@@ -193,7 +193,7 @@ export const MultiProvider: React.FC = ({ children }) => {
     return token
   };
 
-  const getListProduct = async () => {
+  const getListProduct = async (ownBrand: boolean) => {
 
     const token = await getToken();
 
@@ -201,20 +201,21 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    const { data: { listaofertadiaria } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=diaria&categoriaproduto_id', {
-      headers: {
-        authorization: token
-      }
-    });
-
-    const { data: { listaofertaespecial } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=especial&categoriaproduto_id&marcapropria=true', {
-      headers: {
-        authorization: token
-      }
-    });
-
-    setProducts(listaofertadiaria);
-    setProductsOwnBrand(listaofertaespecial);
+    if (ownBrand) {
+      const { data: { listaofertadiaria } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=diaria&categoriaproduto_id&marcapropria=true', {
+        headers: {
+          authorization: token
+        }
+      });
+      setProductsOwnBrand(listaofertadiaria);
+    } else {
+      const { data: { listaofertadiaria } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=diaria&categoriaproduto_id', {
+        headers: {
+          authorization: token
+        }
+      });
+      setProducts(listaofertadiaria);
+    }
   };
 
   const getListShop = useCallback(async () => {
