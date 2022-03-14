@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+import { BASE_API } from './environment';
+
 export const api = axios.create({
-  baseURL: 'https://ahomolmulti.classcode.com.br/v1/',
+  baseURL: BASE_API,
   headers: {
     'Content-Type': 'application/json',
   },

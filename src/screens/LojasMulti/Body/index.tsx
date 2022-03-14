@@ -13,7 +13,6 @@ import { useMulti } from "@hooks/multi";
 
 
 export const Body = () => {
-
   const {
     stores,
     cityCurrent,
@@ -56,7 +55,7 @@ export const Body = () => {
                   <span>{item.nome}</span>
                   <InfosShopp
                     address={`${item.endereco}, nº ${item.numero}, Bairro ${item.bairro}, ${item.cidade} - ${item.uf}`}
-                    hours={item.periodo_atendimento1}
+                    hours={item.periodo_atendimento1 && (`${item.periodo_atendimento1}, das ${item.horario_atendimento1}`)}
                     phone={`(${item.fone_ddd}) ${item.fone_numero}`} />
 
                   <Search id={item.id_loja} searchAddress={searchAddress} />

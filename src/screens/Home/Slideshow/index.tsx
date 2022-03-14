@@ -23,7 +23,7 @@ export const SlideShow: React.FC = () => {
     getListBanner();
   }, [])
 
-
+  console.log(banners)
 
   return (
     <Wrapper>
@@ -35,7 +35,7 @@ export const SlideShow: React.FC = () => {
         prevIcon={<MdKeyboardArrowLeft size={30} />}
         nextIcon={<MdKeyboardArrowRight size={30} />}
       >
-        {banners.map(({ id, imagem_caminho, descricao }: CardBannerProps) => (
+        {banners?.map(({ id, imagem_caminho, descricao }: CardBannerProps) => (
           imagem_caminho.length > 0 && (
             <Item key={id} >
               <Image

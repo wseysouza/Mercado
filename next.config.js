@@ -3,7 +3,7 @@ module.exports = withImages({
   webpack5: true,
   esModule: true,
   images: {
-    domains: ['homol.classcode.com.br'],
+    domains: ['repos.multimercados.com.br'],
     // disableStaticImages: true
   }
 })

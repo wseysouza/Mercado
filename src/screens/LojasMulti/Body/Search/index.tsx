@@ -6,8 +6,7 @@ import { Autocomplete, LoadScript } from "@react-google-maps/api";
 import { Wrapper, Title, Text, ButtonSearch } from './styles';
 
 interface AddressProps {
-  id: string;
-  statusMap: boolean;
+  id: number;
 }
 
 export interface SearchProps {
@@ -37,7 +36,7 @@ export const Search = ({ id, searchAddress }: SearchProps) => {
         >
           <Input name="address" type="search" placeholder="Informe seu endereço" />
         </LoadScript>
-        <ButtonSearch type="submit" >COMO CHEGAR</ButtonSearch>
+        <ButtonSearch type="submit">COMO CHEGAR</ButtonSearch>
       </Form>
     </Wrapper>
   );

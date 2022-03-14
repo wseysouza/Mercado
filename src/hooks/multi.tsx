@@ -181,9 +181,13 @@ export const MultiProvider: React.FC = ({ children }) => {
 
 
   const getToken = async () => {
+    // const { data: { login: { token } } } = await login({
+    //   username: "joao@nada.com",
+    //   password: "12345678",
+    // })
     const { data: { login: { token } } } = await login({
-      username: "joao@nada.com",
-      password: "12345678",
+      username: "appsite@appsite",
+      password: "U0A8uGtxeO8I",
     })
 
     return token
@@ -260,13 +264,27 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    const { data: { banner } } = await api.get('get_banner', {
-      headers: {
-        authorization: token
-      }
-    });
 
-    setBanner(banner);
+    try {
+      const { data: { banner } } = await api.get('get_banner', {
+        headers: {
+          authorization: token
+        }
+      });
+      setBanner(banner);
+    } catch (error) {
+      console.log(">>>>>", error)
+    }
+
+    // const response = await api.get('get_banner', {
+    //   headers: {
+    //     authorization: token
+    //   }
+    // });
+
+    // console.log(">>>>", response)
+
+    // setBanner(banner);
 
   };
 
