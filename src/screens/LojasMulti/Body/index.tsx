@@ -10,9 +10,11 @@ import Image from 'next/image';
 
 import { useMulti } from "@hooks/multi";
 
+import { useRouter } from 'next/router';
 
 
 export const Body = () => {
+
   const {
     stores,
     cityCurrent,
@@ -20,11 +22,21 @@ export const Body = () => {
     getListStores,
   } = useMulti();
 
-
+  const router = useRouter();
 
   useEffect(() => {
-    getListStores({ cidade: cityCurrent });
+    if (router.asPath === "/lojasmulti" || router.asPath === "/lojasmulti#main") {
+      getListStores({ cidade: cityCurrent });
+      router.push("/lojasmulti")
+    } else {
+      router.push("/lojasmulti")
+    }
   }, [cityCurrent])
+
+  useEffect(() => {
+    router.push("/lojasmulti")
+  }, [stores])
+
 
 
 

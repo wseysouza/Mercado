@@ -10,16 +10,17 @@ import { Content } from './styles';
 
 import { useRouter } from 'next/router';
 
+
 export const LojasMulti: React.FC = () => {
+
   const { cities, cityCurrent, getListCity } = useMulti();
   const router = useRouter();
 
-  console.log(">>>", router.asPath)
-
   useEffect(() => {
-    getListCity();
+    if (router.asPath === "/lojasmulti" || router.asPath === "/lojasmulti#main") {
+      getListCity();
+    }
   }, [])
-
 
   return (
     <Container>

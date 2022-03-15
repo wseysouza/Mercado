@@ -130,6 +130,7 @@ export interface CityProps {
   cidade?: string,
   active?: boolean,
   id?: number | string,
+  drop?: boolean,
 }
 
 
@@ -358,7 +359,7 @@ export const MultiProvider: React.FC = ({ children }) => {
     setTerms(termo);
   };
 
-  const getListStores = async ({ storeOpen, cidade, id }: CityProps) => {
+  const getListStores = async ({ storeOpen, cidade, id, drop }: CityProps) => {
 
     const token = await getToken();
 
@@ -383,6 +384,15 @@ export const MultiProvider: React.FC = ({ children }) => {
           authorization: token
         }
       });
+
+      if (drop) {
+        const { data: { lojas } } = await api.get(`loja?somentelojasdomingo=false&cidade=${cidade}&idloja`, {
+          headers: {
+            authorization: token
+          }
+        });
+        setDropdown(lojas);
+      }
       setStores(lojas);
     }
 
@@ -403,11 +413,7 @@ export const MultiProvider: React.FC = ({ children }) => {
       });
       setFindStore(lojas);
     }
-
-    // console.log(`loja?somentelojasdomingo=${storeOpen}&cidade=${cidade}&idloja=${id}`)
-
   };
-
 
   const setChangeStatus = useCallback((cidade: string, citiesCurrent: CityProps[]) => {
 
@@ -424,7 +430,6 @@ export const MultiProvider: React.FC = ({ children }) => {
 
 
   }, [])
-
 
   const getListCity = useCallback(async () => {
 

@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   height: fit-content;
   width: 100%;
   margin: 0 auto;
+  background-color: ${colors.white};
 `;
 
 export const Content = styled.div`
@@ -24,7 +25,6 @@ export const Item = styled.div`
   width: 75px;
   display: flex;
   margin-right: 6px;
-
   justify-content: left;
 
   .img {

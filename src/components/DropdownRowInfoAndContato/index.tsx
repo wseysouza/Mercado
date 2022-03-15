@@ -13,21 +13,25 @@ interface DropdownProps {
 
 const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
 
-  const { findStore, cities, getListStores, setChangeStatus } = useMulti();
+  const { findStore, cities, getListStores, setChangeStatus, getListCity } = useMulti();
 
   useEffect(() => {
     getListStores({})
+    getListCity();
   }, [])
 
 
   const router = useRouter()
 
   const handleChange = (value: string) => {
-    console.log(">>>", value, cities)
 
-    router.push("lojasmulti")
-
-    setChangeStatus(value, cities);
+    findStore.map((item) => {
+      if (item.nome === value) {
+        setChangeStatus(item.cidade, cities)
+        getListStores({ cidade: item.cidade, id: item.id_loja, drop: true })
+      }
+    })
+    router.push(`lojasmulti#${value}`)
   };
 
   return (
@@ -38,7 +42,7 @@ const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
         onChange={event => handleChange(event.target.value)}
       >
         {findStore && findStore.map((item) => (
-          <option key={item.id_loja} value={item.cidade} >{item.nome}</option>
+          <option key={item.id_loja} value={item.nome} >{item.nome}</option>
         ))}
       </List>
     </Wrapper>
