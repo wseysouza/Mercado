@@ -33,6 +33,7 @@ export const Body = () => {
     }
   }, [cityCurrent])
 
+
   useEffect(() => {
     router.push("/lojasmulti")
   }, [stores])
