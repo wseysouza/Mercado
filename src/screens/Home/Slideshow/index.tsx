@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 
 import { Carousel } from 'react-bootstrap';
 
-import { Wrapper, Item } from './styles';
+import { Wrapper, Item, LinkImage } from './styles';
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import { useMulti, CardBannerProps } from '@hooks/multi';
 
 import Image from 'next/image';
+import Link from 'next/link';
+
+
 
 export const SlideShow: React.FC = () => {
   const [index, setIndex] = useState(0);
@@ -23,7 +26,7 @@ export const SlideShow: React.FC = () => {
     getListBanner();
   }, [])
 
-  console.log(banners)
+  // console.log(banners[0].url_pagina)
 
   return (
     <Wrapper>
@@ -35,7 +38,7 @@ export const SlideShow: React.FC = () => {
         prevIcon={<MdKeyboardArrowLeft size={30} />}
         nextIcon={<MdKeyboardArrowRight size={30} />}
       >
-        {banners?.map(({ id, imagem_caminho, descricao }: CardBannerProps) => (
+        {banners?.map(({ id, imagem_caminho, descricao, url_pagina }: CardBannerProps) => (
           imagem_caminho.length > 0 && (
             <Item key={id} >
               <Image
@@ -45,6 +48,15 @@ export const SlideShow: React.FC = () => {
                 alt={`${descricao}`}
                 layout='fill'
               />
+              {url_pagina &&
+                (
+                  <Link href={url_pagina}>
+                    <a target="_blank">
+                      <LinkImage></LinkImage>
+                    </a>
+                  </Link>
+                )
+              }
             </Item>
           )
         ))}

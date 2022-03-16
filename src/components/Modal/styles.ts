@@ -4,7 +4,12 @@ import { IconBaseProps } from 'react-icons';
 import { shade } from 'polished';
 import { scrollbarThin } from '@styles/scrollbar';
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  screenHeight: number;
+  screenWidth: number;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -17,7 +22,8 @@ export const Wrapper = styled.div`
   z-index: 100;
 
   @media (max-width: 1064px) {
-    width: 1064px;
+    width: ${p => p.screenWidth}px;
+    height: ${p => p.screenHeight}px;
   }
 `;
 

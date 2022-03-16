@@ -27,7 +27,7 @@ export const Institucional = () => {
           <Title>{parameterSite?.titulo}</Title>
           <Box>
             <Text>
-              {parameterSite?.texto}
+              {`Ola </br>${parameterSite?.texto}`}
             </Text>
             <BoxImage>
               <Image className="img" src={parameterSite?.imagem} alt="institucional" layout='fill' />

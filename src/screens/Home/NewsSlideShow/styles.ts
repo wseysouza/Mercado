@@ -1,3 +1,4 @@
+import { colors } from '@styles/colors';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -38,5 +39,7 @@ export const Item = styled.div`
 export const AbstractNews = styled.span`
   width: 100%;
   margin-bottom: 10px;
+  color: ${colors.primary};
+  font-weight: bold;
 `;
 

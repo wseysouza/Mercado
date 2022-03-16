@@ -49,6 +49,7 @@ export interface CardBannerProps {
   descricao: string,
   id: number,
   imagem_caminho: string,
+  url_pagina: string,
 }
 
 export interface PromotionProps {

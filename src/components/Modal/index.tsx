@@ -31,8 +31,20 @@ export const Modal = ({ show, onClose, icon, children }: ModalProps) => {
     onClose();
   };
 
+
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    const w = window;
+    setWidth(w.innerWidth);
+    setHeight(w.innerHeight);
+  }, [])
+
+
+
   const modalContent = show ? (
-    <Wrapper>
+    <Wrapper screenHeight={height} screenWidth={width}>
       <Body>
         <Header icon={icon}>
           {icon && (

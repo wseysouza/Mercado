@@ -8,7 +8,6 @@ width: 100%;
   margin-top: 29px;
   margin-bottom: 24px;
   font-weight: bold;
-
 `;
 
 export const Box = styled.div`
@@ -34,11 +33,10 @@ export const Text = styled.div`
   line-height: 19px;
   color: ${colors.nardoGray};
 
+  text-align: justify;
+
   margin-right: 17px;
 
-  > p {
-    margin-bottom: 15px;
-  }
 `;
 
 export const BoxVideo = styled.iframe`

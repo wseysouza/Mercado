@@ -68,3 +68,10 @@ export const Item = styled(CarouselItem)`
     object-fit: contain !important;
   }
 `;
+
+
+export const LinkImage = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`
