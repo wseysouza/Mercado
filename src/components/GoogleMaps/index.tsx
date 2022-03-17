@@ -3,8 +3,10 @@ import {
   GoogleMap,
   DirectionsService,
   DirectionsRenderer,
+  LoadScript,
 } from "@react-google-maps/api";
 import { Map } from "./styles";
+
 
 export interface MapPageProps {}
 
@@ -123,8 +125,9 @@ export const GoogleMaps = ({ origin, dest }) => {
 
     if (res !== null && res.status === "OK") {
       setResponse(res);
+      console.log(' resTruE >>> ', res);
     } else {
-      console.log(' res >>> ', res);
+      console.log(' resFalse >>> ', res);
     }
   }, [origin, destination]);
 
@@ -141,19 +144,19 @@ export const GoogleMaps = ({ origin, dest }) => {
   //AIzaSyBF_tXJO8TcRzP_dNgD5T_XydVi9xZmSXo
   return (
     <Map>
-      {/* <LoadScript
+      <LoadScript
         googleMapsApiKey="AIzaSyBF_tXJO8TcRzP_dNgD5T_XydVi9xZmSXo"
         libraries={["places"]}
-      > */}
-      <GoogleMap
-
-        onLoad={onMapLoad}
-        mapContainerStyle={{ width: "100%", height: "100%" }}
-        center={position}
-        zoom={15}
-
       >
-        {/* <Address>
+        <GoogleMap
+
+          onLoad={onMapLoad}
+          mapContainerStyle={{ width: "100%", height: "100%" }}
+          center={position}
+          zoom={15}
+
+        >
+          {/* <Address>
             <StandaloneSearchBox
               onLoad={onLoadA}
               onPlacesChanged={onPlacesChangedA}
@@ -176,21 +179,21 @@ export const GoogleMaps = ({ origin, dest }) => {
             <button onClick={traceRoute}>Traçar rota</button>
           </Address> */}
 
-        {/* {!response && pointA && <Marker position={pointA} />}
+          {/* {!response && pointA && <Marker position={pointA} />}
           {!response && pointB && <Marker position={pointB} />} */}
 
-        {origin && destination && (
-          <DirectionsService
-            options={directionsServiceOptions}
-            callback={directionsCallback}
-          />
-        )}
+          {origin && destination && (
+            <DirectionsService
+              options={directionsServiceOptions}
+              callback={directionsCallback}
+            />
+          )}
 
-        {response && directionsRendererOptions && (
-          <DirectionsRenderer options={directionsRendererOptions} />
-        )}
-      </GoogleMap>
-      {/* </LoadScript> */}
+          {response && directionsRendererOptions && (
+            <DirectionsRenderer options={directionsRendererOptions} />
+          )}
+        </GoogleMap>
+      </LoadScript>
     </Map >
   );
 };

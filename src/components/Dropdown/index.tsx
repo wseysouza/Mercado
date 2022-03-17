@@ -36,7 +36,7 @@ export const Dropdown = ({ label, colorLabel, items }: DropdownProps) => {
         onChange={e => setStore(e.target.value)}
       >
         {items && items.map((item) => (
-          <option key={item.id_loja} selected={item.selected} >{item.nome}</option>
+          <option key={item.id_loja} value={item.nome} >{item.nome}</option>
         ))}
       </List>
     </Wrapper>

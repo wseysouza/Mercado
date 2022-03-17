@@ -35,13 +35,17 @@ export const Body = styled.div`
 
   padding: 20px 30px;
 
+  @media (max-width: 1064px) {
+    width: 50%;
+    height: 50%;
+  }
 `;
 
 export const Content = styled.div`
   height: calc(100% - 55px);
 
-  overflow-y: auto;
-  ${scrollbarThin}
+  /* overflow-y: auto;
+  ${scrollbarThin} */
 `;
 
 interface HeaderProps {

@@ -9,11 +9,12 @@ import { GoogleMaps } from '@components/GoogleMaps'
 import Image from 'next/image';
 
 import { useMulti } from "@hooks/multi";
-
 import { useRouter } from 'next/router';
 
 
 export const Body = () => {
+
+
 
   const {
     stores,
@@ -24,6 +25,8 @@ export const Body = () => {
 
   const router = useRouter();
 
+
+
   useEffect(() => {
     if (router.asPath === "/lojasmulti" || router.asPath === "/lojasmulti#main") {
       getListStores({ cidade: cityCurrent });
@@ -32,6 +35,7 @@ export const Body = () => {
       router.push("/lojasmulti")
     }
   }, [cityCurrent])
+
 
 
   useEffect(() => {
@@ -47,9 +51,7 @@ export const Body = () => {
 
   //endereço digitado na search esta no data
   const searchAddress = (data) => {
-
     setOrigin(data.address)
-
     setOpenMap(data.id);
   }
 
