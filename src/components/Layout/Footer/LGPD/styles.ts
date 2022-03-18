@@ -2,9 +2,14 @@ import { colors } from '@styles/colors';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  /* position: absolute; */
+  position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+`;
 
+export const Content = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;

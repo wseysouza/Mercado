@@ -28,15 +28,12 @@ export const BoxImage = styled.div`
 
 export const Text = styled.div`
   width: 508px;
-
   font-size: 14px;
   line-height: 19px;
   color: ${colors.nardoGray};
-
   text-align: justify;
-
   margin-right: 17px;
-
+  white-space: pre-line;
 `;
 
 export const BoxVideo = styled.iframe`
