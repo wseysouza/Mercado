@@ -14,8 +14,6 @@ export const LGPD: React.FC = () => {
       setEnableOrDisable(false)
     } else if (value === "rejeitar todos") {
       setEnableOrDisable(false)
-    } else {
-
     }
   }
 
@@ -26,7 +24,6 @@ export const LGPD: React.FC = () => {
           <p>Este site faz uso de cookies para melhorar sua experiência de navegação.</p>
           <Button type="button" enableOrDisableAllCookies={enableOrDisableAllCookies} title="aceitar todos" />
           <Button type="button" enableOrDisableAllCookies={enableOrDisableAllCookies} title="rejeitar todos" />
-          <Button type="button" enableOrDisableAllCookies={enableOrDisableAllCookies} title="personalizar" backgroundColor="transparent" titleColor={colors.secondary} />
         </Content>
       </Wrapper>
     )

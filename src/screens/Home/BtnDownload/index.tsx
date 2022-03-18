@@ -31,7 +31,7 @@ export const BtnDownload: React.FC = () => {
         <FaDownload />
         <span>ENCARTE PROMOCIONAL</span>
       </button>
-      <Modal show={showModal} onClose={() => handleModal(!showModal)}>
+      <Modal widthModal={90} show={showModal} onClose={() => handleModal(!showModal)}>
         <Booklet>
           {parameterSite && (<iframe src={parameterSite.encarte} />)}
         </Booklet>

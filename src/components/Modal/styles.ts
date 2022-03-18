@@ -9,6 +9,10 @@ interface WrapperProps {
   screenWidth: number;
 }
 
+interface BodyProps {
+  widthModal?: number;
+}
+
 export const Wrapper = styled.div<WrapperProps>`
   position: absolute;
   top: 0;
@@ -24,20 +28,22 @@ export const Wrapper = styled.div<WrapperProps>`
   @media (max-width: 1064px) {
     width: ${p => p.screenWidth}px;
     height: ${p => p.screenHeight}px;
+    position: fixed;
+    overflow-y: visible;
   }
 `;
 
-export const Body = styled.div`
+export const Body = styled.div<BodyProps>`
   background: white;
-  width: 50%;
-  height: 80%;
+  width: ${p => p.widthModal > 0 ? 80 : 50}%;
+  height: ${p => p.widthModal > 0 ? 90 : 80}%;
   border-radius: 15px;
 
   padding: 20px 30px;
 
   @media (max-width: 1064px) {
-    width: 50%;
-    height: 50%;
+    width: ${p => p.widthModal > 0 ? 90 : 50}%;
+    height: ${p => p.widthModal > 0 ? 90 : 30}%;
   }
 `;
 

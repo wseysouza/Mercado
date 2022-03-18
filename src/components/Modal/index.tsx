@@ -15,9 +15,10 @@ interface ModalProps {
   onClose: () => void;
   icon?: React.ComponentType<IconBaseProps>;
   children: string | React.ReactElement;
+  widthModal?: number
 }
 
-export const Modal = ({ show, onClose, icon, children }: ModalProps) => {
+export const Modal = ({ show, onClose, icon, children, widthModal = 0 }: ModalProps) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   const Icon = icon;
@@ -44,8 +45,8 @@ export const Modal = ({ show, onClose, icon, children }: ModalProps) => {
 
 
   const modalContent = show ? (
-    <Wrapper screenHeight={height} screenWidth={width}>
-      <Body>
+    <Wrapper screenHeight={height} screenWidth={width} >
+      <Body widthModal={widthModal}>
         <Header icon={icon}>
           {icon && (
             <IconLeft>
