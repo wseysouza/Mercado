@@ -11,9 +11,6 @@ interface ButtonProps {
 }
 
 export const Button = ({ type, title, backgroundColor, titleColor, enableOrDisableAllCookies }: ButtonProps) => {
-
-
-
   return (
     <Wrapper
       type={type}
