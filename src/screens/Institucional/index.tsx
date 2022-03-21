@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { GetStaticProps } from 'next';
 import { Container } from '@styles/theme';
 
 import { HeaderTab } from '@components/HeaderTab';
@@ -11,7 +12,6 @@ import Image from 'next/image';
 
 
 export const Institucional = () => {
-
   const { getListParameterSite, parameterSite } = useMulti();
 
   useEffect(() => {
@@ -42,4 +42,14 @@ export const Institucional = () => {
   );
 }
 
+export const getStaticProps: GetStaticProps = () => {
+  const { parameterSite } = useMulti();
+
+  return {
+    props: {
+      parameterSite
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}
 

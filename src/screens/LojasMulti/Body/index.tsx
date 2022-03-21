@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { GetStaticProps } from "next";
 
 import { Wrapper, Header, Box, Left, Right, Map, Shopp } from "./styles";
 import { InfosShopp } from './InfosShopp';
@@ -13,9 +14,6 @@ import { useRouter } from 'next/router';
 
 
 export const Body = () => {
-
-
-
   const {
     stores,
     cityCurrent,
@@ -24,8 +22,6 @@ export const Body = () => {
   } = useMulti();
 
   const router = useRouter();
-
-
 
   useEffect(() => {
     if (router.asPath === "/lojasmulti" || router.asPath === "/lojasmulti#main") {
@@ -36,14 +32,9 @@ export const Body = () => {
     }
   }, [cityCurrent])
 
-
-
   useEffect(() => {
     router.push("/lojasmulti")
   }, [stores])
-
-
-
 
   const [origin, setOrigin] = useState<google.maps.LatLngLiteral | null>(null);
 
@@ -89,6 +80,16 @@ export const Body = () => {
         }
       })}
     </Wrapper >
-
   );
+}
+
+export const getStaticProps: GetStaticProps = () => {
+  const { stores } = useMulti();
+
+  return {
+    props: {
+      stores
+    },
+    revalidate: 60 * 60 * 12,
+  }
 }

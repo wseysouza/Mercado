@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { GetStaticProps } from 'next';
 
 import { Container } from '@styles/theme';
 import { ProductBox } from '@components/ProductBox'
@@ -8,7 +9,6 @@ import { Title, ListBox } from './styles';
 import { useMulti } from '@hooks/multi';
 
 export const MarcaPropria: React.FC = () => {
-
   const { getListProduct, productsOwnBrand } = useMulti();
 
   useEffect(() => {
@@ -43,3 +43,13 @@ export const MarcaPropria: React.FC = () => {
   );
 }
 
+export const getStaticProps: GetStaticProps = () => {
+  const { productsOwnBrand } = useMulti();
+
+  return {
+    props: {
+      productsOwnBrand
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}

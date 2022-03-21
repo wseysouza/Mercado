@@ -9,7 +9,7 @@ import { ProductsOnOffers } from './ProductsOnOffers';
 import { HeaderTab } from '@components/HeaderTab';
 import { BtnDownload } from '@screens/Home/BtnDownload';
 import { Container } from '@styles/theme';
-import Banners from './Banners';
+import { Banners } from './Banners';
 
 export const Home = () => {
 

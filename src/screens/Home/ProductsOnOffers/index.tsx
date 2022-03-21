@@ -1,4 +1,5 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
 
 import { Title, ListBox } from './styles';
 import { ProductBox } from '../../../components/ProductBox'
@@ -39,3 +40,13 @@ export const ProductsOnOffers = () => {
   );
 }
 
+export const getStaticProps: GetStaticProps = () => {
+  const { products } = useMulti();
+
+  return {
+    props: {
+      products
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}

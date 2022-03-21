@@ -2,7 +2,6 @@ import { api } from '@services/api';
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
 import { login } from '@services/auth';
-import { env } from 'process';
 
 export interface ValueProps {
   id: string,
@@ -142,7 +141,7 @@ export interface MultiContextData {
   banners: CardBannerProps[];
   promotion: PromotionProps[];
   parameterSite: ParameterSiteProps;
-  News: NewsProps[];
+  news: NewsProps[];
   terms: TermsProps;
   stores: StoresProps[];
   dropdown: StoresProps[];
@@ -178,7 +177,7 @@ export const MultiProvider: React.FC = ({ children }) => {
   const [banners, setBanner] = useState<CardBannerProps[]>([]);
   const [promotion, setPromotion] = useState<PromotionProps[]>([]);
   const [parameterSite, setParameterSite] = useState<ParameterSiteProps>();
-  const [News, setNews] = useState<NewsProps[]>([]);
+  const [news, setNews] = useState<NewsProps[]>([]);
   const [terms, setTerms] = useState<TermsProps>();
   const [stores, setStores] = useState<StoresProps[]>([]);
   const [dropdown, setDropdown] = useState<StoresProps[]>([]);
@@ -495,7 +494,7 @@ export const MultiProvider: React.FC = ({ children }) => {
       banners,
       promotion,
       parameterSite,
-      News,
+      news,
       terms,
       stores,
       dropdown,

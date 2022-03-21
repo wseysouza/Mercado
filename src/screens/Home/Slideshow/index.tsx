@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GetStaticProps } from 'next';
 
 import * as S from './styles';
 
@@ -9,17 +10,13 @@ import { useMulti, CardBannerProps } from '@hooks/multi';
 import Image from 'next/image';
 import Link from 'next/link';
 
-
-
 export const SlideShow: React.FC = () => {
   const [index, setIndex] = useState(0);
-
   const { banners, loadingSlideShow } = useMulti();
 
-  const handleSelect = (i) => {
-    setIndex(i);
+  const handleSelect = (index: number) => {
+    setIndex(index);
   };
-
 
   return (
     <S.Wrapper>
@@ -63,3 +60,14 @@ export const SlideShow: React.FC = () => {
     </S.Wrapper>
   );
 };
+
+export const getStaticProps: GetStaticProps = () => {
+  const { banners } = useMulti();
+
+  return {
+    props: {
+      banners
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}

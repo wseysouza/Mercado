@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { GetStaticProps } from 'next';
 
 import { ListBox, Banner, Left, Right } from './styles';
 
@@ -6,8 +7,7 @@ import Image from 'next/image';
 
 import { useMulti, PromotionProps } from '@hooks/multi';
 
-const Banners: React.FC = () => {
-
+export const Banners: React.FC = () => {
   const { getListPromotion, promotion, loadingPromotion } = useMulti();
 
   useEffect(() => {
@@ -41,4 +41,13 @@ const Banners: React.FC = () => {
   );
 }
 
-export default Banners;
+export const getStaticProps: GetStaticProps = () => {
+  const { promotion } = useMulti();
+
+  return {
+    props: {
+      promotion
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}

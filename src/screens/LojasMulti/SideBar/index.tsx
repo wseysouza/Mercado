@@ -1,25 +1,17 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
+import { GetStaticProps } from 'next';
 
 import { Tab } from './Tab';
 import { Wrapper } from './styles';
 
-import { CityProps, useMulti } from "@hooks/multi";
-
-
-interface SideBarProps {
-  onPress: Function;
-  cities: CityProps[];
-}
+import { useMulti } from "@hooks/multi";
 
 export const SideBar = () => {
   const { cities, setChangeStatus } = useMulti();
 
-
   const changeCity = useCallback((city: string) => {
     setChangeStatus(city, cities);
   }, [cities])
-
-
 
   return (
     <Wrapper>
@@ -28,4 +20,15 @@ export const SideBar = () => {
       ))}
     </Wrapper>
   );
+}
+
+export const getStaticProps: GetStaticProps = () => {
+  const { cities } = useMulti();
+
+  return {
+    props: {
+      cities
+    },
+    revalidate: 60 * 60 * 12,
+  }
 }

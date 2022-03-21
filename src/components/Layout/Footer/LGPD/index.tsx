@@ -3,17 +3,18 @@ import React, { useState } from 'react';
 import { Button } from '@components/Button';
 
 import { Wrapper, Content } from './styles';
-import { colors } from '@styles/colors';
 
 export const LGPD: React.FC = () => {
 
-  const [enableOrDisable, setEnableOrDisable] = useState(true)
+  const [enableOrDisable, setEnableOrDisable] = useState(
+    Boolean(window.localStorage.getItem('multiLGPD'))
+  )
 
   const enableOrDisableAllCookies = (value: string) => {
     if (value === "aceitar todos") {
-      setEnableOrDisable(false)
+      window.localStorage.setItem('multiLGPD', 'true');
     } else if (value === "rejeitar todos") {
-      setEnableOrDisable(false)
+      window.localStorage.setItem('multiLGPD', 'false');
     }
   }
 

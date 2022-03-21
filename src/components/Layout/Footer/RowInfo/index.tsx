@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { GetStaticProps } from 'next';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 import { LinkSimple } from '@components/links/LinkSimple';
@@ -15,16 +16,13 @@ import {
   SocialNetwork
 } from './styles';
 
-import DropdownRowInfoAndContato from '@components/DropdownRowInfoAndContato';
+import { DropdownRowInfoAndContato } from '@components/DropdownRowInfoAndContato';
 
 import { colors } from '@styles/colors';
 
 import { useMulti } from "@hooks/multi";
 
-
-
 export const RowInfo: React.FC = () => {
-
   const { getListParameterSite, parameterSite } = useMulti();
 
   useEffect(() => {
@@ -74,3 +72,15 @@ export const RowInfo: React.FC = () => {
     </>
   );
 };
+
+export const getStaticProps: GetStaticProps = () => {
+  const { parameterSite } = useMulti();
+
+  return {
+    props: {
+      parameterSite
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}
+

@@ -1,11 +1,11 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
 
 import { Content, Wrapper, Item } from './styles';
 
 import { useMulti } from '@hooks/multi';
 
 import Image from "next/image";
-
 
 export const RowCards: React.FC = () => {
 
@@ -25,4 +25,15 @@ export const RowCards: React.FC = () => {
         </Content>)}
     </Wrapper>
   );
+}
+
+export const getStaticProps: GetStaticProps = () => {
+  const { cards } = useMulti();
+
+  return {
+    props: {
+      cards
+    },
+    revalidate: 60 * 60 * 12,
+  }
 }

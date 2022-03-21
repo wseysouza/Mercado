@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
 import { Label, List, Wrapper } from './styles';
 
 import { useMulti } from "@hooks/multi";
 
-
 interface DropdownProps {
   label?: string;
   colorLabel?: string;
 }
 
-const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
+export const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
 
   const { findStore, cities, getListStores, setChangeStatus, getListCity } = useMulti();
 
@@ -49,4 +49,13 @@ const DropdownRowInfoAndContato = ({ label, colorLabel }: DropdownProps) => {
   );
 };
 
-export default DropdownRowInfoAndContato;
+export const getStaticProps: GetStaticProps = () => {
+  const { findStore } = useMulti();
+
+  return {
+    props: {
+      findStore
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}

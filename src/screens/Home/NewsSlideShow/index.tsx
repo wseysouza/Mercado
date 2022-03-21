@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { GetStaticProps } from 'next';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -11,8 +12,6 @@ import { FaRegNewspaper } from 'react-icons/fa';
 import { DetailsNews } from './DetailsNews';
 
 import Image from "next/image";
-
-
 
 const responsive = {
   desktop: {
@@ -33,9 +32,7 @@ const responsive = {
 }
 
 export const NewsSlideShow: React.FC = () => {
-
-
-  const { getListNews, News, loadingNewsSlideShow } = useMulti();
+  const { getListNews, news, loadingNewsSlideShow } = useMulti();
 
   useEffect(() => {
     getListNews();
@@ -62,7 +59,7 @@ export const NewsSlideShow: React.FC = () => {
         autoPlaySpeed={6000}
         responsive={responsive}
       >
-        {News.map((data) => {
+        {news.map((data) => {
           return (
             <NewsBox key={data.anuncio_id} onClick={() => handleModal(!showModal, data)}>
               <AbstractNews>{data.titulo}</AbstractNews>
@@ -88,3 +85,14 @@ export const NewsSlideShow: React.FC = () => {
     </Wrapper >
   );
 };
+
+export const getStaticProps: GetStaticProps = () => {
+  const { news } = useMulti();
+
+  return {
+    props: {
+      news
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}

@@ -1,23 +1,19 @@
 import React, { useEffect } from 'react';
+import { GetStaticProps } from 'next';
 import { HeaderTab } from '@components/HeaderTab';
 import { FaMapMarkerAlt, FaInstagram, FaPhoneAlt, FaFacebookF, FaRegClipboard } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
 import { MdOutlinePolicy } from 'react-icons/md';
 
 import { ContactBox, Header, LocalizationShopp, Phone } from './styles';
-// import { Dropdown } from '@components/Dropdown';
 import { LinkDefault } from '@components/links/LinkDefault'
 import { colors } from '@styles/colors';
 import { Container } from '@styles/theme';
-import DropdownRowInfoAndContato from '@components/DropdownRowInfoAndContato';
+import { DropdownRowInfoAndContato } from '@components/DropdownRowInfoAndContato';
 
 import { useMulti } from "@hooks/multi";
 
-import { useRouter } from 'next/router'
-
-
 export const Contato: React.FC = () => {
-
   const { getListParameterSite, parameterSite } = useMulti();
 
   useEffect(() => {
@@ -54,3 +50,13 @@ export const Contato: React.FC = () => {
   );
 }
 
+export const getStaticProps: GetStaticProps = () => {
+  const { parameterSite } = useMulti();
+
+  return {
+    props: {
+      parameterSite
+    },
+    revalidate: 60 * 60 * 12,
+  }
+}
