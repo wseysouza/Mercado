@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Wrapper } from './styles';
 import { InfoShopp } from './InfoShopp';
@@ -10,19 +10,8 @@ import { HeaderTab } from '@components/HeaderTab';
 import { BtnDownload } from '@screens/Home/BtnDownload';
 import { Container } from '@styles/theme';
 import Banners from './Banners';
-import { useMulti } from '@hooks/multi';
-
-
 
 export const Home = () => {
-  const { getListProduct, getListCard, getListCity, products } = useMulti();
-
-
-  useEffect(() => {
-    getListProduct(false);
-    getListCard();
-    getListCity();
-  }, [])
 
   return (
     <Container>
@@ -31,11 +20,13 @@ export const Home = () => {
         <InfoShopp />
         <SlideShow />
         <BtnDownload />
-        <ProductsOnOffers products={products} />
+        <ProductsOnOffers />
         <Banners />
         <NewsSlideShow />
       </Wrapper>
     </Container>
-  );
+  )
 }
+
+
 

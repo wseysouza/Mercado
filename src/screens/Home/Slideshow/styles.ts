@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CarouselItem } from 'react-bootstrap';
+import { Carousel, CarouselItem } from 'react-bootstrap';
 
 export const Wrapper = styled.div`
 
@@ -54,6 +54,17 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const SlideShow = styled(Carousel)`
+  min-width: 100%;
+  min-height: 473px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Loading = styled.h1`
+  text-align: center;
+`;
 
 export const Item = styled(CarouselItem)`
   position: relative;
@@ -68,7 +79,6 @@ export const Item = styled(CarouselItem)`
     object-fit: contain !important;
   }
 `;
-
 
 export const LinkImage = styled.div`
   position: absolute;

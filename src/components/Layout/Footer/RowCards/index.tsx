@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Content, Wrapper, Item } from './styles';
 
@@ -9,22 +9,20 @@ import Image from "next/image";
 
 export const RowCards: React.FC = () => {
 
-  const { getListCard, cards } = useMulti();
-
-  useEffect(() => {
-    getListCard();
-  }, [])
-
+  const { cards, loadingRowCards } = useMulti();
 
   return (
     <Wrapper>
-      <Content>
-        {cards && cards.map((card) =>
-          <Item key={card.id}>
-            <Image className='img' key={card.id} src={card.imagem} alt={card.descricao} layout='fill' />
-          </Item>
-        )}
-      </Content>
+      {loadingRowCards ? (
+        <h1>Loading...</h1>
+      ) : (
+        <Content>
+          {cards && cards.map((card) =>
+            <Item key={card.id}>
+              <Image className='img' key={card.id} src={card.imagem} alt={card.descricao} layout='fill' />
+            </Item>
+          )}
+        </Content>)}
     </Wrapper>
   );
 }

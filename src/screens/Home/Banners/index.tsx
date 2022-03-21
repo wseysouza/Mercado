@@ -8,33 +8,36 @@ import { useMulti, PromotionProps } from '@hooks/multi';
 
 const Banners: React.FC = () => {
 
-  const { getListPromotion, promotion } = useMulti();
+  const { getListPromotion, promotion, loadingPromotion } = useMulti();
 
   useEffect(() => {
     getListPromotion();
   }, [])
 
-  const colors = {
-    "HortiFruti": "#d68b36",
-    "Só hoje": "#8B7956",
-    "Cortes de Carnes": '#9e6262',
-    "Marca própria": "#352506",
-  }
+  // const colors = {
+  //   "HortiFruti": "#d68b36",
+  //   "Só hoje": "#8B7956",
+  //   "Cortes de Carnes": '#9e6262',
+  //   "Marca própria": "#352506",
+  // }
 
   return (
-    <ListBox>
-      {promotion.map(({ id, imagem, periodo, titulo }: PromotionProps) =>
-        <Banner key={id}>
-          <Left color={colors[titulo]}>
-            <h3>{periodo}</h3>
-            <h1>{titulo}</h1>
-          </Left>
-          <Right>
-            {imagem && (<Image className="img" src={imagem} layout='fill' />)}
-          </Right>
-        </Banner>)
-      }
-    </ListBox>
+    loadingPromotion ? (
+      <h1>Loading...</h1>
+    ) : (
+      <ListBox>
+        {promotion.map(({ id, imagem, periodo, titulo }: PromotionProps) =>
+          <Banner key={id}>
+            <Left /*color={colors[titulo]}*/>
+              <h3>{periodo}</h3>
+              <h1>{titulo}</h1>
+            </Left>
+            <Right>
+              {imagem && (<Image key={id} className="img" src={imagem} layout='fill' />)}
+            </Right>
+          </Banner>)
+        }
+      </ListBox>)
   );
 }
 

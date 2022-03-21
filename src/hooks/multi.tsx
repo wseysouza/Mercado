@@ -134,7 +134,6 @@ export interface CityProps {
   drop?: boolean,
 }
 
-
 export interface MultiContextData {
   products: ProductProps[];
   productsOwnBrand: ProductProps[];
@@ -150,6 +149,12 @@ export interface MultiContextData {
   cities: CityProps[];
   cityCurrent: string;
   findStore: StoresProps[];
+  loadingSlideShow: boolean;
+  loadingProductsOnOffers: boolean;
+  loadingProductsOwnBrand: boolean;
+  loadingPromotion: boolean;
+  loadingNewsSlideShow: boolean;
+  loadingRowCards: boolean;
   getListProduct(ownBrand: boolean): Promise<void>;
   getListShop(): Promise<void>;
   getListCard(): Promise<void>;
@@ -181,6 +186,12 @@ export const MultiProvider: React.FC = ({ children }) => {
   const [cityCurrent, setCityCurrent] = useState<string>("");
   const [findStore, setFindStore] = useState<StoresProps[]>([]);
 
+  const [loadingSlideShow, setLoadingSlideShow] = useState(true);
+  const [loadingProductsOnOffers, setLoadingProductsOnOffers] = useState(true);
+  const [loadingProductsOwnBrand, setLoadingProductsOwnBrand] = useState(true);
+  const [loadingPromotion, setLoadingPromotion] = useState(true);
+  const [loadingNewsSlideShow, setLoadingNewsSlideShow] = useState(true);
+  const [loadingRowCards, setLoadingRowCards] = useState(true);
 
   const getToken = async () => {
     // const { data: { login: { token } } } = await login({
@@ -203,21 +214,31 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    if (ownBrand) {
-      const { data: { listaofertadiaria } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=diaria&categoriaproduto_id&marcapropria=true', {
-        headers: {
-          authorization: token
-        }
-      });
-      setProductsOwnBrand(listaofertadiaria);
-    } else {
-      const { data: { listaofertadiaria } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=diaria&categoriaproduto_id', {
-        headers: {
-          authorization: token
-        }
-      });
-      setProducts(listaofertadiaria);
+    try {
+      if (ownBrand) {
+        setLoadingProductsOwnBrand(true)
+        const { data: { listaofertadiaria } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=diaria&categoriaproduto_id&marcapropria=true', {
+          headers: {
+            authorization: token
+          }
+        });
+        setLoadingProductsOwnBrand(false)
+        setProductsOwnBrand(listaofertadiaria);
+      } else {
+        setLoadingProductsOnOffers(true)
+        const { data: { listaofertadiaria } } = await api.get('listaoferta?ordem&produtodescricaolike&lista=diaria&categoriaproduto_id', {
+          headers: {
+            authorization: token
+          }
+        });
+        setLoadingProductsOnOffers(false)
+        setProducts(listaofertadiaria);
+      }
+    } catch (error) {
+      console.log("type error:", error)
     }
+
+
   };
 
   const getListShop = useCallback(async () => {
@@ -242,6 +263,7 @@ export const MultiProvider: React.FC = ({ children }) => {
     setShops(lojas);
   }, []);
 
+
   const getListCard = async () => {
 
     const token = await getToken();
@@ -250,13 +272,20 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    const { data: { cartao } } = await api.get('get_cartao', {
-      headers: {
-        authorization: token
-      }
-    });
+    try {
+      setLoadingRowCards(true)
+      const { data: { cartao } } = await api.get('get_cartao', {
+        headers: {
+          authorization: token
+        }
+      });
+      setLoadingRowCards(false)
+      setCards(cartao);
+    } catch (error) {
+      setLoadingRowCards(false)
+      console.log("error get card, type:", error)
+    }
 
-    setCards(cartao);
   };
 
   const getListBanner = async () => {
@@ -269,25 +298,18 @@ export const MultiProvider: React.FC = ({ children }) => {
 
 
     try {
+      setLoadingSlideShow(true);
       const { data: { banner } } = await api.get('get_banner', {
         headers: {
           authorization: token
         }
       });
       setBanner(banner);
+      setLoadingSlideShow(false);
     } catch (error) {
       console.log(">>>>>", error)
+      setLoadingSlideShow(false);
     }
-
-    // const response = await api.get('get_banner', {
-    //   headers: {
-    //     authorization: token
-    //   }
-    // });
-
-    // console.log(">>>>", response)
-
-    // setBanner(banner);
 
   };
 
@@ -299,14 +321,19 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    const { data: { promocao } } = await api.get('get_promocao', {
-      headers: {
-        authorization: token
-      }
-    });
-
-    setPromotion(promocao);
-
+    try {
+      setLoadingPromotion(true)
+      const { data: { promocao } } = await api.get('get_promocao', {
+        headers: {
+          authorization: token
+        }
+      });
+      setLoadingPromotion(false)
+      setPromotion(promocao);
+    } catch (error) {
+      console.log("type error:", error)
+      setLoadingPromotion(false)
+    }
   };
 
   const getListParameterSite = async () => {
@@ -334,13 +361,19 @@ export const MultiProvider: React.FC = ({ children }) => {
       'x-access-token'
     ] = `${token}`;
 
-    const { data: { novidades } } = await api.get('novidade', {
-      headers: {
-        authorization: token
-      }
-    });
-
-    setNews(novidades);
+    try {
+      setLoadingNewsSlideShow(true)
+      const { data: { novidades } } = await api.get('novidade', {
+        headers: {
+          authorization: token
+        }
+      });
+      setLoadingNewsSlideShow(false)
+      setNews(novidades);
+    } catch (error) {
+      console.log(error)
+      setLoadingNewsSlideShow(false)
+    }
   };
 
   const getListTerms = async () => {
@@ -377,6 +410,7 @@ export const MultiProvider: React.FC = ({ children }) => {
       });
       setStores(lojas);
       setDropdown(lojas);
+
     }
 
     else if (cidade && id) {
@@ -468,6 +502,12 @@ export const MultiProvider: React.FC = ({ children }) => {
       cities,
       cityCurrent,
       findStore,
+      loadingSlideShow,
+      loadingProductsOnOffers,
+      loadingProductsOwnBrand,
+      loadingPromotion,
+      loadingNewsSlideShow,
+      loadingRowCards,
       getListProduct,
       getListShop,
       getListCard,

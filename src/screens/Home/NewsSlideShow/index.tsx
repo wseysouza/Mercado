@@ -35,7 +35,7 @@ const responsive = {
 export const NewsSlideShow: React.FC = () => {
 
 
-  const { getListNews, News } = useMulti();
+  const { getListNews, News, loadingNewsSlideShow } = useMulti();
 
   useEffect(() => {
     getListNews();
@@ -49,7 +49,6 @@ export const NewsSlideShow: React.FC = () => {
     status ? setShowModal(true) : setShowModal(false)
     setCurrentNews(data)
   }
-
 
   return (
     <Wrapper>
@@ -68,11 +67,15 @@ export const NewsSlideShow: React.FC = () => {
             <NewsBox key={data.anuncio_id} onClick={() => handleModal(!showModal, data)}>
               <AbstractNews>{data.titulo}</AbstractNews>
               <Item key={data.anuncio_id}>
-                {data.imagem && (<Image
-                  className='img'
-                  src={data.imagem}
-                  layout='fill'
-                />)}
+                {loadingNewsSlideShow ? (
+                  <h1>Loading...</h1>
+                ) : (data.imagem && (
+                  <Image
+                    key={data.anuncio_id}
+                    className='img'
+                    src={data.imagem}
+                    layout='fill'
+                  />))}
               </Item>
             </NewsBox>
 

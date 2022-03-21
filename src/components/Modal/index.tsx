@@ -36,11 +36,12 @@ export const Modal = ({ show, onClose, icon, children, widthModal = 0 }: ModalPr
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
-  const w = window;
+
   useEffect(() => {
+    const w = window;
     setWidth(w.innerWidth);
     setHeight(w.innerHeight);
-  }, [w.innerHeight, w.innerWidth])
+  }, [])
 
 
 
