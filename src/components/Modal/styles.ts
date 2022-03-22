@@ -50,8 +50,10 @@ export const Body = styled.div<BodyProps>`
 export const Content = styled.div`
   height: calc(100% - 55px);
 
-  /* overflow-y: auto;
-  ${scrollbarThin} */
+  white-space: pre-line;
+
+  overflow-y: auto;
+  ${scrollbarThin}
 `;
 
 interface HeaderProps {

@@ -5,22 +5,29 @@ import { Button } from '@components/Button';
 import { Wrapper, Content } from './styles';
 
 export const LGPD: React.FC = () => {
-  const [windowCurrent, setWindowCurrent] = useState(null)
-  const [enableOrDisable, setEnableOrDisable] = useState(Boolean(windowCurrent !== null && windowCurrent.localStorage.getItem('multiLGPD')));
+
+  const [enableOrDisable, setEnableOrDisable] = useState(false);
+  const [lsContent, setLsContent] = useState("");
+
+  useEffect(() => {
+    const content = localStorage.getItem("multiLGPD");
+    setLsContent(content)
+  }, []);
+
+  useEffect(() => {
+    if (!Boolean(lsContent)) {
+      setEnableOrDisable(true)
+    } else {
+      setEnableOrDisable(false)
+    }
+  }, [lsContent])
 
   const enableOrDisableAllCookies = (value: string) => {
     if (value === "aceitar todos") {
-      setEnableOrDisable(Boolean(windowCurrent !== null && windowCurrent.localStorage.setItem('multiLGPD', 'true')));
-
-    } else if (value === "rejeitar todos") {
-      setEnableOrDisable(Boolean(windowCurrent !== null && windowCurrent.localStorage.setItem('multiLGPD', 'false')));
-
+      localStorage.setItem('multiLGPD', '123')
+      setEnableOrDisable(false)
     }
   }
-
-  useEffect(() => {
-    setWindowCurrent(window);
-  }, [])
 
   return (
     enableOrDisable && (
