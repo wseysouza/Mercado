@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 
-import { ListBox, Banner, Left, Right } from './styles';
+import * as S from './styles';
 
 import Image from 'next/image';
 
@@ -23,21 +23,23 @@ export const Banners: React.FC = () => {
 
   return (
     loadingPromotion ? (
-      <h1>Loading...</h1>
+      <S.Loader>
+        <S.Loading></S.Loading>
+      </S.Loader>
     ) : (
-      <ListBox>
+      <S.ListBox>
         {promotion.map(({ id, imagem, periodo, titulo }: PromotionProps) =>
-          <Banner key={id}>
-            <Left /*color={colors[titulo]}*/>
+          <S.Banner key={id}>
+            <S.Left /*color={colors[titulo]}*/>
               <h3>{periodo}</h3>
               <h1>{titulo}</h1>
-            </Left>
-            <Right>
+            </S.Left>
+            <S.Right>
               {imagem && (<Image key={id} className="img" src={imagem} layout='fill' />)}
-            </Right>
-          </Banner>)
+            </S.Right>
+          </S.Banner>)
         }
-      </ListBox>)
+      </S.ListBox>)
   );
 }
 

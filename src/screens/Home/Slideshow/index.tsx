@@ -29,7 +29,9 @@ export const SlideShow: React.FC = () => {
         nextIcon={<MdKeyboardArrowRight size={30} />}
       >
         {loadingSlideShow ? (
-          <S.Loading>loading...</S.Loading>
+          <S.Loader>
+            <S.Loading></S.Loading>
+          </S.Loader>
         ) : (
           banners?.map(({ id, imagem_caminho, descricao, url_pagina }: CardBannerProps) => (
             imagem_caminho.length > 0 && (

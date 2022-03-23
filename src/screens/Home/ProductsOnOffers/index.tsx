@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
 
-import { Title, ListBox } from './styles';
+import * as S from './styles';
 import { ProductBox } from '../../../components/ProductBox'
 import { Container } from '@styles/theme';
 import { useMulti } from '@hooks/multi';
@@ -10,11 +10,13 @@ export const ProductsOnOffers = () => {
   const { products, loadingProductsOnOffers } = useMulti();
   return (
     <Container>
-      <Title>Ofertas</Title>
+      <S.Title>Ofertas</S.Title>
       {loadingProductsOnOffers ? (
-        <h1>Loading...</h1>
+        <S.Loader>
+          <S.Loading></S.Loading>
+        </S.Loader>
       ) : (
-        <ListBox>
+        <S.ListBox>
           {products !== undefined && products.map
             (({
               name,
@@ -35,7 +37,7 @@ export const ProductsOnOffers = () => {
               />
             )
           }
-        </ListBox>)}
+        </S.ListBox>)}
     </Container>
   );
 }

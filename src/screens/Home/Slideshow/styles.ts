@@ -59,11 +59,35 @@ export const SlideShow = styled(Carousel)`
   min-height: 473px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: center;
 `;
 
-export const Loading = styled.h1`
-  text-align: center;
+export const Loader = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+`;
+
+export const Loading = styled.div`
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #000;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 `;
 
 export const Item = styled(CarouselItem)`
